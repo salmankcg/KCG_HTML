@@ -1,0 +1,58 @@
+.scrolldown{
+    .centerHoriz;
+    position: fixed;
+    bottom: 60px;
+    z-index: 4;
+    display: none;
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.s-white{
+        &:after{
+            background-color: @white;
+        }
+
+        span{
+            color: @white;
+        }
+    }
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+    &:after{
+        .ba;
+        width: 5px; height: 5px;
+        background-color: @black;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    span{
+        .blackerBd;
+        font-size: 14px;
+        color: @black;
+        letter-spacing: 1px;
+    }
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+    }
+
+    @media( max-width: @screen-medium){
+
+    }
+
+    @media( max-width: @screen-small ){
+
+    }
+
+    @media( max-width: @screen-xsmall ){
+    }
+}

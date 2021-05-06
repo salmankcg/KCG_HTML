@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "gulp-filter": "^1.0.0",
+    "gulp.spritesmith": "^1.1.1",
+  }
+}

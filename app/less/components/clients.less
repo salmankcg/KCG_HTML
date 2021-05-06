@@ -1,0 +1,130 @@
+.clients{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0px;
+
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.c-home{
+        width: 100%;
+
+        .wrapper{
+            transform: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .line{
+            width: 100px;
+            margin: 0px 40px;
+
+            &:last-child{
+                .logos{
+                    transform: none;
+                    animation: none;
+                }
+            }
+
+            &:nth-child(1){
+                .logos{
+                    transform: translateY(100%);
+                    animation: 240s linear 0s infinite normal none running marqueeY2;
+                }
+            }
+
+            &:nth-child(3){
+                .logos{
+                    transform: translateY(0%);
+                    animation: 240s linear 0s infinite normal none running marqueeY2;
+                }
+            }
+            
+        }
+
+        .logos{
+            display: flex;
+            flex-direction: column;
+            animation: 240s linear 0s infinite normal none running marqueeY;
+        }
+
+        .image{
+            margin: 30px auto;
+            width: 100%;
+        }
+    }
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+    .wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transform: rotate(-2.7deg);
+    }
+
+    .line{
+        position: relative;
+        display: inline-block;
+        white-space: nowrap;
+        margin: 40px 0px;
+
+        &:last-child{
+            .logos{
+                animation: 240s linear 0s infinite normal none running marquee2;
+                transform: translateX(-100%);
+            }
+        }
+    }
+
+    .logos{
+        white-space: nowrap;
+        display: inline-block;
+        animation: 240s linear 0s infinite normal none running marquee;
+    }
+
+    .image{
+        margin: 0px 30px;
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    @keyframes marquee2 {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0%); }
+    }
+
+    @keyframes marqueeY {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(100%); }
+    }
+
+    @keyframes marqueeY2 {
+        0% { transform: translateY(0%); }
+        100% { transform: translateY(-100%); }
+    }
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+
+    @media( max-width: @screen-small ){
+        .wrapper{
+            transform: rotate(0deg);
+        }
+        
+        .image{
+            margin: 0px 11px;
+            height: 30px;
+        }
+    }
+
+}

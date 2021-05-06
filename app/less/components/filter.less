@@ -1,0 +1,106 @@
+.filter{
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.f-marginT{
+        margin-top: 50px;
+    }
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+    .inner{
+        .col{
+            display: flex;
+        }
+    }
+
+    .item{
+        position: relative;
+        margin-right: 40px;
+        padding-bottom: 20px;
+        display: block;
+        cursor: pointer;
+
+        &.active{
+            span{
+                .blackerBd;
+                color: rgba(0,0,0,1);
+            }
+
+            &:before{
+                width: 100%;
+            }
+        }
+
+        &:hover{
+            span{
+                color: rgba(0,0,0,1);
+            }
+        }
+
+        &:before{
+            .ba;
+            position: absolute;
+            width: 0%; height: 1px;
+            background-color: @black;
+            bottom: -1px;
+            transition: .5s all @custom;
+        }
+    }
+
+    span{
+        .blackerBk;
+        color: rgba(0,0,0,.4);
+        transition: .5s all @custom;
+    }
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+    }
+
+    @media( max-width: @screen-medium){
+
+    }
+
+    @media( max-width: @screen-small ){
+        padding-bottom: 0px;
+        margin-top: 40px;
+
+        .inner{
+            width: 100%;
+            padding: 0px;
+
+            .col{
+                overflow-x: scroll;
+                overflow-y: hidden;
+                width: 100%;
+            }
+        }
+
+        a{
+            span{
+                white-space: nowrap;
+            }
+        }
+
+        .item{
+            margin: 0px;
+            padding: 20px;
+            padding-top: 0px;
+
+            &:before{
+                bottom: 0px;
+            }
+        }
+
+    }
+
+}

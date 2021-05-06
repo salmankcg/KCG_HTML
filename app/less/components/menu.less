@@ -1,0 +1,235 @@
+.menu{
+    position: absolute;
+    width: 100vw; height: 100vh;
+    color: rgba(255,255,255,.7);
+    display: flex;
+    align-items: center;
+    transform: translateY(-100%);
+    z-index: 1;
+    top: 0px;
+
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.show-menu{
+        transform: translateY(0%);
+
+        .item {
+            opacity: 1;
+            transform: translateY(0%);
+            transition-delay: .5s;
+        }
+
+        .legals{
+            opacity: 1;
+            transform: translateY(0%);
+            transition-delay: 1.5s;
+        } 
+
+        .social{
+            opacity: 1;
+            transform: translateY(0%);
+            transition-delay: .8s;
+        } 
+        
+        .infos{
+            opacity: 1;
+            transform: translateY(0%);
+            transition-delay: 1.2s;
+        }
+    }
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+
+    .inner{
+        height: auto;
+
+        &:last-child{
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .col{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    }
+
+    .item{
+        font-size: 55px;
+        line-height: 120px;
+        .blackerBd;
+        width: 100%;
+        display: block;
+        opacity: 0;
+        transform: translateY(-20%);
+        transition: 1s all @custom;
+        transition-delay: 0s;
+
+        span{
+            transition: .5s all @custom;
+            opacity: 1;
+            display: block;
+        }
+
+        &:hover{
+            span{
+                opacity: .2;
+                
+            }
+        }
+
+    }
+
+    .legals{
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .blackerBk;
+        font-size: 14px;
+        padding: 40px 0px;
+        opacity: 0;
+        transform: translateY(-10%);
+        transition: 1s all @custom;
+        transition-delay: 0s;
+
+        &:before{
+            .ba;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,.5);
+            top: 0px;
+        }
+    }
+
+    .social{
+        .blackerMd;
+        font-size: 14px;
+        line-height: 40px;
+        text-align: right;
+        margin-top: 40px;
+        opacity: 0;
+        transform: translateY(-20%);
+        transition: 1s all @custom;
+        transition-delay: 0s;
+        
+        a{
+            display: block;
+
+            span{
+                transition: .5s all @custom;
+                opacity: 1;
+                display: block;
+            }
+    
+            &:hover{
+                span{
+                    opacity: .2;
+                    
+                }
+            }
+        }
+    }
+
+
+    .infos{
+        .blackerLt;
+        font-size: 18px;
+        text-align: right;
+        transform: translateY(-20%);
+        transition: 1s all @custom;
+        transition-delay: 0s;
+        opacity: 0;
+
+        a{
+            position: relative;
+            display: table;
+            margin-right: 0px;
+            margin-left: auto;
+
+            &:hover{
+                &:before{
+                    width: 100%;
+                }    
+            }
+
+            &:before{
+                .ba;
+                .centerHoriz;
+                width: 0%; height: 1px;
+                background: rgba(0,0,0,.6);
+                bottom: 0px;
+                transition: .5s all @custom;
+                z-index: 1;
+            }
+        }
+    }
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+    }
+
+    @media( max-width: @screen-large){
+        .inner{
+            flex-direction: column;
+            .col{
+                &.col-1{
+                    display: none;
+                }
+
+                &.col-3, &.col-4, &.col-10{
+                    width: 100%;
+                }
+            }
+        }
+
+        .item{
+            font-size: 45px;
+            line-height: 55px;
+            text-align: center;
+        }
+
+        .social{
+            line-height: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .infos{
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+
+            a{
+                margin: auto;
+            }
+        }
+
+        .legals{
+            padding: 20px 0px;
+        }
+        
+    }
+
+    @media( max-width: @screen-small ){
+        
+        .item{
+            font-size: 35px;
+            line-height: 45px;
+            text-align: center;
+        }
+
+        
+    }
+
+    @media( max-width: @screen-xsmall ){
+    }
+}

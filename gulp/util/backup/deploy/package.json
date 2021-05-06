@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "rsyncwrapper": "~0.4.1",
+  }
+}

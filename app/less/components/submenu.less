@@ -1,0 +1,64 @@
+.submenu{
+    color: @gray;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 180px;
+    z-index: 6;
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.sb-white{
+        color: @white
+    }
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+    .item{
+        position: relative;
+        .blackerBd;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin: 0px 20px;
+        
+
+        &.active{
+            span{
+                opacity: 1;
+            }
+        }
+
+        &:hover{
+            span{
+                opacity: .2;
+            }
+        }
+    }
+    
+
+    span{
+        transition: .5s all @custom;
+        opacity: .4;
+    }
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+    }
+
+    @media( max-width: @screen-medium){
+
+    }
+
+    @media( max-width: @screen-small ){
+
+    }
+
+    @media( max-width: @screen-xsmall ){
+    }
+}

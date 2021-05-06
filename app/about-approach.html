@@ -1,0 +1,77 @@
+{% extends './nunj/layouts/master.nunj' %}
+{% set title        = 'KCG' %}
+{% set page         = 'about' %}
+{% set header       = 'h-white' %}
+{% set footer       = 'f-white' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+  
+<div class="webdoor w-approach" data-scroll-section>
+
+  <div class="submenu sb-white">
+    <a href="about.html" class="item" data-scroll data-scroll-speed="1"><span>ABOUT</span></a>
+    <a href="about-approach.html" class="item active" data-scroll data-scroll-speed="1"><span>APPROACH</span></a>
+    <a href="about-team.html" class="item" data-scroll data-scroll-speed="1"><span>TEAM</span></a>
+  </div>
+
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+
+      <h1 class="title t-medium t-white t-center" data-scroll data-scroll-speed="1"><strong>Our innovate approach is centered<br>around three distinct phases</strong></h1>
+
+      <div class="approach" data-scroll data-scroll-speed="1">
+        <div class="item" data-video="inovate">
+          <div class="wrapper">
+            <div class="icon">
+              <div class="i-telescope svg"></div>
+            </div>
+            <h3>Inovate</h3> 
+            <span>For businesses in their <strong>early stages</strong>.</span>
+            <p class="paragraph p-white">We deploy thoughtful strategy, cutting-edge technology and creativity to help you get from "idea" to "empire".</p>
+          </div>
+        </div>
+        <div class="item" data-video="create">
+          <div class="wrapper">
+            <div class="icon">
+              <div class="i-rocket svg"></div>
+            </div>
+            <h3>Create</h3> 
+            <span>For businesses that are ready to launch.</span>
+            <p class="paragraph p-white">We enable you to make your mark on the industry and target market in way that is considered, genuine and truly "you".</p>
+          </div>
+        </div>
+        <div class="item" data-video="expand">
+          <div class="wrapper">
+            <div class="icon">
+              <div class="i-astronaut svg"></div>
+            </div>
+            <h3>Expand</h3> 
+            <span>For businesses that are <strong>established</strong>.</span>
+            <p class="paragraph p-white">We help you take on the world by ensuring your journey is efficient, optimized and strategically outstanding. Anything is possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+
+  <div class="video-background">
+    <div class="video" data-target="inovate">
+      <video autoplay loop muted><source src="assets/about/video1.mp4" type="video/mp4"></video>
+    </div>
+    <div class="video" data-target="create">
+      <video autoplay loop muted><source src="assets/about/video2.mp4" type="video/mp4"></video>
+    </div>
+    <div class="video" data-target="expand">
+      <video autoplay loop muted><source src="assets/about/video3.mp4" type="video/mp4"></video>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

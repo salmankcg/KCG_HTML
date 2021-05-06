@@ -1,0 +1,308 @@
+.webdoor{
+    z-index: 4;
+    width: 100%;
+    position: relative;
+    width: 100%; min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: @white;
+    
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.w-about, &.w-works, &.w-journal {
+        padding-top: 240px;
+        height: 480px;
+        min-height: auto;
+        align-items: flex-start;
+    }
+
+    &.w-legals{
+        padding-top: 240px;
+        height: 480px;
+        min-height: auto;
+    }
+
+    &.w-journal-inner{
+        flex-direction: column;
+        height: auto;
+        padding-top: 240px;
+        min-height: auto;
+
+        .inner{
+            align-items: flex-start;
+        }
+
+        &::before{
+            .ba;
+            position: absolute;
+            width: 100%; height: 80%;
+            top: 0%;
+            z-index: -1;
+        }
+
+        &[data-color='orange']{
+            &:before{ background: @orange; }    
+        }
+
+        &[data-color='green']{
+            &:before{ background: @green; }    
+        }
+
+        &[data-color='yellow']{
+            &:before{ background: @yellow; }    
+        }
+
+        &[data-color='blue']{
+            &:before{ background: @blue; }    
+        }
+
+        &[data-color='purple']{
+            &:before{ background: @purple; }    
+        }
+
+        .title{
+            margin-bottom: 30px;
+        }
+    }
+
+    &.w-work{
+        padding-top: 240px;
+        height: 380px;
+        min-height: auto;
+        align-items: flex-start;
+    }
+
+    &.w-services{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &.w-service{
+        .cover;
+
+        .inner{
+            align-items: baseline;
+        }
+    }
+
+
+    &.w-approach{
+        background: @gray;
+        padding-top: 240px;
+    }
+
+    &.w-contact{
+        background: @gray;
+    }
+
+    &.w-person{
+        padding-top: 120px;
+
+        .inner{
+            align-items: flex-start;
+        }
+
+        .button{
+            margin: 0px;
+            margin-top: 10px;
+        }
+
+        .title{
+            margin-bottom: 10px;
+        }
+    }
+        
+    &.w-team{
+        padding-top: 240px;
+    }
+  
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+
+    .inner{
+        align-items: center;
+        height: auto;
+    }
+
+    .image-services{
+        height: 100vh;
+        width: 60%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+
+        figure{
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            .centerVert;
+            right: 0px;
+        }
+    }
+
+    
+    .image-journal-inner{
+
+        width: 100%;
+        margin-top: 40px;
+
+        img{
+            width: 100%;
+            height: 50vh;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+        &.w-about{
+            padding-top: 240px;
+            height: 70vh;
+        }
+
+        &.w-approach{
+            padding-top: 240px;
+            height: auto;
+        }
+
+        &.w-team{
+            padding-top: 240px;
+            height: auto;
+        }
+    }
+
+    @media( max-width: @screen-large){
+        &.w-team{
+            height: auto;
+            min-height: inherit;
+
+            .col{
+                &.col-5, &.col-2, &.col-1{
+                    display: none;
+                }
+
+                &.col-3{
+                    width: 100%;
+                }
+            }
+            .scrolldown{
+                display: none;
+            }
+
+            .button{
+                display: none;
+            }
+        }
+
+        &.w-person{
+            .inner{
+                flex-direction: column;
+
+                .col{
+                    &.col-4, &.col-5, &.col-1{
+                        width: 100% !important;
+                    }
+
+                    &.col-4{
+                        order: 2;
+                    }
+                }
+            }
+
+            .title{
+                text-align: left;
+            }
+
+            .paragraph{
+                margin-bottom: 40px;
+            }
+        }
+
+        &.w-works{
+            height: 360px;
+
+            .title{
+                br{
+                    display: none;
+                }
+            }
+        }
+
+        
+
+        &.w-work{
+            padding-top: 120px;
+            height: 250px;
+
+            .inner{
+                flex-direction: column;
+
+                .col{
+                    &.col-4, &.col-5, &.col-1{
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        &.w-journal-inner{
+            padding-top: 190px;
+            
+            .inner{
+                flex-direction: column;
+
+                .col{
+                    &.col-4{
+                        display: none;
+                    }
+                    &.col-7, &.col-10, &.col-1{
+                        width: 100%  !important;
+                    }
+                }
+            }
+
+            .button{
+                margin-bottom: 40px;
+            }
+        }
+
+        &.w-contact{
+            height: auto;
+            min-height: auto;
+            padding-top: 130px;
+        }
+    }
+
+    @media( max-width: @screen-small ){
+        &.w-journal{
+            padding-top: 130px;
+            height: 350px;
+        }
+
+        &.w-contact{
+            .inner{
+                .col{
+                    &.col-1{
+                        display: none;
+                    }
+    
+                    &.col-10{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media( max-width: @screen-xsmall ){
+    }
+}

@@ -1,0 +1,267 @@
+{% extends './nunj/layouts/master.nunj' %}
+{% set title        = 'KCG' %}
+{% set page         = 'about' %}
+{% set header       = '' %}
+{% set footer       = '' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+
+
+<div class="webdoor w-about" data-scroll-section>
+  <div class="submenu">
+    <a href="about.html" class="item active" data-scroll data-scroll-speed="1"><span>ABOUT</span></a>
+    <a href="about-approach.html" class="item" data-scroll data-scroll-speed="1"><span>APPROACH</span></a>
+    <a href="about-team.html" class="item" data-scroll data-scroll-speed="1"><span>TEAM</span></a>
+  </div>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+      <h1 class="title t-medium t-center" data-scroll data-scroll-speed="1"><strong>We are world-class strategic<br>transformation agency commited to<br>help our clients build a better world.</strong></h1>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="about-world" data-scroll-section>
+  <div class="aw-people" data-scroll data-scroll-speed="1">
+    <div class="aw-content">
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-1.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-2.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-3.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-4.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-5.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-6.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-7.png);"></figure>  
+      </div>
+      <div class="item">
+        <figure style="background-image:url(assets/about/person-8.png);"></figure>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-2">
+      <div class="caption" data-scroll data-scroll-speed="1"><span>Our Story</span></div>
+    </div>
+    <div class="col col-3">
+      <h2 class="subtitle sb-right" data-scroll data-scroll-speed="3">"We imagined a workplace that prioritized bold and visionary work. So we created one."</h2>
+    </div>
+    <div class="col col-1"></div>
+    <div class="col col-4">
+      <p class="paragraph" data-scroll data-scroll-speed="2">
+        King’s Crest Global was founded with one simple goal in mind: happiness. Our founders imagined a workplace that prioritized bold and visionary work. So they created one. <br><br>
+        
+        Today, we can be found doing our thing all around the world. More than just a team, we’re an energetic collaborative of talent with the unique ability to attack a problem from every angle instead of one. We’re scattered across the globe but we come together daily with a shared mindset and fantastically diverse strengths. We live, breathe and operate in the digital space, meaning our solutions are as cutting-edge as the way we work.
+      </p>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="about-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-2">
+      <div class="caption" data-scroll data-scroll-speed="1"><span>Our Mission</span></div>
+    </div>
+    <div class="col col-3">
+      <h2 class="subtitle sb-right" data-scroll data-scroll-speed="2">“Our mission is create positive change, act with integrity and build infrastructure for real happiness through strategic management”</h2>
+    </div>
+    <div class="col col-1"></div>
+    <div class="col col-4">
+      <p class="paragraph" data-scroll data-scroll-speed="3">
+        Our mission is to create positive change, act with integrity and build infrastructure for real happiness through marketing, product, and strategic management. King’s Crest is inspired by the philosophy that giving something back to the world makes all the difference — starting with happiness. Our ultimate goal is to solve our clients’ problems and enrich their lives so that they can do what they do best. 
+      </p>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="about-content" data-scroll-section>
+
+  <div class="caption c-center" data-scroll data-scroll-speed="1"><span>Our Clients</span></div>
+  <h2 class="title t-small t-center" data-scroll data-scroll-speed="3">Partnering to reach the <strong>next level.</strong></h2>
+  <div class="clients">
+
+    <div class="wrapper">
+      <div class="line" data-scroll data-scroll-speed="1">
+        <div class="logos">
+          {% for u in range(0,12) %}
+          <img class="image" src="assets/clients/logo-{{u+1}}.png" />
+          {% endfor %}
+        </div>
+        <div class="logos">
+          {% for u in range(0,12) %}
+          <img class="image" src="assets/clients/logo-{{u+1}}.png" />
+          {% endfor %}
+        </div>
+      </div>
+      <div class="line" data-scroll data-scroll-speed="2">
+        <div class="logos">
+          {% for u in range(0,12) %}
+          <img class="image" src="assets/clients/logo-{{u+1}}.png" />
+          {% endfor %}
+        </div>
+        <div class="logos">
+          {% for u in range(0,12) %}
+          <img class="image" src="assets/clients/logo-{{u+1}}.png" />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="about-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+      <div class="testimonial">
+        <div class="slides" data-scroll data-scroll-speed="1">
+        {% for u in range(0,12) %}
+          <div class="item">
+            <div class="wrapper">
+              <div class="stars svg"></div>  
+              <p class="phrase">"You're probably luckier to have them<br>than they are to have you."</p>
+              <div class="info">
+                <div class="photo" style="background-image:url(assets/photos/person-7.png);"></div>
+                <span class="name">PHIL P</span>
+                <span class="occupation">Founder The Swoup App</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <div class="button b-black b-icon t-prev" data-scroll data-scroll-speed="2">
+          <div class="wrapper">
+            <div class="background"></div>
+            <div class="arrow svg a-left"></div>
+          </div>
+        </div>
+        <div class="button b-black b-icon t-next" data-scroll data-scroll-speed="3">
+          <div class="wrapper">
+            <div class="background"></div>
+            <div class="arrow svg a-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="about-content ac-black" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+      <div class="highlights">
+        <div class="item">
+          <div class="h-text">
+            <div class="caption c-white" data-scroll data-scroll-speed="1"><span>WHAT WE DO</span></div>
+            <div class="title t-small t-white" data-scroll data-scroll-speed="2">We provide a full <strong>range of services</strong> to help your reach your goals</div>
+            <a href="" class="button" data-scroll data-scroll-speed="3">
+              <div class="wrapper">
+                <div class="background"></div>
+                <span class="text">OUR SERVICES</span>
+              </div>
+            </a>
+          </div>
+          <div class="image" data-scroll data-scroll-speed="5">
+            <img src="assets/about/highlights-1.png" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="h-text">
+            <div class="caption c-white" data-scroll data-scroll-speed="1"><span>How we do it</span></div>
+            <div class="title t-small t-white" data-scroll data-scroll-speed="2">Our <strong>innovative approach</strong> is centered around your business’s lifecycle</div>
+            <a href="about-approach.html" class="button" data-scroll data-scroll-speed="3">
+              <div class="wrapper">
+                <div class="background"></div>
+                <span class="text">OUR APPROACH</span>
+              </div>
+            </a>
+          </div>
+          <div class="image" data-scroll data-scroll-speed="3">
+            <img src="assets/about/highlights-2.png" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="h-text">
+            <div class="caption c-white" data-scroll data-scroll-speed="1"><span>Who Make it</span></div>
+            <div class="title t-small t-white" data-scroll data-scroll-speed="2">A <strong>global team</strong> commited to help our clients build a better world.</div>
+            <a href="about-team.html" class="button" data-scroll data-scroll-speed="3">
+              <div class="wrapper">
+                <div class="background"></div>
+                <span class="text">Meet Our Team</span>
+              </div>
+            </a>
+          </div>
+          <div class="image" data-scroll data-scroll-speed="5">
+            <img src="assets/about/highlights-3.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+
+      <div class="caption" data-scroll data-scroll-speed="1">
+        <span>WHAT WE DO</span>
+
+        <a href="journal.html" class="button b-black b-icon">
+          <span class="label">SEE ALL</span>
+          <div class="wrapper">
+            <div class="background"></div>
+            <div class="arrow svg a-right"></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="journal-list">
+        <a href="journal-inner.html" class="item" data-color="orange">
+          <img src="assets/about/journal-1.png" />
+          <div class="j-title">We adopted some elephants in Thailand!</div>
+        </a>
+
+        <a href="journal-inner.html" class="item" data-color="green">
+          <img src="assets/about/journal-2.png" />
+          <div class="j-title">How to bring teams together and manage time zones.</div>
+        </a>
+
+        <a href="journal-inner.html" class="item" data-color="yellow">
+          <img src="assets/about/journal-3.png" />
+          <div class="j-title">Collaboration is the key for a remote work.</div>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<div class="modal-header">
+	<div class="inner">
+		<div class="col">
+			<div class="bt-close svg"></div>
+		</div>
+	</div>
+</div>
+
+<div class="page">
+	<div class="wrapper mod-xsmall">
+		<div class="caption c-modal">
+			{% if title %}
+			<h1 class="mod-title">{{ title }}</h1>
+			{% endif %}
+		</div>
+		{% if text %}
+		<div class="paragraph">
+				{{ text }}
+		</div>
+		{% endif %}
+		{% if button %}
+		<div class="mod-buttons-center">
+			<button class="mod-button" data-action="close">
+				<span>{{ button }}</span>
+				<span>{{ button }}</span>
+			</button>
+		</div>
+		{% endif %}
+	</div>
+</div>

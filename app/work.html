@@ -1,0 +1,136 @@
+{% extends './nunj/layouts/master.nunj' %}
+{% set title        = 'KCG' %}
+{% set page         = 'work' %}
+{% set header       = '' %}
+{% set footer       = '' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+
+<div class="webdoor w-work" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1">
+      <a href="about-team.html" class="button b-black b-icon">
+        <div class="wrapper">
+          <div class="background"></div>
+          <div class="arrow svg a-left"></div>
+        </div>
+      </a>
+    </div>
+    <div class="col col-10">
+      <h1 class="title"><strong>Spotify Wrapped</strong></h1>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="works-content no-padding" data-scroll-section>
+  <figure class="image" style="background-image: url(assets/works/project-0.png);"></figure>
+</div>
+
+<div class="works-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-4">
+      <div class="details" data-scroll data-scroll-speed="1">
+        <span>YEAR</span><br>
+        2020
+      </div>
+      <div class="details" data-scroll data-scroll-speed="1">
+        <span>CLIENT</span><br>
+        Spotify
+      </div>
+      <div class="details" data-scroll data-scroll-speed="1">
+        <span>SCOPE</span><br>
+        UX Strategy, Visual Design, Interactive Design, Front-end Development, Content Management System, Shopify Integration
+      </div>
+    </div>
+    <div class="col col-1"></div>
+    <div class="col col-4">
+      <p class="paragraph p-bigger" data-scroll data-scroll-speed="2">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis ligula, placerat et arcu in, tristique volutpat urna. Duis vitae aliquet eros. Quisque pretium eget eros a volutpat.
+      </p>
+      <p class="paragraph" data-scroll data-scroll-speed="2">
+        <span>Challenge</span><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis ligula, placerat et arcu in, tristique volutpat urna. Duis vitae aliquet eros. Quisque pretium eget eros a volutpat.
+      </p>
+      <p class="paragraph" data-scroll data-scroll-speed="2">
+        <span>Success</span><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis ligula, placerat et arcu in, tristique volutpat urna. Duis vitae aliquet eros. Quisque pretium eget eros a volutpat.
+      </p>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="works-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+      <div class="work-image"><img src="assets/works/project-1.png" /></div>
+      <div class="work-image"><img src="assets/works/project-2.png" /></div>
+      <div class="work-image"><img src="assets/works/project-3.png" /></div>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="works-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+      <div class="testimonial no-slick">
+        <div class="slides" data-scroll data-scroll-speed="1">
+          <div class="item">
+            <div class="wrapper">
+              <div class="stars svg"></div>  
+              <p class="phrase">"You're probably luckier to have them<br>than they are to have you."</p>
+              <div class="info">
+                <div class="photo" style="background-image:url(assets/photos/person-7.png);"></div>
+                <span class="name">PHIL P</span>
+                <span class="occupation">Founder The Swoup App</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="works-content w-borderT" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+      <div class="caption" data-scroll data-scroll-speed="1">
+        <span>Related Cases</span>
+
+        <a href="" class="button b-black b-icon">
+          <span class="label">SEE ALL</span>
+          <div class="wrapper">
+            <div class="background"></div>
+            <div class="arrow svg a-right"></div>
+          </div>
+        </a>
+      </div>
+      <div class="works-list">
+        {% for u in range(0,3) %}
+        <a href="work.html" class="item" data-scroll data-scroll-speed="{{u/6}}">
+          <div class="wrapper">
+            <figure class="image" style="background-image:url(assets/works/work-{{(u%6)+1}}.png);"></figure>
+            <div class="infos">
+              <div class="name">Eirik Lyng</div>
+              <div class="type">Social Media</div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

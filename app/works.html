@@ -1,0 +1,70 @@
+{% extends './nunj/layouts/master.nunj' %}
+{% set title        = 'KCG' %}
+{% set page         = 'works' %}
+{% set header       = '' %}
+{% set footer       = '' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+
+
+<div class="webdoor w-works" data-scroll-section>
+  <div class="submenu">
+    <div class="item active" data-scroll data-scroll-speed="1"><span>WORK</span></div>
+  </div>
+  <div class="inner">
+    <div class="col col-1"></div>
+    <div class="col col-10">
+      <h1 class="title t-medium t-center" data-scroll data-scroll-speed="1"><strong>Selected projects to show you<br>what we've been done</strong></h1>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+</div>
+
+<div class="filter" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+      <a href="" class="item active"><span>All Projects</span></a>
+      <a href="" class="item"><span>Mobile App</span></a>
+      <a href="" class="item"><span>E-commerce</span></a>
+      <a href="" class="item"><span>PPC</span></a>
+      <a href="" class="item"><span>Website</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="works-content" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+      <div class="works-list">
+      
+        {% for u in range(0,12) %}
+        <a href="work.html" class="item" data-scroll data-scroll-speed="{{u/6}}">
+          <div class="wrapper">
+            <figure class="image" style="background-image:url(assets/works/work-{{(u%6)+1}}.png);"></figure>
+            <div class="infos">
+              <div class="name">Eirik Lyng</div>
+              <div class="type">Social Media</div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+  <div class="button b-black b-icon b-center b-align-center">
+    <span class="label">LOAD MORE</span>
+    <div class="wrapper">
+      <div class="background"></div>
+      <div class="arrow svg a-down"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

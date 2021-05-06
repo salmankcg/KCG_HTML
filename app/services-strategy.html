@@ -1,0 +1,181 @@
+{% extends './nunj/layouts/master.nunj' %}
+{% set title        = 'KCG' %}
+{% set page         = 'services' %}
+{% set header       = 'h-white' %}
+{% set footer       = '' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+
+<div class="webdoor w-service" style="background-image:url(assets/services/webdoor.png);" data-scroll-section>
+
+  <div class="submenu sb-white">
+    <a href="services.html" class="item" data-scroll data-scroll-speed="1"><span>SERVICES</span></a>
+    <a href="services-strategy.html" class="item active" data-scroll data-scroll-speed="1"><span>STRATEGY</span></a>
+    <a href="services-product.html" class="item" data-scroll data-scroll-speed="1"><span>PRODUCT</span></a>
+    <a href="services-marketing.html" class="item" data-scroll data-scroll-speed="1"><span>MARKETING</span></a>
+  </div>
+
+  <div class="inner">
+    <div class="col col-1">
+      <a href="services.html" class="button b-icon">
+        <div class="wrapper">
+          <div class="background"></div>
+          <div class="arrow svg a-left"></div>
+        </div>
+      </a>
+    </div>
+    <div class="col col-3">
+      <div class="caption c-white" data-scroll data-scroll-speed="1"><span>STRATEGY</span></div>
+      <h1 class="title t-medium t-white" data-scroll data-scroll-speed="1"><strong>It all begins<br>with an idea.</strong></h1>
+      <p class="paragraph p-white">We help businesses we believe in to take their idea from the drawing board to the board room. </p>
+      <a href="services.html" class="button b-icon b-marginT">
+        <span class="label">DOWNLOAD PDF</span>
+        <div class="wrapper">
+          <div class="background"></div>
+          <div class="arrow svg a-45"></div>
+        </div>
+      </a>
+    </div>
+    <div class="col col-7">
+      <div class="image-services" data-scroll data-scroll-speed="1">
+        <figure style="background-image: url(assets/services/chess.png);"></figure>
+      </div>
+    </div>
+    <div class="col col-1"></div>
+  </div>
+
+</div>
+
+<div class="services-content sv-full" style="background-color:#2D3294;" data-scroll-section>
+    <div class="inner">
+      <div class="col col-12">
+        <div class="services-items">
+          <div class="item">
+            <div class="si-type">Research & Discovery</div>
+            <ul>
+              <li>• Expert Research</li>
+              <li>• Competitive benchmarking</li>
+              <li>• Costumer Journey</li>
+              <li>• Costumer Behavior & Insights</li>
+              <li>• Analytical data review</li>
+            </ul>
+            <a href="" class="button b-icon">
+              <span class="label">DOWNLOAD PDF</span>
+              <div class="wrapper">
+                <div class="background"></div>
+                <div class="arrow svg a-45"></div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="item">
+            <div class="si-type">Business Consultancy</div>
+            <ul>
+              <li>• Startup Consultancy</li>
+              <li>• Coaching & interin Services</li>
+              <li>• Finance Management</li>
+              <li>• Operational Management</li>
+              <li>• Sales Strategy</li>
+              <li>• Roadmapping</li>
+              <li>• Strategic Consultancy</li>
+              <li>• Digital Transformation</li>
+            </ul>
+            <a href="" class="button b-icon">
+              <span class="label">DOWNLOAD PDF</span>
+              <div class="wrapper">
+                <div class="background"></div>
+                <div class="arrow svg a-45"></div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="si-type">Digital Go to Market</div>
+            <ul>
+              <li>• Marketing Strategy</li>
+              <li>• Sales Strategy</li>
+              <li>• Content Strategy</li>
+              <li>• Digital Go to Market</li>
+            </ul>
+            <a href="" class="button b-icon">
+              <span class="label">DOWNLOAD PDF</span>
+              <div class="wrapper">
+                <div class="background"></div>
+                <div class="arrow svg a-45"></div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="si-type">Branding</div>
+            <ul>
+              <li>• Brand Strategy</li>
+              <li>• Tone of Voice</li>
+              <li>• Visual Identity</li>
+              <li>• Brand Guideline</li>
+            </ul>
+            <a href="" class="button b-icon">
+              <span class="label">DOWNLOAD PDF</span>
+              <div class="wrapper">
+                <div class="background"></div>
+                <div class="arrow svg a-45"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="services-content" style="background-color:#FFFFFF;" data-scroll-section>
+    <div class="inner">
+      <div class="col col-3"></div>
+      <div class="col col-6">
+        <p class="paragraph p-bigger p-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis ligula, placerat et arcu in, tristique volutpat urna. Duis vitae aliquet eros. Quisque pretium eget eros a volutpat.</p>
+        <a href="services.html" class="button b-black b-align-center">
+          <div class="wrapper">
+            <div class="background"></div>
+            <span class="label">GET IN TOUCH</span>
+          </div>
+        </a>
+      </div>
+      <div class="col col-3"></div>
+    </div>
+</div>
+
+<div class="works-content w-borderT" data-scroll-section>
+  <div class="inner">
+    <div class="col col-12">
+      <div class="caption" data-scroll data-scroll-speed="1">
+        <span>Related Cases</span>
+
+        <a href="" class="button b-black b-icon">
+          <span class="label">SEE ALL</span>
+          <div class="wrapper">
+            <div class="background"></div>
+            <div class="arrow svg a-right"></div>
+          </div>
+        </a>
+      </div>
+      <div class="works-list">
+        {% for u in range(0,3) %}
+        <a href="work.html" class="item" data-scroll data-scroll-speed="{{u/6}}">
+          <div class="wrapper">
+            <figure class="image" style="background-image:url(assets/works/work-{{(u%6)+1}}.png);"></figure>
+            <div class="infos">
+              <div class="name">Eirik Lyng</div>
+              <div class="type">Social Media</div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
