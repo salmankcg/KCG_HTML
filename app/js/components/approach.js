@@ -36,6 +36,11 @@ function init(){
 	
 		TweenMax.to($(this).find('.wrapper'), 1, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 	});
+
+  $('video')[0].play();
+  $('video')[1].play();
+  $('video')[2].play();
+
 }
 
 

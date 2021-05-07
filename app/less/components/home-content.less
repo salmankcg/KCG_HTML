@@ -1,8 +1,6 @@
 .home-content{
     position: relative;
     width: 100vw;
-    // height: 100vh;
-    background: red;
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
@@ -10,13 +8,19 @@
     &.hc-clients{
       .infos{
         background: @white;
+
+        .title{
+          position: relative;
+          transform: none;
+          top: auto;
+          width: 100%;
+        }
       }
     }
   
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
-  
     .home-bckg{
       position: fixed;
       width: 100%;
@@ -24,12 +28,14 @@
       top: 0px;
       transition: .5s all @custom;
       background: @gray;
+      z-index: -2;
   
       .shape{
-        width: 35vw;
+        padding-left: 45vh;
         height: 90vh;
         .centerBoth;
         overflow: hidden;
+
   
         figure{
           border-radius: 15px;
@@ -39,7 +45,7 @@
           }
           opacity: 0;
           .fill;
-          width: 35vw;
+          width: 100%;
           height: 90vh;
           .cover;
         }
@@ -47,12 +53,13 @@
     }
   
     .images{
-      width: 35vw;
+      padding-left: 45vh;
       height: 90vh;
       .centerBoth;
   
       .img{
         .centerVert;
+        left: 0px;
         .cover;
         width: 140%;
         overflow: hidden;
@@ -104,10 +111,6 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-  
-      // .title, .button, .paragraph{
-      //   display: none;
-      // }
       
       .inner{
         position: relative;
@@ -115,12 +118,20 @@
         height: 100%;
         align-items: center;
       }
+
+      .i-wrapper{
+        .centerVert;
+        position: fixed;
+        right: 4.333%;
+        width: calc(8.33% * 2);
+      }
     }
   
     .globe{
       .fill;
       height: 100vh;
       position: fixed;
+      z-index: -2;
 
       .g-wrapper{
         .fill;
@@ -150,6 +161,60 @@
     .button{
       margin-right: 0px;
       margin-left: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 2s all @custom;
+
+      &.motion-in{
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .title{
+      .centerVert;
+      // position: fixed;
+      width: 40%;
+
+      .words{
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+
+        &.w-block{
+            display: block;
+            margin-top: 26px;
+        }
+
+        &.motion-in{
+            span{
+                transform: translateY(0px);
+            }
+        }
+
+        &.bold{
+            .blackerBd;
+        }
+
+        span{
+            display: block;
+            transform: translateY(120px);
+            transition: 1s all @custom;
+            margin-right: 10px;
+            transition-delay: .5s;
+        }
+      }
+    }
+
+    .paragraph{
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 2s all @custom;
+      
+      &.motion-in{
+        opacity: 1;
+        transform: translateY(0px);
+      }
     }
   
   

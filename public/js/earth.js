@@ -167,6 +167,8 @@ function newVector(v){
 
 async function init() {
 
+  console.log('INIT-GLOBE');
+
   // initialize the renderer
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.autoClear = false;

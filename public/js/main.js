@@ -21,14 +21,12 @@ window.app = {
 		footer			: require('./components/footer'),
 		aboutWorld		: require('./components/about-world'),
 		peopleScramble	: require('./components/people-scramble'),
-		// homeBullets		: require('./components/home-bullets'),
 		people			: require('./components/people'),
 		highlights		: require('./components/highlights'),
 		worksList		: require('./components/works-list'),
 		form			: require('./components/form'),
-		clients			: require('./components/clients'),
 		loader			: require('./components/loader'),
-		title			: require('./components/title'),
+		homeContent		: require('./components/home-content'),
 	},
 
 	//Templates
@@ -43,7 +41,7 @@ window.app = {
 
 $(app.init); // Init on Document Ready
 
-},{"./components/about-world":2,"./components/approach":3,"./components/button":4,"./components/clients":5,"./components/footer":6,"./components/form":7,"./components/header":8,"./components/highlights":9,"./components/loader":10,"./components/pages":11,"./components/people":13,"./components/people-scramble":12,"./components/testimonial":14,"./components/title":15,"./components/works-list":16,"./modules/get":17,"./modules/init-components":18,"./modules/load-script":19,"./modules/loader":20,"./modules/page-change":21,"./modules/popup":22,"./modules/svg":23}],2:[function(require,module,exports){
+},{"./components/about-world":2,"./components/approach":3,"./components/button":4,"./components/footer":5,"./components/form":6,"./components/header":7,"./components/highlights":8,"./components/home-content":9,"./components/loader":10,"./components/pages":11,"./components/people":13,"./components/people-scramble":12,"./components/testimonial":14,"./components/works-list":15,"./modules/get":16,"./modules/init-components":17,"./modules/load-script":18,"./modules/loader":19,"./modules/page-change":20,"./modules/popup":21,"./modules/svg":22}],2:[function(require,module,exports){
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
@@ -163,6 +161,11 @@ function init(){
 	
 		TweenMax.to($(this).find('.wrapper'), 1, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 	});
+
+  $('video')[0].play();
+  $('video')[1].play();
+  $('video')[2].play();
+
 }
 
 
@@ -247,6 +250,7 @@ function init(){
   $cont.each(function(){
     mouseMagnetic(this);
   });
+
 }
 
 
@@ -394,48 +398,13 @@ module.exports = {
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
-var $cont       = $('.clients');
 
+var $cont       	= $('.footer');
+var $header       	= $('.header');
+var $scrollup   	= $cont.find('.scrollup');
 
-// ------------------------------ \\\
-// ------------ INIT ------------ \\\
-// ------------------------------ \\\
-
-function init(){
-
-    
-
-}
-
-
-// ----------------------------------------- \\\
-// ------------ PUBLIC FUNCIONS ------------ \\\
-// ----------------------------------------- \\\
-
-
-// ----------------------------------------- \\\
-// ------------ PRIVATE FUNCIONS ----------- \\\
-// ----------------------------------------- \\\
-
-
-
-// ----------------------------------------- \\\
-// ------------ MODULES EXPORTS ------------ \\\
-// ----------------------------------------- \\\
-module.exports = {
-	init        : init,
-	condition   : $cont,
-	args        : arguments,
-}
-
-
-},{}],6:[function(require,module,exports){
-// ------------------------------ \\\
-// ------------ VARS ------------ \\\
-// ------------------------------ \\\
-
-var $cont       = $('.footer');
-var $scrollup   = $cont.find('.scrollup');
+var _dataPage		= $('main').data('page');
+var _headerH		= $('.header').find('.logo').height() + (($('.header').height()-$('.header').find('.logo').height())/2);
 
 
 // ------------------------------ \\\
@@ -445,9 +414,13 @@ var $scrollup   = $cont.find('.scrollup');
 function init(){
 
 	$scrollup.find('.button').on('click', function(){
-		
+		TweenMax.to(window, 1, {scrollTo: {y: 0 , ease: 'Power3.easeOut'}});
 	});
 
+	$(window).on('scroll.footer', onScroll);
+	onScroll();
+
+	console.log(_headerH);
 }
 
 
@@ -459,6 +432,71 @@ function init(){
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
+
+function onScroll(){
+
+	var dHeight 		= $(document).height();
+	var wHeight			= $(window).height();
+	var scrollTop 		= $(window).scrollTop();
+
+
+	//Scroll no bottom da página
+	if (scrollTop + wHeight >= dHeight- ($(window).height()/2)) {
+		$cont.addClass('motion-in-1');
+	} else{
+		$cont.removeClass('motion-in-1');
+	}
+	
+	if (scrollTop + wHeight >= dHeight - ($(window).height()/3)) {
+		$cont.addClass('motion-in-2');
+	} else{
+		$cont.removeClass('motion-in-2');
+	}
+	
+	if (scrollTop + wHeight >= dHeight) {
+		$cont.addClass('motion-in-3');
+	}else{
+		$cont.removeClass('motion-in-3');
+	}
+
+
+	switch(_dataPage){
+		case 'home':
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				if($header.hasClass('check-footer')){
+					$header.removeClass('h-white');
+				}
+			}
+		break;
+		case 'about-approach':
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				if($header.hasClass('check-footer')){
+					$header.removeClass('h-white');
+				}
+			}
+		break;
+		case 'contact':
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				$header.addClass('h-white');
+			}
+		break;
+		default:
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				$header.removeClass('h-white');
+			}
+	}
+
+	
+
+}
 
 
 // ----------------------------------------- \\\
@@ -471,7 +509,7 @@ module.exports = {
 }
 
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
@@ -523,7 +561,7 @@ module.exports = {
 }
 
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
@@ -565,7 +603,7 @@ function init(){
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
 function showMenu(){
-	$cont.addClass('show-menu').addClass('no-blend');
+	$cont.addClass('show-menu');
 	$menu.addClass('show-menu');
 	$hmbrg.addClass('active');
 }
@@ -573,15 +611,10 @@ function showMenu(){
 function hideMenu(){
 	$cont.removeClass('show-menu');
 	$menu.removeClass('show-menu');
-	$menu.removeClass('active');
-
-	setTimeout(function(){
-		$cont.removeClass('no-blend');
-	},500);
+	$hmbrg.removeClass('active');
 }
 
 function onScroll(){
-
 
 	var dHeight 		= $(document).height();
 	var wHeight			= $(window).height();
@@ -608,6 +641,8 @@ function onScroll(){
 	_prevScrollTop = scrollTop;
 }
 
+
+
 // ----------------------------------------- \\\
 // ------------ MODULES EXPORTS ------------ \\\
 // ----------------------------------------- \\\
@@ -619,7 +654,7 @@ module.exports = {
 }
 
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
@@ -678,6 +713,98 @@ module.exports = {
 	init: init,
 	condition: $cont,
 	args: arguments,
+}
+
+
+},{}],9:[function(require,module,exports){
+// ------------------------------ \\\
+// ------------ VARS ------------ \\\
+// ------------------------------ \\\
+
+var $cont       	= $('.home-content');
+var _timeOut        = null;
+
+// ------------------------------ \\\
+// ------------ INIT ------------ \\\
+// ------------------------------ \\\
+
+function init(){
+
+	$cont.find('.title').each(function(){
+
+		var _html 	= $(this).html().replace('<strong>', ' -- ').replace('</strong>', ' -- ').replace('<br>', ' |').split(' ');
+		var _bold	= '';
+		var _count	= 0
+
+		$(this).html(' ');
+
+		for(i = 0; i < _html.length; i++){
+
+			if(_html[i] == '--'){
+				if(_count == 0){
+					_bold = 'bold';
+				}else{
+					_bold = '';
+				}
+                
+				_count++;
+			}
+			
+			if(_html[i] == '|'){
+				$(this).append('<div class="words w-block"><span></span></div>');
+			}else if(_html[i] != '' && _html[i] != ' ' && _html[i] != '|' && _html[i] != '--'){
+				$(this).append('<div class="words '+_bold+'"><span>'+_html[i]+'</span></div>');
+			}
+			
+		}
+
+		
+	});
+	
+}
+
+
+// ----------------------------------------- \\\
+// ------------ PUBLIC FUNCIONS ------------ \\\
+// ----------------------------------------- \\\
+
+
+
+// ----------------------------------------- \\\
+// ------------ PRIVATE FUNCIONS ----------- \\\
+// ----------------------------------------- \\\
+
+
+function motionOut(_target){
+	
+	$(_target).find('.paragraph').removeClass('motion-in');
+	$(_target).find('.button').removeClass('motion-in');
+
+	$(_target).find('.words').each(function(i,e){
+        $(e).removeClass('motion-in');
+    });
+}
+
+function motionIn(_target){
+	
+	$(_target).find('.paragraph').addClass('motion-in');
+	$(_target).find('.button').addClass('motion-in');
+
+	$(_target).find('.words').each(function(i,e){
+        $(e).addClass('motion-in');
+    });
+}
+
+
+// ----------------------------------------- \\\
+// ------------ MODULES EXPORTS ------------ \\\
+// ----------------------------------------- \\\
+module.exports = {
+	init            : init,
+	condition       : $cont,
+    motionIn        : motionIn,
+    motionOut       : motionOut,
+	args            : arguments,
 }
 
 
@@ -768,13 +895,16 @@ module.exports = {
 // ------------------------------ \\\
 
 var $cont       	= $('.pages');
-var $main           = document.querySelector("#main");
+var $header         = $('.header');
+var $scrollDown     = null;
+var $homeBullets    = null;
+
 var _dataPage       = $('main').data('page');
 var _controller     = null;
-var _scrollSmooth   = null; 
-var _y              = 0;
-var _wHeight        = $(window).height();
-var _isChrome       = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var _wHeight        = null;
+var _scrollPos      = null;
+var _scrollValues   = null;
+
 
 
 // ------------------------------ \\\
@@ -782,19 +912,41 @@ var _isChrome       = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(na
 // ------------------------------ \\\
 
 function init(){
-
-    if($(window).width()>=860){
-        addScrollMagicHome();
-    }
-
+    
 }
 
 
 // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
-function scrollTo(_elm){
-    // _scroll.scrollTo(_elm);
+function initScroll(){
+
+    $scrollDown         = $('.scrolldown');
+    $homeBullets        = $('.home-bullets');
+
+    _controller         = null;
+    _wHeight            = $(window).height();
+    _scrollPos          = 0;
+    _scrollValues       = [];
+
+    if($(window).width() >= 860){
+        switch(_dataPage){
+            case 'home':
+                addScrollMagicHome();
+                setHomeScrollTo();
+            break;               
+        }
+    }
+}
+
+function destroyScroll(){
+    if($(window).width() >= 860){
+        switch(_dataPage){
+            case 'home':
+                _controller.destroy(true);
+            break;               
+        }
+    }
 }
 
 
@@ -804,89 +956,148 @@ function scrollTo(_elm){
 
 function addScrollMagicHome(){
 
+    var $slides     = $cont.find('.hc-slides');
+    var $slidesC    = $cont.find('.hc-clients');
+
     _controller = new ScrollMagic.Controller({
         globalSceneOptions: {
             triggerHook: 0,
             reverse: true,
-          }
+        }
     });
 
-    $('.hc-slides').find('.infos').each(function(e){
+    $slides.find('.infos').each(function(e){
         
+        var _this       = this;
         var _index      = e;
         var _color      = $(this).data('color');
 
-        new ScrollMagic.Scene({triggerElement: this, duration: "200%"})
+        var scene = new ScrollMagic.Scene({triggerElement: this, duration: "100%"})
                         .setPin(this)
                         .on("enter", function (e) {
 
-                            $('.hc-slides').find('.home-bckg').css({background:_color});
+                            $slides.find('.home-bckg').css({background:_color});
                          
                             if( _index == 0){
                                 TweenMax.to($('.globe').find('.g-wrapper'), 0.4, { ease: 'Power3.easeOut', opacity: 1, y: '0%' });
                             }else{
-                                TweenMax.to($('.hc-slides').find('.images').find('.img').eq(_index), 0.5, {ease: 'Power3.easeOut', opacity: 1});
+                                TweenMax.to($slides.find('.images').find('.img').eq(_index), 0.5, {ease: 'Power3.easeOut', opacity: 1});
                             }
+
+                            $homeBullets.find('.button').removeClass('active');
+                            $homeBullets.find('.button').eq(_index).addClass('active');
+
+                            app.components.homeContent.motionIn($(_this));
+
+                            _scrollPos = _index;
 
                         })
                         .on("leave", function (e) {
+
                             if(e.scrollDirection == "FORWARD"){
                                 if( _index == 0){
                                     TweenMax.to($('.globe').find('.g-wrapper'), 0.4, { ease: 'Power3.easeOut', opacity: 0, y: '-10%' });
                                 }else{
-                                    TweenMax.to($('.hc-slides').find('.images').find('.img').eq(_index), 0.5, {ease: 'Power3.easeOut', opacity: 0});
+                                    TweenMax.to($slides.find('.images').find('.img').eq(_index), 0.5, {ease: 'Power3.easeOut', opacity: 0});
                                 }
                             }
-                            
+
+                            app.components.homeContent.motionOut($(_this));
+                        
                         })
                         // .addIndicators()
                         .addTo(_controller);
 
+
         // HOME SHAPE
-        var homeShape = new TimelineMax ()
-        .to($('.hc-slides').find('.home-bckg').find('.shape').find('figure').eq(_index), 2, {opacity: 1})
-        
-        new ScrollMagic.Scene({triggerElement: this, duration:'200%', offset:-_wHeight}).setTween(homeShape).addTo(_controller);
+        var homeShape = new TimelineMax().to($slides.find('.home-bckg').find('.shape').find('figure').eq(_index), 2, {opacity: 1})
+        new ScrollMagic.Scene({triggerElement: this, duration:'100%', offset:-_wHeight}).setTween(homeShape).addTo(_controller);
 
-        
+
         // HOME IMAGES
-        var homeImages = new TimelineMax()
-        .fromTo($('.hc-slides').find('.images').find('.img').eq(_index).find('img'), 2, {x: '-20%', opacity: 0},{x: '0%', opacity: 1})
+        var homeImages = new TimelineMax().fromTo($slides.find('.images').find('.img').eq(_index).find('img'), 2, {x: '-20%', opacity: 0},{x: '0%', opacity: 1})
+        new ScrollMagic.Scene({triggerElement: this, duration:'100%', offset:-_wHeight/2}).setTween(homeImages).addTo(_controller);
 
-        new ScrollMagic.Scene({triggerElement: this, duration:'200%', offset:-_wHeight/2}).setTween(homeImages).addTo(_controller);
+        _scrollValues.push(scene.scrollOffset()+(scene.duration()-10));
         
     });
 
-    $('.hc-clients').find('.infos').each(function(e){
 
-        // HOME CLIENTS
-        // var homeClients = new TimelineMax ()
-        // .add([
-        //     TweenMax.fromTo($('.hc-clients'), 2, {y: '-100%'},{y: '0%'}),
-        // ]);
+    $slidesC.find('.infos').each(function(e){
 
-        // new ScrollMagic.Scene({triggerElement: this, duration: "100%"})
-        //                 .setPin(this)
-        //                 .setTween(homeClients)
-        //                 .addTo(_controller);
-    });
+        var _this       = this;
 
-    _controller.scrollTo(function (newpos) {
-		TweenMax.to(window, 1, {scrollTo: {y: newpos, ease: 'Power3.easeOut'}});
-	});
+        var scene = new ScrollMagic.Scene({triggerElement: this, duration: "100%"})
+                        .setPin(this)
+                        .on("enter", function (e) {
+                            
+                            $header.removeClass('h-white').addClass('check-footer');
+                            $scrollDown.removeClass('s-white');
 
-    $('.home-bullets').find('.button').on('click',function(){
+                            $homeBullets.find('.button').removeClass('active');
+                            $homeBullets.find('.button').eq(4).addClass('active');
+                            $homeBullets.addClass('hb-dark');
 
-        var _target = $(this).data('target');
+                            app.components.homeContent.motionIn($(_this));
 
-        $('.home-bullets').find('.button').removeClass('active');
-        $(this).addClass('active');
+                            TweenMax.to($homeBullets, 1, {ease: 'Power3.easeOut', x: '0%'});
+
+                            $(_this).find('.image').each(function(i,e){
+                                TweenMax.to($(e), 1, {ease: 'Power3.easeOut', opacity: 1});
+                            });
+
+                            _scrollPos = 4;
+                        })
+                        .on("leave", function (e) {
+                            $homeBullets.removeClass('hb-dark');
+                            
+                            if(e.scrollDirection == "REVERSE"){
+                                $scrollDown.addClass('s-white').removeClass('hide');
+                                $header.addClass('h-white').removeClass('check-footer');
+                            }
+
+                            if(e.scrollDirection == "FORWARD"){
+                                TweenMax.to($homeBullets, 1, {ease: 'Power3.easeOut', x: '-200px'});
+                                $scrollDown.addClass('hide');
+                            }
+
+                            $(_this).find('.image').each(function(){
+                                TweenMax.to($(this), 1, {ease: 'Power3.easeOut', opacity: 0});
+                            });
+
+                            app.components.homeContent.motionOut($(_this));    
+                        })
+                        .addTo(_controller);
         
-        _controller.scrollTo('#'+_target);
-       
+        _scrollValues.push(scene.scrollOffset()+(scene.duration()-10));
+
     });
+
     
 }
+
+function setHomeScrollTo(){
+
+    _controller.scrollTo(function (newScrollPos) {
+        TweenMax.to(window, 2, {scrollTo: {y: newScrollPos , ease: 'Power3.easeOut'}});
+    });
+
+    $homeBullets.find('.button').on('click',function(){
+        var _target = parseInt($(this).data('target').split('slide-')[1]);
+        _controller.scrollTo(_scrollValues[_target-1]);
+    });
+
+    $scrollDown.on('click',function(){
+        if(_scrollPos == 4){
+            _controller.scrollTo($(document).height());
+        }else{
+            _controller.scrollTo(_scrollValues[_scrollPos+1]);
+        }
+        
+    });
+}
+
+
 
 
 
@@ -895,10 +1106,12 @@ function addScrollMagicHome(){
 // ------------ MODULES EXPORTS ------------ \\\
 // ----------------------------------------- \\\
 module.exports = {
-	init: init,
-	condition: $cont,
-    scrollTo:scrollTo,
-	args: arguments,
+	init            : init,
+	condition       : $cont,
+    scrollTo        : scrollTo,
+    initScroll      : initScroll,
+    destroyScroll   : destroyScroll,
+	args            : arguments,
 }
 
 
@@ -1202,44 +1415,6 @@ module.exports = {
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
-
-var $cont       	= $('.title');
-
-
-// ------------------------------ \\\
-// ------------ INIT ------------ \\\
-// ------------------------------ \\\
-
-function init(){
-    
-}
-
-
-// ----------------------------------------- \\\
-// ------------ PUBLIC FUNCIONS ------------ \\\
-// ----------------------------------------- \\\
-
-
-
-// ----------------------------------------- \\\
-// ------------ PRIVATE FUNCIONS ----------- \\\
-// ----------------------------------------- \\\
-
-
-// ----------------------------------------- \\\
-// ------------ MODULES EXPORTS ------------ \\\
-// ----------------------------------------- \\\
-module.exports = {
-	init            : init,
-	condition       : $cont,
-	args            : arguments,
-}
-
-
-},{}],16:[function(require,module,exports){
-// ------------------------------ \\\
-// ------------ VARS ------------ \\\
-// ------------------------------ \\\
 var $cont       = $('.works-list');
 var $item 		= $cont.find('.item');
 
@@ -1298,7 +1473,7 @@ module.exports = {
 }
 
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = function(paramKey){
 
 	var pairs = location.search.replace(/^\?/, '').split('&');
@@ -1317,7 +1492,7 @@ module.exports = function(paramKey){
 	return selected;
 
 }
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function(elem){
 
 	var $elem = $(elem || 'body');
@@ -1353,7 +1528,7 @@ module.exports = function(elem){
 	});
 
 }
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 module.exports = function(src, callback){
 	var s = document.createElement('script'), r = false, t;
 	s.type = 'text/javascript';
@@ -1367,7 +1542,7 @@ module.exports = function(src, callback){
 	t = document.getElementsByTagName('script')[0];
 	t.parentNode.insertBefore(s, t);
 }
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function(opts){
 
 	var before 		= opts.before || function(){};
@@ -1438,7 +1613,7 @@ module.exports = function(opts){
 	});
 
 }
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var $title 	= $('title');
 var $menu 	= $('.menu');
 var $menus 	= $menu.find('a');
@@ -1450,7 +1625,7 @@ var $html 	= $('html');
 var $main 	= $('main');
 var $temp 	= $('<div></div>');
 
-var _loadDelay = 300;
+var _loadDelay = 400;
 var oldPage;
 var promise;
 var timer;
@@ -1467,36 +1642,49 @@ function init(){
 	setTimeout(function(){
 		
 		app.components.loader.inMotion();
+		
 
 		app.loader({
 			elem: $('body'),
 			testDelay: _loadDelay,
 			progress: function(pcent){
-
-				var _pcent 		= parseInt(pcent);
-				app.components.loader.progressMotion(_pcent);				
+				if($main.data('page') != 'about-person'){
+					var _pcent 		= parseInt(pcent);
+					app.components.loader.progressMotion(_pcent);
+				}
 			},
 			complete: function(){
 
-				app.components.loader.outMotion('1');
-				
-				setTimeout(function(){
-					
-					app.components.loader.outMotion('2');
-						
-					setTimeout(function(){
-						
-						app.components.loader.hide();
-						
-						$menu.trigger('enter').addClass('motion-in');
-						$header.addClass('motion-in');
-						$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
-				
-						activeMenus($main.data('page'));
+				if($main.data('page') == 'contact' || $main.data('page') == 'about-approach' || $main.data('page') == 'about-person'){
 
-					}, 2000);
-					
-				}, 2000);
+					setTimeout(function(){
+						app.components.loader.progressMotion(0);
+						setTimeout(function(){
+							app.components.loader.progressMotion(20);
+							setTimeout(function(){
+								app.components.loader.progressMotion(40);
+								setTimeout(function(){
+									app.components.loader.progressMotion(60);
+									setTimeout(function(){
+										app.components.loader.progressMotion(80);
+										setTimeout(function(){
+											app.components.loader.progressMotion(100);
+										}, 100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 50);
+
+					setTimeout(function(){
+						setFirstLoader();
+					}, 800);
+
+				}else{
+					setFirstLoader();
+				}
+
+				
 
 			},
 		});
@@ -1574,7 +1762,6 @@ function handleHTML(html){
 
 	var $all 		= $(html);
 	var $pageTitle 	= $all.filter('title');
-	// var $pageBc 	= $all.find('.breadcrumb');
 	var $pageMenu 	= $all.find($menu.selector);
 	var $pageHeader = $all.find($header.selector);
 	var $pageFooter = $all.find($footer.selector);
@@ -1594,67 +1781,139 @@ function handleHTML(html){
 	beforeLoadNew($newSec, $oldSec, oldPage, newPage);
 
 	
-	
 	app.loader({
 		elem: $newSec,
 		testDelay: _loadDelay,
 		progress: function(pcent){
-			var _pcent 		= parseInt(pcent);
-			app.components.loader.progressMotion(_pcent);
+			if(newPage != 'about-person'){
+				var _pcent 		= parseInt(pcent);
+				app.components.loader.progressMotion(_pcent);
+			}
 		},
 		complete: function(){
-		
-			app.components.loader.outMotion('1');
-				
-			setTimeout(function(){
-
-				// Atualiza elementos da página
-				$title.html( $pageTitle.html() );
-				$main.attr('data-page', newPage);
-				$main.attr('class', $pageMain.attr('class') );
-				$header.attr('class', $pageHeader.attr('class'));
-				$footer.attr('class', $pageFooter.attr('class'));
 			
-				$menu.attr('class', $pageMenu.attr('class'));
-				$menu.trigger('enter').addClass('motion-in');
+			if(newPage == 'contact' || newPage == 'about-approach' || newPage == 'about-person'){
 
-				// $header.find('.breadcrumb').html($pageBc.html());
-			
-				activeMenus(newPage);
-
-				$newSec.hide().appendTo($cont);
-				$oldSec.addClass('leaving');
-
-				$newSec.show();
-				if (!isReused) app.initComponents($newSec);
-				app.svg();
-
-				$('html,body').animate({scrollTop: 0}, 1);
-
-				app.components.loader.outMotion('2');
-
-				$oldSec.stop().fadeOut($oldSec.data('motion-out-fade') || 0, function(){
-					
-					$temp.empty();
-					$oldSec.appendTo($temp).removeClass('leaving motion-in motion-out');
-
+				setTimeout(function(){
+					app.components.loader.progressMotion(0);
 					setTimeout(function(){
-						$newSec.trigger('enter', [oldPage]).addClass('motion-in');
-						$newSec.attr('data-location', location.href);
-						$header.addClass('motion-in');
+						app.components.loader.progressMotion(20);
+						setTimeout(function(){
+							app.components.loader.progressMotion(40);
+							setTimeout(function(){
+								app.components.loader.progressMotion(60);
+								setTimeout(function(){
+									app.components.loader.progressMotion(80);
+									setTimeout(function(){
+										app.components.loader.progressMotion(100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 50);
 
-						app.components.loader.hide();
-						
-					}, 1500 );
-
-					afterEnter($newSec, $oldSec, oldPage, newPage);
-				});
-
-			}, 2000);
+				setTimeout(function(){
+					setInnerLoader($pageTitle,$pageMenu,$pageHeader,$pageFooter,$pageCont,$pageMain,$newSec,$oldSec,newPage);
+				}, 800);
+			}else{
+				setInnerLoader($pageTitle,$pageMenu,$pageHeader,$pageFooter,$pageCont,$pageMain,$newSec,$oldSec,newPage);
+			}
+			
 			
 		},
 	});
 
+}
+
+
+
+
+function setFirstLoader(){
+
+	app.components.loader.outMotion('1');
+	app.components.pages.initScroll();
+	
+	setTimeout(function(){
+		
+		app.components.loader.outMotion('2');
+			
+		setTimeout(function(){
+			
+			app.components.loader.hide();
+			
+			$menu.trigger('enter').addClass('motion-in');
+			$header.addClass('motion-in');
+			$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
+	
+			activeMenus($main.data('page'));
+
+		}, 2000);
+		
+	}, 1000);
+}
+
+function setInnerLoader(_pageTitle,_pageMenu,_pageHeader, _pageFooter, _pageCont, _pageMain, _newSec, _oldSec,_newPage){
+
+	var $pageTitle 	= _pageTitle;
+	var $pageMenu 	= _pageMenu;
+	var $pageHeader = _pageHeader;
+	var $pageFooter = _pageFooter;
+	var $pageCont 	= _pageCont;
+	var $pageMain 	= _pageMain;
+	var $newSec 	= _newSec;
+	var $oldSec 	= _oldSec;
+	var newPage     = _newPage;
+	var isReused;
+
+	app.components.loader.outMotion('1');
+	app.components.pages.destroyScroll();
+		
+	setTimeout(function(){
+
+		// Atualiza elementos da página
+		$title.html( $pageTitle.html() );
+		$main.attr('data-page', newPage);
+		$main.attr('class', $pageMain.attr('class') );
+		$header.attr('class', $pageHeader.attr('class'));
+		$footer.attr('class', $pageFooter.attr('class'));
+	
+		// $menu.attr('class', $pageMenu.attr('class'));
+		// $menu.trigger('enter').addClass('motion-in');
+	
+		activeMenus(newPage);
+
+		$newSec.hide().appendTo($cont);
+		$oldSec.addClass('leaving');
+
+		$newSec.show();
+		if (!isReused) app.initComponents($newSec);
+		app.svg();
+
+		$('html,body').animate({scrollTop: 0}, 1);
+
+		app.components.pages.initScroll();
+		
+		app.components.loader.outMotion('2');
+
+		$oldSec.stop().fadeOut($oldSec.data('motion-out-fade') || 0, function(){
+			
+			$temp.empty();
+			$oldSec.appendTo($temp).removeClass('leaving motion-in motion-out');
+
+			setTimeout(function(){
+				$newSec.trigger('enter', [oldPage]).addClass('motion-in');
+				$newSec.attr('data-location', location.href);
+				$header.addClass('motion-in');
+
+				app.components.loader.hide();
+				
+			}, 1500 );
+
+			afterEnter($newSec, $oldSec, oldPage, newPage);
+		});
+
+	}, 1000);
 }
 
 // No momento do clique no link
@@ -1685,7 +1944,7 @@ function activeMenus(page){
 }
 
 module.exports = init;
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function(url, width, height){
 
 	var wLeft = window.screen.left || window.screenLeft || 0;
@@ -1696,7 +1955,7 @@ module.exports = function(url, width, height){
 	window.open(url, 'popup'+url, 'status=no, height=' + height + ', width=' + width + ', resizable=yes, left=' + left + ', top=' + top + ', screenX=' + left + ', screenY=' + top + ', toolbar=no, menubar=no, scrollbars=no, location=no, directories=no');
 
 }
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 function init(){
 
 	$('.svg').each(startClass);

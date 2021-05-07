@@ -9,7 +9,7 @@ var $html 	= $('html');
 var $main 	= $('main');
 var $temp 	= $('<div></div>');
 
-var _loadDelay = 300;
+var _loadDelay = 400;
 var oldPage;
 var promise;
 var timer;
@@ -26,36 +26,49 @@ function init(){
 	setTimeout(function(){
 		
 		app.components.loader.inMotion();
+		
 
 		app.loader({
 			elem: $('body'),
 			testDelay: _loadDelay,
 			progress: function(pcent){
-
-				var _pcent 		= parseInt(pcent);
-				app.components.loader.progressMotion(_pcent);				
+				if($main.data('page') != 'about-person'){
+					var _pcent 		= parseInt(pcent);
+					app.components.loader.progressMotion(_pcent);
+				}
 			},
 			complete: function(){
 
-				app.components.loader.outMotion('1');
-				
-				setTimeout(function(){
-					
-					app.components.loader.outMotion('2');
-						
-					setTimeout(function(){
-						
-						app.components.loader.hide();
-						
-						$menu.trigger('enter').addClass('motion-in');
-						$header.addClass('motion-in');
-						$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
-				
-						activeMenus($main.data('page'));
+				if($main.data('page') == 'contact' || $main.data('page') == 'about-approach' || $main.data('page') == 'about-person'){
 
-					}, 2000);
-					
-				}, 2000);
+					setTimeout(function(){
+						app.components.loader.progressMotion(0);
+						setTimeout(function(){
+							app.components.loader.progressMotion(20);
+							setTimeout(function(){
+								app.components.loader.progressMotion(40);
+								setTimeout(function(){
+									app.components.loader.progressMotion(60);
+									setTimeout(function(){
+										app.components.loader.progressMotion(80);
+										setTimeout(function(){
+											app.components.loader.progressMotion(100);
+										}, 100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 50);
+
+					setTimeout(function(){
+						setFirstLoader();
+					}, 800);
+
+				}else{
+					setFirstLoader();
+				}
+
+				
 
 			},
 		});
@@ -133,7 +146,6 @@ function handleHTML(html){
 
 	var $all 		= $(html);
 	var $pageTitle 	= $all.filter('title');
-	// var $pageBc 	= $all.find('.breadcrumb');
 	var $pageMenu 	= $all.find($menu.selector);
 	var $pageHeader = $all.find($header.selector);
 	var $pageFooter = $all.find($footer.selector);
@@ -153,67 +165,139 @@ function handleHTML(html){
 	beforeLoadNew($newSec, $oldSec, oldPage, newPage);
 
 	
-	
 	app.loader({
 		elem: $newSec,
 		testDelay: _loadDelay,
 		progress: function(pcent){
-			var _pcent 		= parseInt(pcent);
-			app.components.loader.progressMotion(_pcent);
+			if(newPage != 'about-person'){
+				var _pcent 		= parseInt(pcent);
+				app.components.loader.progressMotion(_pcent);
+			}
 		},
 		complete: function(){
-		
-			app.components.loader.outMotion('1');
-				
-			setTimeout(function(){
-
-				// Atualiza elementos da página
-				$title.html( $pageTitle.html() );
-				$main.attr('data-page', newPage);
-				$main.attr('class', $pageMain.attr('class') );
-				$header.attr('class', $pageHeader.attr('class'));
-				$footer.attr('class', $pageFooter.attr('class'));
 			
-				$menu.attr('class', $pageMenu.attr('class'));
-				$menu.trigger('enter').addClass('motion-in');
+			if(newPage == 'contact' || newPage == 'about-approach' || newPage == 'about-person'){
 
-				// $header.find('.breadcrumb').html($pageBc.html());
-			
-				activeMenus(newPage);
-
-				$newSec.hide().appendTo($cont);
-				$oldSec.addClass('leaving');
-
-				$newSec.show();
-				if (!isReused) app.initComponents($newSec);
-				app.svg();
-
-				$('html,body').animate({scrollTop: 0}, 1);
-
-				app.components.loader.outMotion('2');
-
-				$oldSec.stop().fadeOut($oldSec.data('motion-out-fade') || 0, function(){
-					
-					$temp.empty();
-					$oldSec.appendTo($temp).removeClass('leaving motion-in motion-out');
-
+				setTimeout(function(){
+					app.components.loader.progressMotion(0);
 					setTimeout(function(){
-						$newSec.trigger('enter', [oldPage]).addClass('motion-in');
-						$newSec.attr('data-location', location.href);
-						$header.addClass('motion-in');
+						app.components.loader.progressMotion(20);
+						setTimeout(function(){
+							app.components.loader.progressMotion(40);
+							setTimeout(function(){
+								app.components.loader.progressMotion(60);
+								setTimeout(function(){
+									app.components.loader.progressMotion(80);
+									setTimeout(function(){
+										app.components.loader.progressMotion(100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 50);
 
-						app.components.loader.hide();
-						
-					}, 1500 );
-
-					afterEnter($newSec, $oldSec, oldPage, newPage);
-				});
-
-			}, 2000);
+				setTimeout(function(){
+					setInnerLoader($pageTitle,$pageMenu,$pageHeader,$pageFooter,$pageCont,$pageMain,$newSec,$oldSec,newPage);
+				}, 800);
+			}else{
+				setInnerLoader($pageTitle,$pageMenu,$pageHeader,$pageFooter,$pageCont,$pageMain,$newSec,$oldSec,newPage);
+			}
+			
 			
 		},
 	});
 
+}
+
+
+
+
+function setFirstLoader(){
+
+	app.components.loader.outMotion('1');
+	app.components.pages.initScroll();
+	
+	setTimeout(function(){
+		
+		app.components.loader.outMotion('2');
+			
+		setTimeout(function(){
+			
+			app.components.loader.hide();
+			
+			$menu.trigger('enter').addClass('motion-in');
+			$header.addClass('motion-in');
+			$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
+	
+			activeMenus($main.data('page'));
+
+		}, 2000);
+		
+	}, 1000);
+}
+
+function setInnerLoader(_pageTitle,_pageMenu,_pageHeader, _pageFooter, _pageCont, _pageMain, _newSec, _oldSec,_newPage){
+
+	var $pageTitle 	= _pageTitle;
+	var $pageMenu 	= _pageMenu;
+	var $pageHeader = _pageHeader;
+	var $pageFooter = _pageFooter;
+	var $pageCont 	= _pageCont;
+	var $pageMain 	= _pageMain;
+	var $newSec 	= _newSec;
+	var $oldSec 	= _oldSec;
+	var newPage     = _newPage;
+	var isReused;
+
+	app.components.loader.outMotion('1');
+	app.components.pages.destroyScroll();
+		
+	setTimeout(function(){
+
+		// Atualiza elementos da página
+		$title.html( $pageTitle.html() );
+		$main.attr('data-page', newPage);
+		$main.attr('class', $pageMain.attr('class') );
+		$header.attr('class', $pageHeader.attr('class'));
+		$footer.attr('class', $pageFooter.attr('class'));
+	
+		// $menu.attr('class', $pageMenu.attr('class'));
+		// $menu.trigger('enter').addClass('motion-in');
+	
+		activeMenus(newPage);
+
+		$newSec.hide().appendTo($cont);
+		$oldSec.addClass('leaving');
+
+		$newSec.show();
+		if (!isReused) app.initComponents($newSec);
+		app.svg();
+
+		$('html,body').animate({scrollTop: 0}, 1);
+
+		app.components.pages.initScroll();
+		
+		app.components.loader.outMotion('2');
+
+		$oldSec.stop().fadeOut($oldSec.data('motion-out-fade') || 0, function(){
+			
+			$temp.empty();
+			$oldSec.appendTo($temp).removeClass('leaving motion-in motion-out');
+
+			setTimeout(function(){
+				$newSec.trigger('enter', [oldPage]).addClass('motion-in');
+				$newSec.attr('data-location', location.href);
+				$header.addClass('motion-in');
+
+				app.components.loader.hide();
+				
+			}, 1500 );
+
+			afterEnter($newSec, $oldSec, oldPage, newPage);
+		});
+
+	}, 1000);
 }
 
 // No momento do clique no link

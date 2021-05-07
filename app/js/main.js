@@ -20,14 +20,12 @@ window.app = {
 		footer			: require('./components/footer'),
 		aboutWorld		: require('./components/about-world'),
 		peopleScramble	: require('./components/people-scramble'),
-		// homeBullets		: require('./components/home-bullets'),
 		people			: require('./components/people'),
 		highlights		: require('./components/highlights'),
 		worksList		: require('./components/works-list'),
 		form			: require('./components/form'),
-		clients			: require('./components/clients'),
 		loader			: require('./components/loader'),
-		title			: require('./components/title'),
+		homeContent		: require('./components/home-content'),
 	},
 
 	//Templates

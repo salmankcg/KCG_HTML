@@ -18,10 +18,7 @@ config = {
 			from: [
 				src + '/js/vendor/jquery-2.1.4.min.js',
 				src + '/js/vendor/jquery.easing.1.3.js',
-				// src + '/js/vendor/gsap.js',
 				src + '/js/vendor/slick.min.js',
-				src + '/js/vendor/flickity.pkgd.min.js',
-				// src + '/js/vendor/smooth-scrollbar.js',
 				src + '/js/vendor/TweenMax.min.js',
 				src + '/js/vendor/scrollMagic.min.js',
 				src + '/js/vendor/debug.addIndicators.min.js',

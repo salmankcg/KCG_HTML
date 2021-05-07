@@ -2,8 +2,9 @@
     .centerHoriz;
     position: fixed;
     bottom: 60px;
-    z-index: 4;
-    display: none;
+    z-index: 40;
+    cursor: pointer;
+    transition: .5s all @custom;
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
@@ -18,10 +19,20 @@
         }
     }
 
+    &.hide{
+        transform: translateY(100px);
+    }
+
 
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
+    &:hover{
+        span{
+            transform: translateY(-10px);
+        }
+    }
+
     &:after{
         .ba;
         width: 5px; height: 5px;
@@ -29,6 +40,7 @@
         border-radius: 5px;
         margin: 0 auto;
         margin-top: 10px;
+        transition: .5s all @custom;
     }
 
     span{
@@ -36,6 +48,8 @@
         font-size: 14px;
         color: @black;
         letter-spacing: 1px;
+        transition: .5s all @custom;
+        display: block;
     }
 
 

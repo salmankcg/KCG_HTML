@@ -1,6 +1,6 @@
 {% extends './nunj/layouts/master.nunj' %}
 {% set title        = 'KCG' %}
-{% set page         = 'about' %}
+{% set page         = 'about-approach' %}
 {% set header       = 'h-white' %}
 {% set footer       = 'f-white' %}
 {% set navigate     = '' %}
@@ -8,21 +8,21 @@
 {% block content %}
 
   
-<div class="webdoor w-approach" data-scroll-section>
+<div class="webdoor w-approach">
 
   <div class="submenu sb-white">
-    <a href="about.html" class="item" data-scroll data-scroll-speed="1"><span>ABOUT</span></a>
-    <a href="about-approach.html" class="item active" data-scroll data-scroll-speed="1"><span>APPROACH</span></a>
-    <a href="about-team.html" class="item" data-scroll data-scroll-speed="1"><span>TEAM</span></a>
+    <a href="about.html" class="item"><span>ABOUT</span></a>
+    <a href="about-approach.html" class="item active"><span>APPROACH</span></a>
+    <a href="about-team.html" class="item"><span>TEAM</span></a>
   </div>
 
   <div class="inner">
     <div class="col col-1"></div>
     <div class="col col-10">
 
-      <h1 class="title t-medium t-white t-center" data-scroll data-scroll-speed="1"><strong>Our innovate approach is centered<br>around three distinct phases</strong></h1>
+      <h1 class="title t-medium t-white t-center"><strong>Our innovate approach is centered<br>around three distinct phases</strong></h1>
 
-      <div class="approach" data-scroll data-scroll-speed="1">
+      <div class="approach">
         <div class="item" data-video="inovate">
           <div class="wrapper">
             <div class="icon">
@@ -60,13 +60,13 @@
 
   <div class="video-background">
     <div class="video" data-target="inovate">
-      <video autoplay loop muted><source src="assets/about/video1.mp4" type="video/mp4"></video>
+      <video loop muted><source src="assets/about/video1.mp4" type="video/mp4"></video>
     </div>
     <div class="video" data-target="create">
-      <video autoplay loop muted><source src="assets/about/video2.mp4" type="video/mp4"></video>
+      <video loop muted><source src="assets/about/video2.mp4" type="video/mp4"></video>
     </div>
     <div class="video" data-target="expand">
-      <video autoplay loop muted><source src="assets/about/video3.mp4" type="video/mp4"></video>
+      <video loop muted><source src="assets/about/video3.mp4" type="video/mp4"></video>
     </div>
   </div>
 </div>
@@ -74,4 +74,4 @@
 
 
 
-{% endblock %}
+{% endblock %} 

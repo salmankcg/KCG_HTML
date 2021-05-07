@@ -39,7 +39,7 @@ function init(){
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
 function showMenu(){
-	$cont.addClass('show-menu').addClass('no-blend');
+	$cont.addClass('show-menu');
 	$menu.addClass('show-menu');
 	$hmbrg.addClass('active');
 }
@@ -47,15 +47,10 @@ function showMenu(){
 function hideMenu(){
 	$cont.removeClass('show-menu');
 	$menu.removeClass('show-menu');
-	$menu.removeClass('active');
-
-	setTimeout(function(){
-		$cont.removeClass('no-blend');
-	},500);
+	$hmbrg.removeClass('active');
 }
 
 function onScroll(){
-
 
 	var dHeight 		= $(document).height();
 	var wHeight			= $(window).height();
@@ -81,6 +76,8 @@ function onScroll(){
 	
 	_prevScrollTop = scrollTop;
 }
+
+
 
 // ----------------------------------------- \\\
 // ------------ MODULES EXPORTS ------------ \\\

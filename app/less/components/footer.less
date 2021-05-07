@@ -1,5 +1,4 @@
 .footer{
-    // position: fixed;
     position: relative;
     background: @gray;
     width: 100%;
@@ -9,7 +8,6 @@
     flex-direction: column;
     color: @white;
     bottom: 0px;
-    // z-index: -1;
     
 
     /*------------------*/
@@ -97,6 +95,48 @@
         }
     }
 
+    &.motion-in-1{
+        .title{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .button:not(.b-icon){
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+    }
+
+    &.motion-in-2{
+        .f-menu{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .f-infos{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    &.motion-in-3{
+        .scrollup{
+            &:before{
+                width: 100%;
+            }
+    
+            .button{
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .legals{
+            opacity: 1;
+        }
+    }
+
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
@@ -114,12 +154,16 @@
         position: relative;
         display: flex;
         flex-wrap: wrap;
+        transform: translateY(-30px);
+        opacity: 0;
+        transition: 1s all @custom;
 
         &.f-social{
             flex-wrap: nowrap;
             flex-direction: column;
             width: auto;
             float: right;
+            transition-delay: .8s;
         }
     }
 
@@ -143,6 +187,11 @@
         color: rgba(255,255,255,.6);
         font-size: 16px;
         line-height: 30px;
+        transform: translateY(-30px);
+        transition-delay: .8s;
+        opacity: 0;
+        transition: 1s all @custom;
+        transition-delay: .4s;
 
         a{
             position: relative;
@@ -173,15 +222,19 @@
         
         &:before{
             .ba;
-            width: 100%;
+            width: 0%;
             height: 1px;
             background: @white;
-            .centerVert;
+            .centerBoth;
+            transition: 1s all @custom;
         }
 
         .button{
-            
             .centerBoth;
+            transform: translate(-50%, 0%);
+            opacity: 0;
+            transition: 1s all @custom;
+            transition-delay: .5s;
 
             .wrapper{
                 background: @gray;
@@ -197,10 +250,26 @@
         font-size: 14px;
         padding: 40px 0px;
         padding-top: 0px;
+        opacity: 0;
+        transition-delay: 1s;
+        transition: 1s all @custom;
 
         .l-mobile{
             display: none;
         }
+    }
+
+    .title{
+        transform: translateY(-40px);
+        opacity: 0;
+        transition: 1s all @custom;
+    }
+
+    .button:not(.b-icon){
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: 1s all @custom;
+        transition-delay: .5s;
     }
 
 

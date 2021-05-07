@@ -25,6 +25,10 @@
             opacity: 1;
             transform: translateY(0%);
             transition-delay: 1.5s;
+
+            &:before{
+                width: 100%;
+            }
         } 
 
         .social{
@@ -56,6 +60,7 @@
             display: flex;
             justify-content: space-between;
             flex-direction: column;
+            align-items: flex-end;
         }
     }
 
@@ -101,10 +106,13 @@
         &:before{
             .ba;
             position: absolute;
-            width: 100%;
+            width: 0%;
             height: 1px;
             background: rgba(255,255,255,.5);
+            .centerHoriz;
             top: 0px;
+            transition: .5s all @custom
+            
         }
     }
 
