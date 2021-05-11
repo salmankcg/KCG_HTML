@@ -1,0 +1,90 @@
+.services-content{
+    padding: 120px 0px;
+    position: relative;
+    display: block;
+    
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.sv-black{
+        background: @gray;
+    }
+
+    &.sv-full{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+
+        .inner{
+            height: auto;
+        }
+    }
+
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+    
+    .s-wrapper{
+        display: flex;
+        margin-left: 20%;
+        margin-right: 8.333%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .infos{
+        width: 30%;
+    }
+
+    .list{
+        .blackerLt;
+        color: @white;
+        font-size: 20px;
+        line-height: 34px;
+    }
+
+    .type{
+        .blackerBd;
+        font-size: 32px;
+        color: @white;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .ico{
+        width: 170px;
+        height: 170px;
+
+        path, circle{
+            stroke: @white;
+        }
+
+        &.i-stg{
+            .bg('services-strategy.svg');
+        }
+        &.i-pdt{
+            .bg('services-product.svg');
+        }
+        &.i-mktg{
+            .bg('services-marketing.svg');
+        }
+    }
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-large){
+        
+    }
+
+    @media( max-width: @screen-small ){
+        
+    }
+
+    @media( max-width: @screen-xsmall ){
+    }
+}

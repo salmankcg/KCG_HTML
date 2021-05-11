@@ -1,0 +1,75 @@
+.title{
+    .blackerTh;
+    font-size: 60px;
+    line-height: 67px;
+
+
+    /*------------------*/
+    /*--- ATTRIBUTES ---*/
+    /*------------------*/
+    &.t-white{
+        color: @white
+    }
+
+    &.t-medium{
+        font-size: 45px;
+        line-height: 57px;
+    }
+
+    &.t-small{
+        font-size: 35px;
+        line-height: 47px;
+        .blackerLt;
+    }
+
+    &.t-center{
+        text-align: center;
+    }
+
+
+    /*----------------*/
+    /*--- ELEMENTS ---*/
+    /*----------------*/
+
+    strong{
+        .blackerBd;
+    }
+
+    .name{
+        .blackerBd;
+    }
+
+    .area{
+        .blackerBd;
+    }
+  
+
+
+    /*------------------*/
+    /*--- RESPONSIVE ---*/
+    /*------------------*/
+    @media( max-width: @screen-big ){
+    }
+
+
+    @media( max-width: @screen-large ){
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    @media( max-width: @screen-small ){
+        font-size: 32px;
+        line-height: 37px;
+
+        &.t-medium{
+            font-size: 26px;
+            line-height: 37px;
+        }
+
+        &.t-small{
+            font-size: 26px;
+            line-height: 37px;
+            .blackerLt;
+        }
+    }
+}
