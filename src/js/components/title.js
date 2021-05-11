@@ -8,16 +8,16 @@ import $ from "jquery";
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
-var $title       	= $('.title');
+
 
 
 
 // ------------------------------ \\\
 // ------------ INIT ------------ \\\
 // ------------------------------ \\\
-if($title.length){
+function init(_target){
 
-	$title.each(function(){
+	$(_target).each(function(){
 
 		var _html 	= $(this).html().replace('<strong>', ' -- ').replace('</strong>', ' -- ').replace('<br>', ' |').split(' ');
 		var _bold	= '';
@@ -41,12 +41,9 @@ if($title.length){
 				$(this).append('<div class="words w-block"><span></span></div>');
 			}else if(_html[i] != '' && _html[i] != ' ' && _html[i] != '|' && _html[i] != '--'){
 				$(this).append('<div class="words '+_bold+'"><span>'+_html[i]+'</span></div>');
-			}
-			
+			}	
 		}
-
 	});
-	
 }
 
 
@@ -79,5 +76,5 @@ function motionIn(_target){
 // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
-export { motionIn, motionOut }
+export { init, motionIn, motionOut }
 

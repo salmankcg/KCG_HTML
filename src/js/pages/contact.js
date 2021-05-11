@@ -41,14 +41,11 @@ function init(){
     _scrollPos          = 0;
     _scrollValues       = [];
 
-    Title.init($pages.find('.title'));
-
     addScrollMagicHome();
     setHomeScrollTo();
 
     Earth.init();
 }
-
 
 
 // ----------------------------------------- \\\
