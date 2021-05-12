@@ -1,60 +1,69 @@
-// ------------------------------ \\\
-// ------------ VARS ------------ \\\
-// ------------------------------ \\\
-var $cont       = $('.highlights');
-var $image 		= $cont.find('img');
+// ----------------------------------------- \\\
+// ---------------- IMPORTS ---------------- \\\
+// ----------------------------------------- \\\
+import $ from "jquery";
+import {TweenMax, Quad} from "gsap";
 
 
-// ------------------------------ \\\
-// ------------ INIT ------------ \\\
-// ------------------------------ \\\
 
-function init(){
+// ----------------------------------------- \\\
+// ----------------- VARS ------------------ \\\
+// ----------------------------------------- \\\
 
-	$image.mouseover(function() {
 
-		$image.mousemove(function(e) {
-			var x = e.pageX - $(this).offset().left,
-				y = e.pageY - $(this).offset().top;
-	
-			var px = x/$(this).width(),
-				py = y/$(this).height();
-			
-			var xx = -20 + (30*px),
-				yy = 20 - (30*py);
-		
-			TweenMax.killTweensOf($(this));
-			TweenMax.to($(this), 1, {rotationY: xx, rotationX: yy, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+
+// ----------------------------------------- \\\
+// ------------------ INIT ----------------- \\\
+// ----------------------------------------- \\\
+function init(_element){
+
+    var $el = _element;
+
+	$el.on('mouseenter',function(){
+		$el.on('mousemove',function(e){
+			mouseMove(this,e);
 		});
-	
-	}).mouseout(function() {
-	
-		$(this).unbind('mousemove');
-	
-		TweenMax.to($(this), 1, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 	});
-	
+
+	$el.on('mouseleave',function(){
+		mouseOut(this);
+	});
 }
 
-
-
-// ----------------------------------------- \\\
-// ------------ PUBLIC FUNCIONS ------------ \\\
-// ----------------------------------------- \\\
 
 
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
+function mouseMove(_this,_e){
 
+	var $this = _this;
+    var x = _e.pageX - $($this).offset().left,
+		y = _e.pageY - $($this).offset().top;
 
+	var px = x/$($this).width(),
+		py = y/$($this).height();
+	
+	var xx = -20 + (30*px),
+		yy = 20 - (30*py);
 
-// ----------------------------------------- \\\
-// ------------ MODULES EXPORTS ------------ \\\
-// ----------------------------------------- \\\
-module.exports = {
-	init: init,
-	condition: $cont,
-	args: arguments,
+	TweenMax.killTweensOf($this);
+	TweenMax.to($this, 1, {rotationY: xx, rotationX: yy, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 }
 
+function mouseOut(_this){
+
+	var $this = _this;
+
+    $($this).off('mousemove');
+	TweenMax.to($this, .5, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+}
+
+
+
+// ----------------------------------------- \\\
+// ---------------- EXPORTS ---------------- \\\
+// ----------------------------------------- \\\
+export { init }
+
+  

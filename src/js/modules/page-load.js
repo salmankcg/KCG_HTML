@@ -105,7 +105,7 @@ function setFirstLoader(){
 	
 			activeMenus($main.data('page'));
 
-		}, 2000);
+		}, 1000);
 		
 	}, 1000);
 }

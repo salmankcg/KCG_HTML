@@ -18,8 +18,8 @@ var $button       = $('.button');
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
 if($button.length){
-    $button.on('mouseenter', mouseEnter);
-    $button.on('mouseleave', mouseLeave);
+    // $button.on('mouseenter', mouseEnter);
+    // $button.on('mouseleave', mouseLeave);
 
     $button.each(function(){
         mouseMagnetic(this);
@@ -33,34 +33,28 @@ if($button.length){
 // ----------------------------------------- \\\
 function mouseEnter(){
 
-    var _background = $(this).find('.background');
-    var _text       = $(this).find('.text');
+    // var _text       = $(this).find('.text');
   
-    gsap.killTweensOf(_background);
-    gsap.killTweensOf(_text);
+    // gsap.killTweensOf(_text);
     
-    new TimelineMax()
-    .add([
-        gsap.to(_background, 0.5, { ease: Power3.easeOut, startAt: {y: '75%'}, y: '0%'}, 0),
-        gsap.to(_text, 0.1, { ease: Power3.easeOut, opacity: 0, y: '-10%' }, 0),
-        gsap.to(_text, 0.2, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
-    ]);
+    // new TimelineMax()
+    // .add([
+    //     gsap.to(_text, 1, { ease: Power3.easeOut, opacity: 0, y: '-40%' }, 0),
+    //     gsap.to(_text, 1, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
+    // ]);
 }
 
 function mouseLeave(){
 
-    var _background = $(this).find('.background');
-    var _text       = $(this).find('.text');
+    // var _text       = $(this).find('.text');
 
-    gsap.killTweensOf(_background);
-    gsap.killTweensOf(_text);
+    // gsap.killTweensOf(_text);
 
-    new TimelineMax()
-    .add([
-      gsap.to(_background, 0.5, { ease: Power3.easeOut, y: '-76%'}, 0),
-      gsap.to(_text, 0.1, { ease: Power3.easeOut, opacity: 0, y: '-10%' }, 0),
-      gsap.to(_text, 0.2, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
-    ]);
+    // new TimelineMax()
+    // .add([
+    //   gsap.to(_text, 0.1, { ease: Power3.easeOut, opacity: 0, y: '-10%' }, 0),
+    //   gsap.to(_text, 0.2, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
+    // ]);
 
 }
 
@@ -69,7 +63,6 @@ function mouseMagnetic(item) {
     var $item = $(item);
 
     $item.each(function() {
-
 
       var $self = $(this).find('.wrapper');
       var hover = false;
@@ -127,22 +120,10 @@ function mouseMagnetic(item) {
       };
   
       function onHover(x, y) {
-        gsap.to($self,1.5, {
-          x: x * 0.2,
-          y: y * 0.2,
-          //scale: .9,
-          rotation: x * 0.05,
-          ease: Power2.easeOut
-        },0);
+        gsap.to($self,1.5, { x: x * 0.2, y: y * 0.2, rotation: x * 0.05, ease: Power2.easeOut },0);
       };
       function onLeave() {
-        gsap.to($self, 1.5, {
-          x: 0,
-          y: 0,
-          // scale: 1,
-          rotation: 0,
-          ease: Elastic.easeOut
-        },0);
+        gsap.to($self, 1.5, { x: 0, y: 0, rotation: 0, ease: Elastic.easeOut },0);
       };
   
       attachEventsListener();

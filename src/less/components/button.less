@@ -9,8 +9,14 @@
     /*------------------*/
 
     &:hover{
-        span{
+        .text{
             color: @black;
+        }
+
+        .wrapper{
+            &:before{
+                transform: translateY(-50%);
+            }
         }
 
         .arrow{
@@ -36,6 +42,10 @@
     &.b-bullet{
         .wrapper{
             padding: 24px;
+
+            &:before{
+                display: none;
+            }
         }
     }
 
@@ -47,14 +57,14 @@
         align-items: center;
         
         &:hover{
-            span{
+            .text{
                 color: @white;
                 transform: translateX(-5%);
             }
         }
 
         &.b-center{
-            span{
+            .text{
                 .centerHoriz;
                 top: -44px;
             }
@@ -66,7 +76,7 @@
             display: inline-block;
         }
 
-        span{
+        .text{
             transition: .5s all @custom;
             display: inline-block;
             margin-right: 10px;
@@ -79,10 +89,14 @@
         .wrapper{
             border: 1px solid @black;
             background: @white;
+
+            &:before{
+                background: @black;
+            }
         }
 
         &:hover{
-            span{
+            .text{
                 color: @white;
             }
 
@@ -96,7 +110,7 @@
         }
         
 
-        span{
+        .text{
             color: @black;
             white-space: nowrap;
         }
@@ -107,10 +121,6 @@
                     fill: @black;
                 }
             }
-        }
-
-        .background{
-            background: @black;
         }
     }
   
@@ -125,20 +135,21 @@
         padding: 15px 30px;
         padding-bottom: 17px;
         overflow: hidden;
+
+        &:before{
+            .ba;
+            position: absolute;
+            width: 100%;
+            background: @white;
+            left: 0px;
+            z-index: 1;
+            height: 200%;
+            transform: translateY(100%);
+            transition: 1s all @custom;
+        }
     }
 
-    .background{
-        position: absolute;
-        width: 100%;
-        background: @white;
-        left: 0px;
-        z-index: 1;
-        height: 200%;
-	    top: -50%;
-        transform: translate3d(0,75%,0);
-    }
-
-    span{
+    .text{
         position: relative;
         font-size: 14px;
         color: @white;
@@ -147,6 +158,22 @@
         text-transform: uppercase;
         z-index: 2;
         white-space: nowrap;
+        display: block;
+        transition: .5s all @custom;
+    }
+
+    .label{
+        position: relative;
+        font-size: 14px;
+        color: @black;
+        .blackerBd;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        z-index: 2;
+        white-space: nowrap;
+        display: block;
+        transition: .5s all @custom;
+        margin-right: 10px;
     }
 
     .arrow{
@@ -179,10 +206,10 @@
         }
 
         svg{
-            transition: .5s all @custom;
-
+        
             path{
                 fill: @white;
+                transition: .5s all @custom;
             }
         }
     }

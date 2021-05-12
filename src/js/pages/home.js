@@ -43,8 +43,8 @@ function init(){
 
     Title.init($pages.find('.title'));
 
-    addScrollMagicHome();
-    setHomeScrollTo();
+    addScrollMagic();
+    setScrollTo();
 
     Earth.init();
 }
@@ -63,7 +63,7 @@ function resize() {
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
-function addScrollMagicHome(){
+function addScrollMagic(){
 
     var $slides     = $pages.find('.hc-slides');
     var $slidesC    = $pages.find('.hc-clients');
@@ -193,7 +193,7 @@ function addScrollMagicHome(){
     
 }
 
-function setHomeScrollTo(){
+function setScrollTo(){
 
     _controller.scrollTo(function (newScrollPos) {
         gsap.to(window, 2, {scrollTo: {y: newScrollPos , ease: Power3.easeOut}});

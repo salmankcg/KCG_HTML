@@ -2,14 +2,12 @@
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
 import $ from "jquery";
-import * as Earth from "../components/earth"
-import * as Title from "../components/title"
-import * as ScrollMagic from  'scrollmagic';
+import  "../components/testimonial";
+import * as MouseMove from  "../components/mouse-move";
+// import * as ScrollMagic from  'scrollmagic';
 import gsap, {TweenMax, TimelineMax, Power3} from "gsap";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-gsap.registerPlugin(ScrollToPlugin);
+// import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+// ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 
 
@@ -18,13 +16,16 @@ gsap.registerPlugin(ScrollToPlugin);
 // ----------------------------------------- \\\
 var $pages       	= $('.pages');
 var $header         = $('.header');
-var $scrollDown     = null;
-var $homeBullets    = null;
+var $abtWorld       = $('.about-world');
+var $people         = $abtWorld.find('.item');
+var $highlights     = $('.highlights');
 
 var _controller     = null;
 var _wHeight        = null;
 var _scrollPos      = null;
 var _scrollValues   = null;
+var _inneHeight     = $abtWorld.find('.aw-people').height();
+var _inneWidth      = $abtWorld.find('.aw-people').width();
 
 
 
@@ -33,18 +34,9 @@ var _scrollValues   = null;
 // ----------------------------------------- \\\
 function init(){
 
-    $scrollDown         = $('.scrolldown');
-    $homeBullets        = $('.home-bullets');
+    addPopPeople();
 
-    _controller         = null;
-    _wHeight            = $(window).height();
-    _scrollPos          = 0;
-    _scrollValues       = [];
-
-    addScrollMagicHome();
-    setHomeScrollTo();
-
-    Earth.init();
+    MouseMove.init($highlights.find('img'));
 }
 
 
@@ -52,7 +44,7 @@ function init(){
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
 function resize() {
-    Earth.resize();
+    
 }
 
 
@@ -60,7 +52,7 @@ function resize() {
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
-function addScrollMagicHome(){
+function addScrollMagic(){
 
     var $slides     = $pages.find('.hc-slides');
     var $slidesC    = $pages.find('.hc-clients');
@@ -190,7 +182,7 @@ function addScrollMagicHome(){
     
 }
 
-function setHomeScrollTo(){
+function setScrollTo(){
 
     _controller.scrollTo(function (newScrollPos) {
         gsap.to(window, 2, {scrollTo: {y: newScrollPos , ease: Power3.easeOut}});
@@ -211,7 +203,49 @@ function setHomeScrollTo(){
     });
 }
 
+function addPopPeople(){
 
+    $people.each(function(e,i){
+        var _this = this;
+
+        setTimeout(function(){
+            scramblePos(_this);
+        }, e*300);
+        
+    });
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function scramblePos(_this){
+    var _posY = getRandomInt(1, _inneHeight);
+    var _posX = getRandomInt(1, _inneWidth);
+
+    $(_this).css('transform','translate('+_posX+'px,'+_posY+'px)');
+
+    motionIn(_this);
+}
+
+function motionIn(_this){
+
+    var $item   = $(_this);
+    var $figure = $(_this).find('img');
+
+
+    new TimelineMax({onComplete:function(){
+        TweenMax.killTweensOf($figure);
+        setTimeout(function(){
+            scramblePos($item);
+        }, 1000);
+    }})
+    .add([TweenMax.to($figure, 5, {scale: 1, ease: 'Elastic.easeOut'})])
+    .add([TweenMax.to($figure, .5, {scale: 0, ease: 'Power3.easeOut'})],20)
+      
+
+    
+}
 
 // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\

@@ -19,6 +19,31 @@
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
+    .container-fluid{
+        .col{
+            &.col-9{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                &.c-testimonial{
+                    display: initial;
+                }
+
+                .caption{
+                    width: 15%;
+                }
+
+                .subtitle{
+                    width: 25%;
+                }
+
+                .paragraph{
+                    width: 48%;
+                }
+            }
+        }
+    }
 
 
 
@@ -26,23 +51,7 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-large){
-        padding: 60px 0px;
-
-        .inner{
-            flex-direction: column;
-
-            .col{
-                width: 100% !important;
-
-                &.col-1{
-                    display: none;
-                }
-
-                &.col-10{
-                    width: ~'calc(8.33% * 12)';
-                }
-            }
-        }
+        
     }
 
    
