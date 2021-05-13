@@ -29,8 +29,10 @@
         padding-top: 240px;
         min-height: auto;
 
-        .inner{
-            align-items: flex-start;
+        .col{
+            &.col-10{
+                padding-right: 35%;
+            }
         }
 
         &::before{
@@ -99,8 +101,17 @@
     &.w-person{
         padding-top: 120px;
 
-        .inner{
-            align-items: flex-start;
+        .container-fluid{
+            .col{
+                &.col-4{
+                    padding-right: 5%;
+                }
+            }
+        }
+
+
+        .subtitle{
+            margin-bottom: 40px;
         }
 
         .button{
@@ -114,18 +125,24 @@
     }
         
     &.w-team{
-        padding-top: 240px;
+        padding-top: 140px;
+
+        .col{
+            &.col-5{
+                &:first-of-type{
+                    padding-right: 13%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+            }
+        }
     }
   
 
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
-
-    .inner{
-        align-items: center;
-        height: auto;
-    }
 
     .image-services{
         height: 100vh;
@@ -185,15 +202,6 @@
             height: auto;
             min-height: inherit;
 
-            .col{
-                &.col-5, &.col-2, &.col-1{
-                    display: none;
-                }
-
-                &.col-3{
-                    width: 100%;
-                }
-            }
             .scrolldown{
                 display: none;
             }
@@ -204,20 +212,7 @@
         }
 
         &.w-person{
-            .inner{
-                flex-direction: column;
-
-                .col{
-                    &.col-4, &.col-5, &.col-1{
-                        width: 100% !important;
-                    }
-
-                    &.col-4{
-                        order: 2;
-                    }
-                }
-            }
-
+           
             .title{
                 text-align: left;
             }
@@ -237,38 +232,15 @@
             }
         }
 
-        
-
         &.w-work{
             padding-top: 120px;
             height: 250px;
 
-            .inner{
-                flex-direction: column;
-
-                .col{
-                    &.col-4, &.col-5, &.col-1{
-                        width: 100% !important;
-                    }
-                }
-            }
         }
 
         &.w-journal-inner{
             padding-top: 190px;
             
-            .inner{
-                flex-direction: column;
-
-                .col{
-                    &.col-4{
-                        display: none;
-                    }
-                    &.col-7, &.col-10, &.col-1{
-                        width: 100%  !important;
-                    }
-                }
-            }
 
             .button{
                 margin-bottom: 40px;
@@ -289,17 +261,7 @@
         }
 
         &.w-contact{
-            .inner{
-                .col{
-                    &.col-1{
-                        display: none;
-                    }
-    
-                    &.col-10{
-                        width: 100%;
-                    }
-                }
-            }
+            
         }
     }
 

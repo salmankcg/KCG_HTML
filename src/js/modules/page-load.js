@@ -10,13 +10,13 @@ import * as Loader from "../components/loader"
 // ----------------------------------------- \\\
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
-var $menu 	= $('.menu');
-var $header = $('.header');
-var $cont 	= $('.main-content');
-var $main 	= $('main');
+var $menu 		= $('.menu');
+var $header 	= $('.header');
+var $cont 		= $('.main-content');
+var $main 		= $('main');
 
-var _loadDelay = 400;
-
+var _loadDelay 	= 400;
+var _dataPage	= $main.data('page');
 
 
 // ----------------------------------------- \\\
@@ -29,8 +29,6 @@ function init(){
 		$(window).scrollTop(0);
 	}, i);
 
-	console.log('LOAD INIT');
-
 	Loader.initMotion();
 	
 	setTimeout(function(){
@@ -41,14 +39,14 @@ function init(){
 			elem: $('body'),
 			testDelay: _loadDelay,
 			progress: function(pcent){
-				if($main.data('page') != 'about-person'){
+				if(_dataPage != 'about-person'){
 					var _pcent 		= parseInt(pcent);
 					Loader.progressMotion(_pcent);
 				}
 			},
 			complete: function(){
 
-				if($main.data('page') == 'contact' || $main.data('page') == 'about-approach' || $main.data('page') == 'about-person'){
+				if(_dataPage == 'contact' || _dataPage == 'about-approach' || _dataPage == 'about-person' || _dataPage == 'legals'){
 
 					setTimeout(function(){
 						Loader.progressMotion(0);
@@ -103,7 +101,7 @@ function setFirstLoader(){
 			$header.addClass('motion-in');
 			$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
 	
-			activeMenus($main.data('page'));
+			activeMenus(_dataPage);
 
 		}, 1000);
 		
@@ -112,8 +110,8 @@ function setFirstLoader(){
 
 
 function activeMenus(page){
-	$('.menu').find('.item').removeClass('active');
-	$('.menu').find('.item').filter('[data-target="'+page+'"]').addClass('active');
+	$menu.find('.item').removeClass('active');
+	$menu.find('.item').filter('[data-target="'+page+'"]').addClass('active');
 
 	console.log(page);
 }

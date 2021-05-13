@@ -1,51 +1,71 @@
-// ------------------------------ \\\
-// ------------ VARS ------------ \\\
-// ------------------------------ \\\
-var $cont       = $('.people-scramble');
-var $title		= $('.t-people');
-var $item 		= $cont.find('.item');
+// ----------------------------------------- \\\
+// ---------------- IMPORTS ---------------- \\\
+// ----------------------------------------- \\\
+import $ from "jquery";
+import * as MouseMove from  "../components/mouse-move";
+import {TweenMax, Elastic, Power3} from "gsap";
 
-var $name 		= document.querySelector('.name');
-var $area 		= document.querySelector('.area');
-var _fxName 	= null;
-var _fxArea 	= null;
 
-var _name 		= null;
-var _area 		= null;
-var _arrPos 	= [ 
-					[12.5 * 0, 12.5 * 1, 12.5 * 1, 12.5 * 0],
-					[12.5 * 1, 12.5 * 2, 12.5 * 2, 12.5 * 1],
-					[12.5 * 2, 12.5 * 3, 12.5 * 3, 12.5 * 2],
-					[12.5 * 3, 12.5 * 4, 12.5 * 4, 12.5 * 3],
-					[12.5 * 4, 12.5 * 5, 12.5 * 5, 12.5 * 4],
-					[12.5 * 5, 12.5 * 6, 12.5 * 6, 12.5 * 5],
-					[12.5 * 6, 12.5 * 7, 12.5 * 7, 12.5 * 6],
-					[12.5 * 7, 12.5 * 8, 12.5 * 8, 12.5 * 7]
-				];
-var _requestA	= null;
 
-// ------------------------------ \\\
-// ------------ INIT ------------ \\\
-// ------------------------------ \\\
+// ----------------------------------------- \\\
+// ----------------- VARS ------------------ \\\
+// ----------------------------------------- \\\
+var $webdoor		= $('.webdoor');
+var $peopleList		= $('.people');
+var $peopleScramble	= $('.people-scramble');
+var $itemScramble 	= $peopleScramble.find('.item');
 
+var $name 			= document.querySelector('.name');
+var $area 			= document.querySelector('.area');
+
+var _fxName 		= null;
+var _fxArea 		= null;
+
+var _name 			= null;
+var _area 			= null;
+var _arrPos 		= [ 
+              		  [12.5 * 0, 12.5 * 1, 12.5 * 1, 12.5 * 0],
+              		  [12.5 * 1, 12.5 * 2, 12.5 * 2, 12.5 * 1],
+              		  [12.5 * 2, 12.5 * 3, 12.5 * 3, 12.5 * 2],
+              		  [12.5 * 3, 12.5 * 4, 12.5 * 4, 12.5 * 3],
+              		  [12.5 * 4, 12.5 * 5, 12.5 * 5, 12.5 * 4],
+              		  [12.5 * 5, 12.5 * 6, 12.5 * 6, 12.5 * 5],
+              		  [12.5 * 6, 12.5 * 7, 12.5 * 7, 12.5 * 6],
+              		  [12.5 * 7, 12.5 * 8, 12.5 * 8, 12.5 * 7]
+					]
+	
+
+
+
+// ----------------------------------------- \\\
+// ------------------ INIT ----------------- \\\
+// ----------------------------------------- \\\
 function init(){
 
-	_fxName 	= new TextScramble($name);
+  	_fxName 	= new TextScramble($name);
 	_fxArea 	= new TextScramble($area);
-	$item.on('mouseenter',mouseEnter);
-	$item.on('mouseleave',mouseLeave);
+  
+	MouseMove.init($peopleList.find('.item').find('.i-wrapper'));
+
+	$itemScramble.on('mouseenter',mouseEnter);
+	$itemScramble.on('mouseleave',mouseLeave);
 	
-	$cont.on('mouseleave',function(){
+	$peopleScramble.on('mouseleave',function(){
 		_fxName.setText('the people');
 		_fxArea.setText('magic');
 	});
-}
 
+
+}
 
 
 // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
+function resize() {
+    
+}
+
 
 
 // ----------------------------------------- \\\
@@ -57,20 +77,20 @@ function mouseEnter(){
 		_name 	= $(this).data('name');
 		_area 	= $(this).data('area');
 	
-	$item.each(function(i,e){
+	$itemScramble.each(function(i,e){
 		
-		var $figure = $cont.find('.wrapper').find('figure').eq(i);
+		var $figure = $peopleScramble.find('.wrapper').find('figure').eq(i);
 
 		TweenMax.killTweensOf($figure);
 		
 		if(i == _target){
-			TweenMax.to($figure, 1, { ease: 'Power3.easeOut', "clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"});
+			TweenMax.to($figure, 1, { ease: Power3.easeOut, "clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"});
 		}else{
 			
 			if((i) < _target){
-				TweenMax.to($figure, 1, { ease: 'Power3.easeOut', "clip-path": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"});
+				TweenMax.to($figure, 1, { ease: Power3.easeOut, "clip-path": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"});
 			}else{
-				TweenMax.to($figure, 1, { ease: 'Power3.easeOut', "clip-path": "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"});
+				TweenMax.to($figure, 1, { ease: Power3.easeOut, "clip-path": "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"});
 			}
 		}
 	});
@@ -85,21 +105,19 @@ function mouseLeave(){
 	
 	var $this 	= $(this);
 
-	$item.each(function(i,e){
+	$itemScramble.each(function(i,e){
 		var _target = $(this).data('target');
 		var $figure = $this.closest('.wrapper').find('figure').eq(_target);
 
 		TweenMax.killTweensOf($figure);
-
-		// gsap.to($figure, { duration: 3, "clip-path": "polygon("+_arrPos[i][0]+"% 0%, "+_arrPos[i][1]+"% 0%, "+_arrPos[i][2]+"% 100%, "+_arrPos[i][3]+"% 100%)", ease: 'Elastic.easeOut'});
-		TweenMax.to($figure, 3, { ease: 'Elastic.easeOut', "clip-path": "polygon("+_arrPos[i][0]+"% 0%, "+_arrPos[i][1]+"% 0%, "+_arrPos[i][2]+"% 100%, "+_arrPos[i][3]+"% 100%)"});
+		TweenMax.to($figure, 3, { ease: Elastic.easeOut, "clip-path": "polygon("+_arrPos[i][0]+"% 0%, "+_arrPos[i][1]+"% 0%, "+_arrPos[i][2]+"% 100%, "+_arrPos[i][3]+"% 100%)"});
 		
 	});
 	
 }
 
-
 class TextScramble {
+
 	constructor(el) {
 	  this.el 		= el
 	  this.chars 	= 'abcdefghijlkmnopqrstuvxz'
@@ -153,16 +171,9 @@ class TextScramble {
 	  return this.chars[Math.floor(Math.random() * this.chars.length)]
 	}
 }
-  
-
 
 
 // ----------------------------------------- \\\
-// ------------ MODULES EXPORTS ------------ \\\
+// ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
-module.exports = {
-	init: init,
-	condition: $cont,
-	args: arguments,
-}
-
+export { init, resize }

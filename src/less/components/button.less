@@ -3,6 +3,7 @@
     display: table;
     margin-top: 40px;
     cursor: pointer;
+    width: fit-content;
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
@@ -17,6 +18,10 @@
             &:before{
                 transform: translateY(-50%);
             }
+        }
+
+        .label{
+            opacity: .3;
         }
 
         .arrow{
@@ -123,6 +128,17 @@
             }
         }
     }
+
+    &.b-white{
+        .wrapper{
+            &:before{
+                background: @white;
+            }
+        }
+        .label{
+            color: @white;
+        }
+    }
   
 
     /*----------------*/
@@ -140,7 +156,7 @@
             .ba;
             position: absolute;
             width: 100%;
-            background: @white;
+            background: @black;
             left: 0px;
             z-index: 1;
             height: 200%;

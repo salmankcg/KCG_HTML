@@ -2,19 +2,15 @@
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
 import $ from "jquery";
-import * as Form from  "../components/form";
-import gsap, {Power3} from "gsap";
-import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
-gsap.registerPlugin(ScrollToPlugin);
-
+import * as MouseMove from  "../components/mouse-move";
 
 
 // ----------------------------------------- \\\
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
-var $contact		= $('.contact');
-var $input          = $contact.find('.input');
-var $scrollDown     = $('.scrolldown');
+var $workList		= $('.works-list');
+
+
 
 
 // ----------------------------------------- \\\
@@ -22,12 +18,8 @@ var $scrollDown     = $('.scrolldown');
 // ----------------------------------------- \\\
 function init(){
 
-    Form.init($input);
+    MouseMove.init($workList.find('.item').find('.wrapper'));
 
-    $scrollDown.on('click',function(){
-        $(this).addClass('hide');
-        gsap.to(window, .5, {scrollTo: {y: $(window).height() , ease: Power3.easeOut}});
-    });
 }
 
 

@@ -5,10 +5,12 @@ import $ from "jquery";
 import * as PageLoad from "./modules/page-load";
 import  "./modules/svg";
 
-
 import * as Home from "./pages/home";
 import * as About from "./pages/about";
-
+import * as Approach from "./pages/about-approach";
+import * as Team from "./pages/about-team";
+import * as Works from "./pages/works";
+import * as Contact from "./pages/contact";
 
 import  "./components/button";
 import  "./components/footer";
@@ -37,6 +39,18 @@ $(function() {
         break;
         case 'about':
             About.init();
+        break;
+        case 'about-approach':
+            Approach.init();
+        break;
+        case 'about-team':
+            Team.init();
+        break;
+        case 'works':
+            Works.init();
+        break;
+        case 'contact':
+            Contact.init();
         break;
     }
 

@@ -23,7 +23,6 @@
                 &:before{
                     background: rgba(0,0,0,.5);
                 }
-
             }
         }
 
@@ -31,24 +30,20 @@
             color: @gray;
         }
 
-        .button{
+        .button:not(.b-icon){
             color: @black;
             
             .wrapper{
                 border: 1px solid @black;
+
+                &:before{
+                    background: @black !important;
+                }
             }
     
             &:hover{
                 span{
                     color: @white;
-                }
-
-                .arrow{
-                    svg{
-                        path{
-                            fill: @white;
-                        }
-                    }
                 }
             }
     
@@ -63,33 +58,35 @@
         }
 
         .scrollup{
-            
             &:before{
-                background: @black;
+                background: @gray;
+            }
+
+            &:hover{
+                .arrow{
+                    svg{
+                        path{
+                            fill: @white !important;
+                        }
+                    }
+                }
             }
 
             .wrapper{
-                background: @white;
+                border: 1px solid @black;
+                background: @white !important;
+                
+                &:before{
+                    background: @black !important;
+                }
             }
     
             .arrow{
-                
                 svg{
-                    rect{
-                        stroke: @gray;
-                    }
                     path{
-                        fill: @gray;
+                        fill: @gray !important;
                     }
                 }
-            }
-
-            .button{
-            
-                .wrapper{
-                    background: @white;
-                }
-    
             }
         }
     }
@@ -143,7 +140,6 @@
 
         .row{
             &:nth-of-type(1){
-                // padding-top: 220px;
                 padding-bottom: 120px;
             }
 
@@ -151,6 +147,13 @@
                 position: absolute;
                 width: 100%;
                 bottom: 0px;
+            }
+        }
+
+        .col{
+            &.col-3{
+                display: flex;
+                justify-content: center;
             }
         }
     }

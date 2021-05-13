@@ -21,12 +21,19 @@
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
-    
+    .container-fluid{
+        .col{
+            &.col-4{
+                &:first-of-type{
+                    padding-right: 10%;
+                }
+            }
+        }
+    }
 
     .image{
         .cover;
         position: relative;
-        padding-top: 40%;
     }
 
     .work-image{
@@ -66,23 +73,6 @@
 
         .image{
             padding-top: 50%;
-        }
-
-        .inner{
-            flex-direction: column;
-
-            .col{
-                &.col-1{
-                    display: none;
-                }
-                
-                &.col-4, &.col-10{
-                    width: 100% !important;
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-
-            }
         }
 
         .details{

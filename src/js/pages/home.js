@@ -18,13 +18,13 @@ gsap.registerPlugin(ScrollToPlugin);
 // ----------------------------------------- \\\
 var $pages       	= $('.pages');
 var $header         = $('.header');
-var $scrollDown     = null;
-var $homeBullets    = null;
+var $scrollDown     = $('.scrolldown');
+var $homeBullets    = $('.home-bullets');
 
 var _controller     = null;
-var _wHeight        = null;
-var _scrollPos      = null;
-var _scrollValues   = null;
+var _wHeight        = $(window).height();
+var _scrollPos      = 0;
+var _scrollValues   = [];
 
 
 
@@ -32,14 +32,6 @@ var _scrollValues   = null;
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
 function init(){
-
-    $scrollDown         = $('.scrolldown');
-    $homeBullets        = $('.home-bullets');
-
-    _controller         = null;
-    _wHeight            = $(window).height();
-    _scrollPos          = 0;
-    _scrollValues       = [];
 
     Title.init($pages.find('.title'));
 

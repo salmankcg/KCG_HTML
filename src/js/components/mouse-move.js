@@ -47,8 +47,8 @@ function mouseMove(_this,_e){
 	var xx = -20 + (30*px),
 		yy = 20 - (30*py);
 
-	TweenMax.killTweensOf($this);
-	TweenMax.to($this, 1, {rotationY: xx, rotationX: yy, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+	TweenMax.killTweensOf($($this));
+	TweenMax.to($($this), 1, {rotationY: xx, rotationX: yy, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 }
 
 function mouseOut(_this){
@@ -56,7 +56,9 @@ function mouseOut(_this){
 	var $this = _this;
 
     $($this).off('mousemove');
-	TweenMax.to($this, .5, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+
+	TweenMax.killTweensOf($($this));
+	TweenMax.to($($this), .5, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
 }
 
 

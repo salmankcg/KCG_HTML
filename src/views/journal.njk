@@ -1,0 +1,114 @@
+{% extends "./layouts/main.njk" %}
+{% set title        = 'KCG' %}
+{% set page         = 'journal' %}
+{% set header       = '' %}
+{% set footer       = '' %}
+{% set navigate     = '' %}
+
+{% block content %}
+
+
+<section>
+
+  <div class="webdoor w-journal">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-10">
+          <div class="caption c-center"><span>Journal</span></div>
+          <h1 class="title t-medium t-center" ><strong>Here is where we tell stories.</strong></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journal-content jc-dark">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-11">
+          <div class="journal-highlights">
+            <div class="info" data-color="green">
+              <div class="caption c-white"><span>Highlight</span></div>
+              <h2 class="title t-medium t-white" ><strong>How to bring teams together and manage time zones.</strong></h2>
+            </div>
+            <div class="image">
+              <img src="assets/journal/highlight.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter f-marginT">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-11">
+          <a href="" class="item i-search"><span class="svg"></span></a>
+          <a href="" class="item active"><span>All Categories</span></a>
+          <a href="" class="item"><span>Categories</span></a>
+          <a href="" class="item"><span>Categories</span></a>
+          <a href="" class="item"><span>Categories</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="journal-content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-11">
+          <div class="journal-list">
+          
+            {% for u in range(0,3) %}
+            
+            <a href="journal-inner.html" class="item" data-color="orange">
+              <img src="assets/about/journal-1.png" alt="" />
+              <div class="j-title">We adopted some elephants in Thailand!</div>
+            </a>
+
+            <a href="journal-inner.html" class="item" data-color="green">
+              <img src="assets/about/journal-2.png" alt="" />
+              <div class="j-title">How to bring teams together and manage time zones.</div>
+            </a>
+
+            <a href="journal-inner.html" class="item" data-color="yellow">
+              <img src="assets/about/journal-3.png" alt="" />
+              <div class="j-title">Collaboration is the key for a remote work.</div>
+            </a>
+
+            <a href="journal-inner.html" class="item" data-color="purple">
+              <img src="assets/about/journal-1.png" alt="" />
+              <div class="j-title">We adopted some elephants in Thailand!</div>
+            </a>
+            
+            <a href="journal-inner.html" class="item" data-color="blue">
+              <img src="assets/about/journal-2.png" alt="" />
+              <div class="j-title">How to bring teams together and manage time zones.</div>
+            </a>
+
+            <a href="journal-inner.html" class="item" data-color="yellow">
+              <img src="assets/about/journal-3.png" alt="" />
+              <div class="j-title">Collaboration is the key for a remote work.</div>
+            </a>
+        
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button b-black b-icon b-center b-align-center">
+      <span class="label">LOAD MORE</span>
+      <div class="wrapper">
+        <div class="arrow svg a-down"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+{% endblock %}

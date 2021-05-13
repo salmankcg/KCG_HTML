@@ -12,7 +12,8 @@ var $header       	= $('.header');
 var $menu       	= $('.menu');
 var $hmbrg      	= $header.find('.hmbrg');
 
-
+var _dataPage		= $('main').data('page');
+var _headerH		= $('.header').find('.logo').height() + (($('.header').height()-$('.header').find('.logo').height())/2);
 
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
@@ -27,6 +28,9 @@ if($header.length){
 			showMenu();	
 		}
 	});
+
+	$(window).on('scroll.header', onScroll);
+	onScroll();
 }
 
 
@@ -40,6 +44,57 @@ if($header.length){
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
+function onScroll(){
+
+	var dHeight 		= $(document).height();
+	var wHeight			= $(window).height();
+	var scrollTop 		= $(window).scrollTop();
+
+
+	switch(_dataPage){
+		case 'home':
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				if($header.hasClass('check-footer')){
+					$header.removeClass('h-white');
+				}
+			}
+		break;
+		case 'about-approach':
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.removeClass('h-white');
+			}else{
+				$header.addClass('h-white');
+			}
+		break;
+		case 'journal-inner':
+			if(scrollTop  >= (wHeight * 0.80) - _headerH){
+				if(scrollTop + wHeight >= dHeight - _headerH){
+					$header.addClass('h-white');
+				}else{
+					$header.removeClass('h-white');
+				}
+			}else{
+				$header.addClass('h-white');
+			}
+			
+		break;
+		case 'contact':
+			$header.addClass('h-white');
+			
+		break;
+		default:
+			if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				$header.removeClass('h-white');
+			}
+	}
+	
+
+}
+
 function showMenu(){
 	$header.addClass('show-menu');
 	$menu.addClass('show-menu');
