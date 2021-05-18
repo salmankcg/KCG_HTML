@@ -113,7 +113,7 @@ function activeMenus(page){
 	$menu.find('.item').removeClass('active');
 	$menu.find('.item').filter('[data-target="'+page+'"]').addClass('active');
 
-	console.log(page);
+	console.log('data-page '+page);
 }
 
 // ----------------------------------------- \\\

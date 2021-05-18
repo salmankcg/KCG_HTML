@@ -178,22 +178,22 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-big ){
+        .item{
+            font-size: 40px;
+            line-height: 80px;
+        }
+
+        .infos{
+            font-size: 16px;
+        }
+
+        .social{
+            margin-top: 0px;
+        }
     }
 
     @media( max-width: @screen-large){
-        .inner{
-            flex-direction: column;
-            .col{
-                &.col-1{
-                    display: none;
-                }
-
-                &.col-3, &.col-4, &.col-10{
-                    width: 100%;
-                }
-            }
-        }
-
+        
         .item{
             font-size: 45px;
             line-height: 55px;

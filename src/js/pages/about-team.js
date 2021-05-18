@@ -42,18 +42,20 @@ var _arrPos 		= [
 // ----------------------------------------- \\\
 function init(){
 
-  	_fxName 	= new TextScramble($name);
-	_fxArea 	= new TextScramble($area);
-  
-	MouseMove.init($peopleList.find('.item').find('.i-wrapper'));
-
-	$itemScramble.on('mouseenter',mouseEnter);
-	$itemScramble.on('mouseleave',mouseLeave);
+	if($(window).width() >= 860){
+		_fxName 	= new TextScramble($name);
+		_fxArea 	= new TextScramble($area);
 	
-	$peopleScramble.on('mouseleave',function(){
-		_fxName.setText('the people');
-		_fxArea.setText('magic');
-	});
+		MouseMove.init($peopleList.find('.item').find('.i-wrapper'));
+
+		$itemScramble.on('mouseenter',mouseEnter);
+		$itemScramble.on('mouseleave',mouseLeave);
+		
+		$peopleScramble.on('mouseleave',function(){
+			_fxName.setText('the people');
+			_fxArea.setText('magic');
+		});
+	}
 
 
 }

@@ -1,20 +1,26 @@
 // ----------------------------------------- \\\
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
-import $ from "jquery";
-import * as PageLoad from "./modules/page-load";
-import  "./modules/svg";
+import $ from 'jquery';
 
-import * as Home from "./pages/home";
-import * as About from "./pages/about";
-import * as Approach from "./pages/about-approach";
-import * as Team from "./pages/about-team";
-import * as Works from "./pages/works";
-import * as Contact from "./pages/contact";
+import * as PageLoad from './modules/page-load';
+import './modules/scrollmagic'
+import './modules/svg';
 
-import  "./components/button";
-import  "./components/footer";
-import  "./components/header";
+import * as Home        from './pages/home';
+import * as About       from './pages/about';
+import * as Approach    from './pages/about-approach';
+import * as Team        from './pages/about-team';
+import * as Works       from './pages/works';
+import * as Contact     from './pages/contact';
+import * as Services    from './pages/services';
+import * as Service     from './pages/service';
+
+import  './components/button';
+import  './components/footer';
+import  './components/header';
+import  "./components/testimonial";
+import  "./components/services-items";
 
 
 
@@ -29,7 +35,7 @@ const _pages = $('main').data('page');
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
 $(function() {
-    "use strict";
+    'use strict';
 
     PageLoad.init();
 
@@ -52,6 +58,12 @@ $(function() {
         case 'contact':
             Contact.init();
         break;
+        case 'services':
+            Services.init();
+        break;
+        case 'service':
+            Service.init();
+        break;
     }
 
     $( window ).resize(function() {
@@ -59,8 +71,11 @@ $(function() {
             case 'home':
                 Home.resize();
             break;
-            case 'home':
-                About.resize();
+            case 'services':
+                Services.resize();
+            break;
+            case 'service':
+                Service.resize();
             break;
         }
     });

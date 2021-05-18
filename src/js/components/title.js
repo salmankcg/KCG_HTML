@@ -52,9 +52,6 @@ function init(_target){
 // ------------ PUBLIC FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
 function motionOut(_target){
-	
-	$(_target).find('.paragraph').removeClass('motion-in');
-	$(_target).find('.button').removeClass('motion-in');
 
 	$(_target).find('.words').each(function(i,e){
         $(e).removeClass('motion-in');
@@ -63,9 +60,6 @@ function motionOut(_target){
 
 function motionIn(_target){
 	
-	$(_target).find('.paragraph').addClass('motion-in');
-	$(_target).find('.button').addClass('motion-in');
-
 	$(_target).find('.words').each(function(i,e){
         $(e).addClass('motion-in');
     });

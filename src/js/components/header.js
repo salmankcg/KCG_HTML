@@ -84,6 +84,39 @@ function onScroll(){
 			$header.addClass('h-white');
 			
 		break;
+		case 'services':
+			var _scTop = $('.sc-clients').offset().top;
+
+			if(scrollTop >= _scTop - _headerH){
+				if(scrollTop + wHeight >= dHeight - _headerH){
+					$header.addClass('h-white');
+					console.log('footer');
+				}else{
+					$header.removeClass('h-white');
+					console.log('crientes');
+				}
+
+			}else{
+				if(!$header.hasClass('check-header')){
+					$header.addClass('h-white');
+				}
+			}
+		break;
+		case 'service':
+			
+			var _scTop = $('.sc-testimonials').offset().top;
+
+			if(scrollTop >= _scTop - _headerH){
+				if(scrollTop + wHeight >= dHeight - _headerH){
+					$header.addClass('h-white');
+				}else{
+					$header.removeClass('h-white');
+				}
+
+			}else{
+				$header.addClass('h-white');
+			}
+		break;
 		default:
 			if(scrollTop + wHeight >= dHeight - _headerH){
 				$header.addClass('h-white');

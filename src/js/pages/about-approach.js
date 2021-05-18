@@ -21,14 +21,16 @@ var $videos         = $('.video-background');
 // ----------------------------------------- \\\
 function init(){
 
-    MouseMove.init($abtApproach.find('.item').find('.wrapper'));
+    if($(window).width() >= 860){
+      MouseMove.init($abtApproach.find('.item').find('.wrapper'));
 
-    $item.on('mouseenter', onMouseEnter);
-	  $item.on('mouseleave', onMouseLeave);
+      $item.on('mouseenter', onMouseEnter);
+      $item.on('mouseleave', onMouseLeave);
 
-    $('video')[0].play();
-    $('video')[1].play();
-    $('video')[2].play();
+      $('video')[0].play();
+      $('video')[1].play();
+      $('video')[2].play();
+    }
 }
 
 

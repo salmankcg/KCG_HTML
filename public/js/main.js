@@ -22890,19 +22890,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_page_load__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/page-load */ "./src/js/modules/page-load.js");
-/* harmony import */ var _modules_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/svg */ "./src/js/modules/svg.js");
-/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/home */ "./src/js/pages/home.js");
-/* harmony import */ var _pages_about__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/about */ "./src/js/pages/about.js");
-/* harmony import */ var _pages_about_approach__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/about-approach */ "./src/js/pages/about-approach.js");
-/* harmony import */ var _pages_about_team__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/about-team */ "./src/js/pages/about-team.js");
-/* harmony import */ var _pages_works__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/works */ "./src/js/pages/works.js");
-/* harmony import */ var _pages_contact__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/contact */ "./src/js/pages/contact.js");
-/* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
-/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/header */ "./src/js/components/header.js");
+/* harmony import */ var _modules_scrollmagic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollmagic */ "./src/js/modules/scrollmagic.js");
+/* harmony import */ var _modules_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/svg */ "./src/js/modules/svg.js");
+/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/home */ "./src/js/pages/home.js");
+/* harmony import */ var _pages_about__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/about */ "./src/js/pages/about.js");
+/* harmony import */ var _pages_about_approach__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/about-approach */ "./src/js/pages/about-approach.js");
+/* harmony import */ var _pages_about_team__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/about-team */ "./src/js/pages/about-team.js");
+/* harmony import */ var _pages_works__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/works */ "./src/js/pages/works.js");
+/* harmony import */ var _pages_contact__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/contact */ "./src/js/pages/contact.js");
+/* harmony import */ var _pages_services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/services */ "./src/js/pages/services.js");
+/* harmony import */ var _pages_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/service */ "./src/js/pages/service.js");
+/* harmony import */ var _components_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/button */ "./src/js/components/button.js");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/header */ "./src/js/components/header.js");
+/* harmony import */ var _components_testimonial__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/testimonial */ "./src/js/components/testimonial.js");
+/* harmony import */ var _components_services_items__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/services-items */ "./src/js/components/services-items.js");
 // ----------------------------------------- \\\
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
+
+
+
+
+
 
 
 
@@ -22924,44 +22934,56 @@ const _pages = jquery__WEBPACK_IMPORTED_MODULE_0___default()('main').data('page'
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  "use strict";
+  'use strict';
 
   _modules_page_load__WEBPACK_IMPORTED_MODULE_1__["init"]();
 
   switch (_pages) {
     case 'home':
-      _pages_home__WEBPACK_IMPORTED_MODULE_3__["init"]();
+      _pages_home__WEBPACK_IMPORTED_MODULE_4__["init"]();
       break;
 
     case 'about':
-      _pages_about__WEBPACK_IMPORTED_MODULE_4__["init"]();
+      _pages_about__WEBPACK_IMPORTED_MODULE_5__["init"]();
       break;
 
     case 'about-approach':
-      _pages_about_approach__WEBPACK_IMPORTED_MODULE_5__["init"]();
+      _pages_about_approach__WEBPACK_IMPORTED_MODULE_6__["init"]();
       break;
 
     case 'about-team':
-      _pages_about_team__WEBPACK_IMPORTED_MODULE_6__["init"]();
+      _pages_about_team__WEBPACK_IMPORTED_MODULE_7__["init"]();
       break;
 
     case 'works':
-      _pages_works__WEBPACK_IMPORTED_MODULE_7__["init"]();
+      _pages_works__WEBPACK_IMPORTED_MODULE_8__["init"]();
       break;
 
     case 'contact':
-      _pages_contact__WEBPACK_IMPORTED_MODULE_8__["init"]();
+      _pages_contact__WEBPACK_IMPORTED_MODULE_9__["init"]();
+      break;
+
+    case 'services':
+      _pages_services__WEBPACK_IMPORTED_MODULE_10__["init"]();
+      break;
+
+    case 'service':
+      _pages_service__WEBPACK_IMPORTED_MODULE_11__["init"]();
       break;
   }
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).resize(function () {
     switch (_pages) {
       case 'home':
-        _pages_home__WEBPACK_IMPORTED_MODULE_3__["resize"]();
+        _pages_home__WEBPACK_IMPORTED_MODULE_4__["resize"]();
         break;
 
-      case 'home':
-        _pages_about__WEBPACK_IMPORTED_MODULE_4__["resize"]();
+      case 'services':
+        _pages_services__WEBPACK_IMPORTED_MODULE_10__["resize"]();
+        break;
+
+      case 'service':
+        _pages_service__WEBPACK_IMPORTED_MODULE_11__["resize"]();
         break;
     }
   });
@@ -23646,6 +23668,40 @@ function onScroll() {
       $header.addClass('h-white');
       break;
 
+    case 'services':
+      var _scTop = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.sc-clients').offset().top;
+
+      if (scrollTop >= _scTop - _headerH) {
+        if (scrollTop + wHeight >= dHeight - _headerH) {
+          $header.addClass('h-white');
+          console.log('footer');
+        } else {
+          $header.removeClass('h-white');
+          console.log('crientes');
+        }
+      } else {
+        if (!$header.hasClass('check-header')) {
+          $header.addClass('h-white');
+        }
+      }
+
+      break;
+
+    case 'service':
+      var _scTop = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.sc-testimonials').offset().top;
+
+      if (scrollTop >= _scTop - _headerH) {
+        if (scrollTop + wHeight >= dHeight - _headerH) {
+          $header.addClass('h-white');
+        } else {
+          $header.removeClass('h-white');
+        }
+      } else {
+        $header.addClass('h-white');
+      }
+
+      break;
+
     default:
       if (scrollTop + wHeight >= dHeight - _headerH) {
         $header.addClass('h-white');
@@ -23826,6 +23882,52 @@ function mouseOut(_this) {
 
 /***/ }),
 
+/***/ "./src/js/components/services-items.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/services-items.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_1__);
+
+ // ------------------------------ \\\
+// ------------ VARS ------------ \\\
+// ------------------------------ \\\
+
+var $svcsItem = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.services-items'); // ------------------------------ \\\
+// ------------ INIT ------------ \\\
+// ------------------------------ \\\
+
+if ($svcsItem.length) {
+  $svcsItem.slick({
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    variableWidth: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        arrows: false
+      }
+    }]
+  });
+  $svcsItem.find('.t-prev').on('click', function () {
+    $svcsItem.find('.slides').slick('slickPrev');
+  });
+  $svcsItem.find('.t-next').on('click', function () {
+    $svcsItem.find('.slides').slick('slickNext');
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js/components/testimonial.js":
 /*!******************************************!*\
   !*** ./src/js/components/testimonial.js ***!
@@ -23933,16 +24035,12 @@ function init(_target) {
 
 
 function motionOut(_target) {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.paragraph').removeClass('motion-in');
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.button').removeClass('motion-in');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.words').each(function (i, e) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(e).removeClass('motion-in');
   });
 }
 
 function motionIn(_target) {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.paragraph').addClass('motion-in');
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.button').addClass('motion-in');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(_target).find('.words').each(function (i, e) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(e).addClass('motion-in');
   });
@@ -28628,13 +28726,38 @@ function setFirstLoader() {
 function activeMenus(page) {
   $menu.find('.item').removeClass('active');
   $menu.find('.item').filter('[data-target="' + page + '"]').addClass('active');
-  console.log(page);
+  console.log('data-page ' + page);
 } // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
 
 
 
+
+/***/ }),
+
+/***/ "./src/js/modules/scrollmagic.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/scrollmagic.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! scrollmagic-plugin-gsap */ "./node_modules/scrollmagic-plugin-gsap/index.js");
+/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap/dist/ScrollToPlugin */ "./node_modules/gsap/dist/ScrollToPlugin.js");
+/* harmony import */ var gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+Object(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_2__["ScrollMagicPluginGsap"])(scrollmagic__WEBPACK_IMPORTED_MODULE_0__, gsap__WEBPACK_IMPORTED_MODULE_1__["TweenMax"], gsap__WEBPACK_IMPORTED_MODULE_1__["TimelineMax"]);
+gsap__WEBPACK_IMPORTED_MODULE_1__["default"].registerPlugin(gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_3__["ScrollToPlugin"]);
 
 /***/ }),
 
@@ -28702,12 +28825,14 @@ var $videos = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.video-background')
 // ----------------------------------------- \\\
 
 function init() {
-  _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($abtApproach.find('.item').find('.wrapper'));
-  $item.on('mouseenter', onMouseEnter);
-  $item.on('mouseleave', onMouseLeave);
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[0].play();
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[1].play();
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[2].play();
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($abtApproach.find('.item').find('.wrapper'));
+    $item.on('mouseenter', onMouseEnter);
+    $item.on('mouseleave', onMouseLeave);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[0].play();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[1].play();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('video')[2].play();
+  }
 } // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
@@ -28804,16 +28929,18 @@ var _arrPos = [[12.5 * 0, 12.5 * 1, 12.5 * 1, 12.5 * 0], [12.5 * 1, 12.5 * 2, 12
 // ----------------------------------------- \\\
 
 function init() {
-  _fxName = new TextScramble($name);
-  _fxArea = new TextScramble($area);
-  _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($peopleList.find('.item').find('.i-wrapper'));
-  $itemScramble.on('mouseenter', mouseEnter);
-  $itemScramble.on('mouseleave', mouseLeave);
-  $peopleScramble.on('mouseleave', function () {
-    _fxName.setText('the people');
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _fxName = new TextScramble($name);
+    _fxArea = new TextScramble($area);
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($peopleList.find('.item').find('.i-wrapper'));
+    $itemScramble.on('mouseenter', mouseEnter);
+    $itemScramble.on('mouseleave', mouseLeave);
+    $peopleScramble.on('mouseleave', function () {
+      _fxName.setText('the people');
 
-    _fxArea.setText('magic');
-  });
+      _fxArea.setText('magic');
+    });
+  }
 } // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
@@ -28968,31 +29095,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resize", function() { return resize; });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_testimonial__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/testimonial */ "./src/js/components/testimonial.js");
-/* harmony import */ var _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/mouse-move */ "./src/js/components/mouse-move.js");
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/mouse-move */ "./src/js/components/mouse-move.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 // ----------------------------------------- \\\
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
 
 
- // import * as ScrollMagic from  'scrollmagic';
-
- // import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-// ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-// ----------------------------------------- \\\
+ // ----------------------------------------- \\\
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
 
-var $pages = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.pages');
-var $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
 var $abtWorld = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.about-world');
 var $people = $abtWorld.find('.item');
 var $highlights = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.highlights');
-var _controller = null;
-var _wHeight = null;
-var _scrollPos = null;
-var _scrollValues = null;
 
 var _inneHeight = $abtWorld.find('.aw-people').height();
 
@@ -29003,7 +29119,10 @@ var _inneWidth = $abtWorld.find('.aw-people').width(); // ----------------------
 
 function init() {
   addPopPeople();
-  _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__["init"]($highlights.find('img'));
+
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($highlights.find('img'));
+  }
 } // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
@@ -29013,168 +29132,6 @@ function resize() {} // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
 
-
-function addScrollMagic() {
-  var $slides = $pages.find('.hc-slides');
-  var $slidesC = $pages.find('.hc-clients');
-  _controller = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 0,
-      reverse: true
-    }
-  });
-  $slides.find('.infos').each(function (e) {
-    var _this = this;
-
-    var _index = e;
-
-    var _color = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('color');
-
-    var scene = new ScrollMagic.Scene({
-      triggerElement: this,
-      duration: "100%"
-    }).setPin(this).on("enter", function (e) {
-      $slides.find('.home-bckg').css({
-        background: _color
-      });
-
-      if (_index == 0) {
-        gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.globe').find('.g-wrapper'), 0.4, {
-          ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-          opacity: 1,
-          y: '0%'
-        }, 0);
-      } else {
-        gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to($slides.find('.images').find('.img').eq(_index), 0.5, {
-          ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-          opacity: 1
-        }, 0);
-      }
-
-      $homeBullets.find('.button').removeClass('active');
-      $homeBullets.find('.button').eq(_index).addClass('active');
-      Title.motionIn(jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
-      _scrollPos = _index;
-    }).on("leave", function (e) {
-      if (e.scrollDirection == "FORWARD") {
-        if (_index == 0) {
-          gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.globe').find('.g-wrapper'), 0.4, {
-            ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-            opacity: 0,
-            y: '-10%'
-          }, 0);
-        } else {
-          gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to($slides.find('.images').find('.img').eq(_index), 0.5, {
-            ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-            opacity: 0
-          }, 0);
-        }
-      }
-
-      Title.motionOut(jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
-    }) // .addIndicators()
-    .addTo(_controller); // HOME SHAPE
-
-    var homeShape = new gsap__WEBPACK_IMPORTED_MODULE_3__["TimelineMax"]().add([gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to($slides.find('.home-bckg').find('.shape').find('figure').eq(_index), 2, {
-      opacity: 1
-    }, 0)]);
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      duration: '100%',
-      offset: -_wHeight
-    }).setTween(homeShape).addTo(_controller); // HOME IMAGES
-
-    var homeImages = new gsap__WEBPACK_IMPORTED_MODULE_3__["TimelineMax"]().add([gsap__WEBPACK_IMPORTED_MODULE_3__["default"].fromTo($slides.find('.images').find('.img').eq(_index).find('img'), 2, {
-      x: '-20%',
-      opacity: 0
-    }, {
-      x: '0%',
-      opacity: 1
-    }, 0)]);
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      duration: '100%',
-      offset: -_wHeight / 2
-    }).setTween(homeImages).addTo(_controller);
-
-    _scrollValues.push(scene.scrollOffset() + (scene.duration() - 10));
-  });
-  $slidesC.find('.infos').each(function (e) {
-    var _this = this;
-
-    var scene = new ScrollMagic.Scene({
-      triggerElement: this,
-      duration: "100%"
-    }).setPin(this).on("enter", function (e) {
-      $header.removeClass('h-white').addClass('check-footer');
-      $scrollDown.removeClass('s-white');
-      $homeBullets.find('.button').removeClass('active');
-      $homeBullets.find('.button').eq(4).addClass('active');
-      $homeBullets.addClass('hb-dark');
-      Title.motionIn(jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
-      gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to($homeBullets, 1, {
-        ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-        x: '0%'
-      }, 0);
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.image').each(function (i, e) {
-        gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to(jquery__WEBPACK_IMPORTED_MODULE_0___default()(e), 1, {
-          ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-          opacity: 1
-        }, 0);
-      });
-      _scrollPos = 4;
-    }).on("leave", function (e) {
-      $homeBullets.removeClass('hb-dark');
-
-      if (e.scrollDirection == "REVERSE") {
-        $scrollDown.addClass('s-white').removeClass('hide');
-        $header.addClass('h-white').removeClass('check-footer');
-      }
-
-      if (e.scrollDirection == "FORWARD") {
-        gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to($homeBullets, 1, {
-          ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-          x: '-200px'
-        }, 0);
-        $scrollDown.addClass('hide');
-      }
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.image').each(function () {
-        gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), 1, {
-          ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut,
-          opacity: 0
-        }, 0);
-      });
-      Title.motionOut(jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
-    }).addTo(_controller);
-
-    _scrollValues.push(scene.scrollOffset() + (scene.duration() - 10));
-  });
-}
-
-function setScrollTo() {
-  _controller.scrollTo(function (newScrollPos) {
-    gsap__WEBPACK_IMPORTED_MODULE_3__["default"].to(window, 2, {
-      scrollTo: {
-        y: newScrollPos,
-        ease: gsap__WEBPACK_IMPORTED_MODULE_3__["Power3"].easeOut
-      }
-    });
-  });
-
-  $homeBullets.find('.button').on('click', function () {
-    var _target = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('target').split('slide-')[1]);
-
-    _controller.scrollTo(_scrollValues[_target - 1]);
-  });
-  $scrollDown.on('click', function () {
-    if (_scrollPos == 4) {
-      _controller.scrollTo(jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height());
-    } else {
-      _controller.scrollTo(_scrollValues[_scrollPos + 1]);
-    }
-  });
-}
 
 function addPopPeople() {
   $people.each(function (e, i) {
@@ -29202,17 +29159,17 @@ function scramblePos(_this) {
 function motionIn(_this) {
   var $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this);
   var $figure = jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('img');
-  new gsap__WEBPACK_IMPORTED_MODULE_3__["TimelineMax"]({
+  new gsap__WEBPACK_IMPORTED_MODULE_2__["TimelineMax"]({
     onComplete: function () {
-      gsap__WEBPACK_IMPORTED_MODULE_3__["TweenMax"].killTweensOf($figure);
+      gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].killTweensOf($figure);
       setTimeout(function () {
         scramblePos($item);
       }, 1000);
     }
-  }).add([gsap__WEBPACK_IMPORTED_MODULE_3__["TweenMax"].to($figure, 5, {
+  }).add([gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to($figure, 5, {
     scale: 1,
     ease: 'Elastic.easeOut'
-  })]).add([gsap__WEBPACK_IMPORTED_MODULE_3__["TweenMax"].to($figure, .5, {
+  })]).add([gsap__WEBPACK_IMPORTED_MODULE_2__["TweenMax"].to($figure, .5, {
     scale: 0,
     ease: 'Power3.easeOut'
   })], 20);
@@ -29305,10 +29262,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
 /* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! scrollmagic-plugin-gsap */ "./node_modules/scrollmagic-plugin-gsap/index.js");
-/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/dist/ScrollToPlugin */ "./node_modules/gsap/dist/ScrollToPlugin.js");
-/* harmony import */ var gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_6__);
 // ----------------------------------------- \\\
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
@@ -29316,11 +29269,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-Object(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_5__["ScrollMagicPluginGsap"])(scrollmagic__WEBPACK_IMPORTED_MODULE_3__, gsap__WEBPACK_IMPORTED_MODULE_4__["TweenMax"], gsap__WEBPACK_IMPORTED_MODULE_4__["TimelineMax"]);
-gsap__WEBPACK_IMPORTED_MODULE_4__["default"].registerPlugin(gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_6__["ScrollToPlugin"]); // ----------------------------------------- \\\
+ // ----------------------------------------- \\\
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
 
@@ -29338,9 +29287,12 @@ var _scrollValues = []; // ----------------------------------------- \\\
 // ----------------------------------------- \\\
 
 function init() {
-  _components_title__WEBPACK_IMPORTED_MODULE_2__["init"]($pages.find('.title'));
-  addScrollMagic();
-  setScrollTo();
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_title__WEBPACK_IMPORTED_MODULE_2__["init"]($pages.find('.title'));
+    addScrollMagic();
+    setScrollTo();
+  }
+
   _components_earth__WEBPACK_IMPORTED_MODULE_1__["init"]();
 } // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
@@ -29394,6 +29346,8 @@ function addScrollMagic() {
       $homeBullets.find('.button').removeClass('active');
       $homeBullets.find('.button').eq(_index).addClass('active');
       _components_title__WEBPACK_IMPORTED_MODULE_2__["motionIn"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').addClass('motion-in');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').addClass('motion-in');
       _scrollPos = _index;
     }).on("leave", function (e) {
       if (e.scrollDirection == "FORWARD") {
@@ -29412,10 +29366,12 @@ function addScrollMagic() {
       }
 
       _components_title__WEBPACK_IMPORTED_MODULE_2__["motionOut"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').removeClass('motion-in');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').removeClass('motion-in');
     }) // .addIndicators()
     .addTo(_controller); // HOME SHAPE
 
-    var homeShape = new gsap__WEBPACK_IMPORTED_MODULE_4__["TimelineMax"]().add([gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to($slides.find('.home-bckg').find('.shape').find('figure').eq(_index), 2, {
+    var homeShape = new gsap__WEBPACK_IMPORTED_MODULE_4__["TimelineMax"]().add([gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to($pages.find('.shape-image').eq(_index), 2, {
       opacity: 1
     }, 0)]);
     new scrollmagic__WEBPACK_IMPORTED_MODULE_3__["Scene"]({
@@ -29447,7 +29403,7 @@ function addScrollMagic() {
       duration: "100%"
     }).setPin(this).on("enter", function (e) {
       $header.removeClass('h-white').addClass('check-footer');
-      $scrollDown.removeClass('s-white');
+      $scrollDown.removeClass('s-white').removeClass('hide');
       $homeBullets.find('.button').removeClass('active');
       $homeBullets.find('.button').eq(4).addClass('active');
       $homeBullets.addClass('hb-dark');
@@ -29523,6 +29479,355 @@ function setScrollTo() {
 
 /***/ }),
 
+/***/ "./src/js/pages/service.js":
+/*!*********************************!*\
+  !*** ./src/js/pages/service.js ***!
+  \*********************************/
+/*! exports provided: init, resize */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init", function() { return init; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resize", function() { return resize; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/title */ "./src/js/components/title.js");
+/* harmony import */ var _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/mouse-move */ "./src/js/components/mouse-move.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+// ----------------------------------------- \\\
+// ---------------- IMPORTS ---------------- \\\
+// ----------------------------------------- \\\
+
+
+
+
+ // ----------------------------------------- \\\
+// ----------------- VARS ------------------ \\\
+// ----------------------------------------- \\\
+
+var $pages = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.pages');
+var $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
+var $scrollDown = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.scrolldown');
+var $workList = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.works-list');
+var _controller = null;
+var _scrollPos = 0;
+var _scrollValues = []; // ----------------------------------------- \\\
+// ------------------ INIT ----------------- \\\
+// ----------------------------------------- \\\
+
+function init() {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_title__WEBPACK_IMPORTED_MODULE_1__["init"]($pages.find('.sc-slides').find('.title'));
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__["init"]($workList.find('.item').find('.wrapper'));
+    addScrollMagic();
+    setScrollTo();
+  }
+} // ----------------------------------------- \\\
+// ------------ PUBLIC FUNCIONS ------------ \\\
+// ----------------------------------------- \\\
+
+
+function resize() {} // ----------------------------------------- \\\
+// ------------ PRIVATE FUNCIONS ----------- \\\
+// ----------------------------------------- \\\
+
+
+function addScrollMagic() {
+  var $slides = $pages.find('.sc-slides');
+  _controller = null;
+  _controller = new scrollmagic__WEBPACK_IMPORTED_MODULE_3__["Controller"]({
+    globalSceneOptions: {
+      triggerHook: 0,
+      reverse: true
+    }
+  });
+  $slides.find('.infos').each(function (e) {
+    var _this = this;
+
+    var _index = e;
+
+    var _color = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('color');
+
+    var scene = new scrollmagic__WEBPACK_IMPORTED_MODULE_3__["Scene"]({
+      triggerElement: this,
+      duration: "100%"
+    }).setPin(this).on("enter", function (e) {
+      $slides.find('.services-bckg').css({
+        background: _color
+      });
+      $header.addClass('h-white').addClass('check-header');
+      _scrollPos = _index;
+
+      if (_index == 0) {
+        _components_title__WEBPACK_IMPORTED_MODULE_1__["motionIn"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.caption').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.submenu').addClass('motion-in');
+        setTimeout(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').addClass('motion-in');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').addClass('motion-in');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.image-services').addClass('motion-in');
+        }, 1000);
+      }
+
+      if (_index == 1) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.caption').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.subtitle').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').addClass('motion-in');
+      }
+
+      if (_index == 2) {
+        $scrollDown.removeClass('hide');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.services-items').addClass('motion-in');
+      }
+    }).on("leave", function (e) {
+      if (_index == 0) {
+        _components_title__WEBPACK_IMPORTED_MODULE_1__["motionOut"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.submenu').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.caption').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.image-services').removeClass('motion-in');
+      }
+
+      if (_index == 1) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.caption').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.subtitle').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').removeClass('motion-in');
+      }
+
+      if (_index == 2) {
+        if (e.scrollDirection == "FORWARD") {
+          $scrollDown.addClass('hide');
+        }
+
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.services-items').removeClass('motion-in');
+      }
+    }) // .addIndicators()
+    .addTo(_controller);
+
+    _scrollValues.push(scene.scrollOffset() + (scene.duration() - 10));
+  });
+}
+
+function setScrollTo() {
+  _controller.scrollTo(function (newScrollPos) {
+    gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to(window, 1.5, {
+      scrollTo: {
+        y: newScrollPos,
+        ease: gsap__WEBPACK_IMPORTED_MODULE_4__["Power3"].easeOut
+      }
+    });
+  });
+
+  $scrollDown.on('click', function () {
+    if (_scrollPos == 2) {
+      _controller.scrollTo(_scrollValues[2] + jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height() + 10);
+    } else {
+      _controller.scrollTo(_scrollValues[_scrollPos + 1]);
+    }
+  });
+} // ----------------------------------------- \\\
+// ---------------- EXPORTS ---------------- \\\
+// ----------------------------------------- \\\
+
+
+
+
+/***/ }),
+
+/***/ "./src/js/pages/services.js":
+/*!**********************************!*\
+  !*** ./src/js/pages/services.js ***!
+  \**********************************/
+/*! exports provided: init, resize */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init", function() { return init; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resize", function() { return resize; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/title */ "./src/js/components/title.js");
+/* harmony import */ var _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/mouse-move */ "./src/js/components/mouse-move.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+// ----------------------------------------- \\\
+// ---------------- IMPORTS ---------------- \\\
+// ----------------------------------------- \\\
+
+
+
+
+ // ----------------------------------------- \\\
+// ----------------- VARS ------------------ \\\
+// ----------------------------------------- \\\
+
+var $pages = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.pages');
+var $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.header');
+var $scrollDown = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.scrolldown');
+var $svcsBullets = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.services-bullets');
+var $svcsIcons = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.services-icons');
+var $highlights = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.highlights');
+var _controller = null;
+
+var _wHeight = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
+
+var _scrollPos = 0;
+var _scrollValues = []; // ----------------------------------------- \\\
+// ------------------ INIT ----------------- \\\
+// ----------------------------------------- \\\
+
+function init() {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_title__WEBPACK_IMPORTED_MODULE_1__["init"]($pages.find('.sc-slides').find('.title'));
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_2__["init"]($highlights.find('img'));
+    addScrollMagic();
+    setScrollTo();
+  }
+} // ----------------------------------------- \\\
+// ------------ PUBLIC FUNCIONS ------------ \\\
+// ----------------------------------------- \\\
+
+
+function resize() {} // ----------------------------------------- \\\
+// ------------ PRIVATE FUNCIONS ----------- \\\
+// ----------------------------------------- \\\
+
+
+function addScrollMagic() {
+  var $slides = $pages.find('.sc-slides');
+  _controller = null;
+  _controller = new scrollmagic__WEBPACK_IMPORTED_MODULE_3__["Controller"]({
+    globalSceneOptions: {
+      triggerHook: 0,
+      reverse: true
+    }
+  });
+  $slides.find('.infos').each(function (e) {
+    var _this = this;
+
+    var _index = e;
+
+    var _color = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('color');
+
+    var scene = new scrollmagic__WEBPACK_IMPORTED_MODULE_3__["Scene"]({
+      triggerElement: this,
+      duration: "100%"
+    }).setPin(this).on("enter", function (e) {
+      $slides.find('.services-bckg').css({
+        background: _color
+      });
+      $svcsBullets.find('.button').removeClass('active');
+      $svcsBullets.find('.button').eq(_index).addClass('active');
+      $header.addClass('check-header');
+      gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to($svcsBullets, 1, {
+        ease: gsap__WEBPACK_IMPORTED_MODULE_4__["Power3"].easeOut,
+        x: '0%'
+      }, 0);
+      _scrollPos = _index;
+
+      if (_index == 0) {
+        $header.removeClass('h-white');
+        $scrollDown.removeClass('s-white');
+        $svcsBullets.addClass('sb-dark');
+        _components_title__WEBPACK_IMPORTED_MODULE_1__["motionIn"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.submenu').addClass('motion-in');
+        setTimeout(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.ico').addClass('motion-in');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('span').addClass('motion-in');
+        }, 1000);
+      }
+
+      if (_index >= 1) {
+        $header.addClass('h-white');
+        $scrollDown.addClass('s-white').removeClass('hide');
+        $svcsBullets.removeClass('sb-dark');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.type').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.ico').addClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.list').addClass('motion-in');
+      }
+    }).on("leave", function (e) {
+      if (_index == 3) {
+        if (e.scrollDirection == "REVERSE") {
+          $scrollDown.removeClass('hide');
+        }
+
+        if (e.scrollDirection == "FORWARD") {
+          gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to($svcsBullets, 1, {
+            ease: gsap__WEBPACK_IMPORTED_MODULE_4__["Power3"].easeOut,
+            x: '-200px'
+          }, 0);
+          $scrollDown.addClass('hide');
+          $header.addClass('h-white').removeClass('check-header');
+        }
+      }
+
+      if (_index == 0) {
+        _components_title__WEBPACK_IMPORTED_MODULE_1__["motionOut"](jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.ico').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.submenu').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('span').removeClass('motion-in');
+      }
+
+      if (_index >= 1) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.type').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.paragraph').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.button').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.ico').removeClass('motion-in');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).find('.list').removeClass('motion-in');
+      }
+    }) // .addIndicators()
+    .addTo(_controller);
+
+    _scrollValues.push(scene.scrollOffset() + (scene.duration() - 10));
+  });
+}
+
+function setScrollTo() {
+  _controller.scrollTo(function (newScrollPos) {
+    gsap__WEBPACK_IMPORTED_MODULE_4__["default"].to(window, 1.5, {
+      scrollTo: {
+        y: newScrollPos,
+        ease: gsap__WEBPACK_IMPORTED_MODULE_4__["Power3"].easeOut
+      }
+    });
+  });
+
+  $svcsBullets.find('.button').on('click', function () {
+    var _target = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('target').split('slide-')[1]);
+
+    _controller.scrollTo(_scrollValues[_target - 1]);
+  });
+  $svcsIcons.find('.item').on('click', function () {
+    var _target = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('target').split('slide-')[1]);
+
+    _controller.scrollTo(_scrollValues[_target - 1]);
+  });
+  $scrollDown.on('click', function () {
+    if (_scrollPos == 3) {
+      _controller.scrollTo(_scrollValues[3] + jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height() + 10);
+    } else {
+      _controller.scrollTo(_scrollValues[_scrollPos + 1]);
+    }
+  });
+} // ----------------------------------------- \\\
+// ---------------- EXPORTS ---------------- \\\
+// ----------------------------------------- \\\
+
+
+
+
+/***/ }),
+
 /***/ "./src/js/pages/works.js":
 /*!*******************************!*\
   !*** ./src/js/pages/works.js ***!
@@ -29550,7 +29855,9 @@ var $workList = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.works-list'); //
 // ----------------------------------------- \\\
 
 function init() {
-  _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($workList.find('.item').find('.wrapper'));
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() >= 860) {
+    _components_mouse_move__WEBPACK_IMPORTED_MODULE_1__["init"]($workList.find('.item').find('.wrapper'));
+  }
 } // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\

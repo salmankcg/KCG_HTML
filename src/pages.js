@@ -25,7 +25,9 @@
          }
        }
      } else {
-       directories.push([path.parse(files[x]).name, (parent + '/').slice(1)])
+      if (path.parse(files[x]).ext.includes('njk')) {
+        directories.push([path.parse(files[x]).name, (parent + '/').slice(1)])
+      }
      }
    }
  

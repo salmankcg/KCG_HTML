@@ -34,7 +34,6 @@
         .centerBoth;
         overflow: hidden;
 
-  
         .shape-image{
           border-radius: 15px;
 
@@ -210,77 +209,39 @@
     }
   
     @media( max-width: @screen-large){
-  
-        .paragraph{
-          display: none;
+
+      .container-fluid{
+        .row{
+          flex-direction: column;
         }
+      }
+
+      .paragraph{
+        display: none;
+      }
+
+      .title{
+        text-align: left;
+        left: 0px;
+        width: 100%;
+        position: relative;
+        transform: none;
+        top: auto;
+      }
+
+      .button{
+        opacity: 1;
+        transform: translateY(0px);
+        margin-top: 0px;
+      }
   
-        .title{
-          text-align: left;
-        }
   
-        .infos{
-          .button{
-            margin-right: auto;
-            margin-left: 0px;
-          }
-        }
-  
-        .shape{
-          width: 100%;
-          height: 406px;
-          .centerHoriz;
-          bottom: 0px;
-  
-          .shape-image{
-            width: 100%;
-            height: 100%;
-            .centerBoth;
-          }
-    
-          &.s-desktop{
-            display: none;
-          }
-    
-          &.s-mobile{
-            display: block;
-          }
-        }
-  
-        .circle{
-          width: 100vw;
-          height: 100vw;
-          transform: translate(-50%, 40%) scale(.9);
-        }
-        
-        .canvas{
-          transform: translateY(50%);
-          canvas{
-            transform: scale(.9);
-          }
-        }
     }
   
   
     @media( max-width: @screen-small ){
       
   
-      .title{
-        margin-top: -100px;
-      }
-  
-      .h-image{
-        width: 100%;
-        transform: translate(-50%, -20%);
-      }
-  
-      .clients{
-        padding-top: 20px;
-  
-        .item{
-          padding-top: 25%;
-        }
-      }
     }
   
     @media( max-width: @screen-xsmall ){

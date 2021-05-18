@@ -1,0 +1,232 @@
+{% extends "./layouts/main.njk" %}
+{% set title        = 'KCG' %}
+{% set page         = 'service' %}
+{% set header       = 'h-white' %}
+{% set footer       = '' %}
+
+
+{% block content %}
+
+
+<section>
+
+  <div class="scrolldown s-white">
+    <span>SCROLL</span>
+  </div>
+
+  <div class="services-content sc-slides">
+
+    <div class="services-bckg"></div>
+
+    <div class="infos" data-color="#2D3294" id="slide-1" style="background-image:url(assets/services/webdoor.png);">
+      <div class="submenu sb-white motion-in">
+        <a href="services.html" class="item"><span>SERVICES</span></a>
+        <a href="services-strategy.html" class="item active"><span>STRATEGY</span></a>
+        <a href="services-product.html" class="item"><span>PRODUCT</span></a>
+        <a href="services-marketing.html" class="item"><span>MARKETING</span></a>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col col-1">
+            <a href="services.html" class="button b-icon b-white">
+              <div class="wrapper">
+                <div class="arrow svg a-left"></div>
+              </div>
+            </a>
+          </div>
+          <div class="col col-4">
+            <div class="caption c-white"><span>STRATEGY</span></div>
+            <h1 class="title t-medium t-white" ><strong>Bring your next product or service to market.</strong></h1>
+            <div class="paragraph p-white">Launch into new areas with expert guidance and bespoke, visionary business strategies.</div>
+            <a href="" class="button b-white b-marginT">
+              <div class="wrapper">
+                  <span class="text">Learn More</span>
+                </div>
+            </a>
+          </div>
+          <div class="col col-5">
+            <div class="image-services">
+              <img src="assets/services/strategy.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos" data-color="#2D3294" id="slide-2">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col col-9">
+            <div class="caption c-white"><span>Solutions</span></div>
+
+            <h3 class="subtitle sb-right sb-white">We will help you evolve what you have into a fully operational business, with a clear structure and a path to growth. </h3>
+
+            <div class="paragraph p-white">
+              Our expert consultants will deliver tailored strategic advice developed over years of building and growing businesses from Silicon Valley to Wall Street.<br><br>Take your pick from our four key service areas, which are all designed to get you started with your next strategic win. 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos" data-color="#2D3294" id="slide-3">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col col-9">
+            <div class="services-items">
+              <div class="item">
+                <div class="wrapper">
+                  <div class="si-type">Research & Discovery</div>
+                  <ul>
+                    <li>• Expert Research</li>
+                    <li>• Competitive benchmarking</li>
+                    <li>• Costumer Journey</li>
+                    <li>• Costumer Behavior & Insights</li>
+                    <li>• Analytical data review</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="item">
+                <div class="wrapper">
+                  <div class="si-type">Business Consultancy</div>
+                  <ul>
+                    <li>• Startup Consultancy</li>
+                    <li>• Coaching & interin Services</li>
+                    <li>• Finance Management</li>
+                    <li>• Operational Management</li>
+                    <li>• Sales Strategy</li>
+                    <li>• Roadmapping</li>
+                    <li>• Strategic Consultancy</li>
+                    <li>• Digital Transformation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="wrapper">
+                  <div class="si-type">Digital Go to Market</div>
+                  <ul>
+                    <li>• Marketing Strategy</li>
+                    <li>• Sales Strategy</li>
+                    <li>• Content Strategy</li>
+                    <li>• Digital Go to Market</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="wrapper">
+                  <div class="si-type">Branding</div>
+                  <ul>
+                    <li>• Brand Strategy</li>
+                    <li>• Tone of Voice</li>
+                    <li>• Visual Identity</li>
+                    <li>• Brand Guideline</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="services-content sc-testimonials">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-9 c-testimonial">
+          <div class="testimonial">
+            <div class="slides">
+            {% for u in range(0,12) %}
+              <div class="item">
+                <div class="wrapper">
+                  <div class="stars svg"></div>  
+                  <p class="phrase">"You're probably luckier to have them<br>than they are to have you."</p>
+                  <div class="info">
+                    <img class="photo" src="assets/photos/person-7.png" alt="" />
+                    <span class="name">PHIL P</span>
+                    <span class="occupation">Founder The Swoup App</span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            
+            <div class="button b-black b-icon t-prev">
+              <div class="wrapper">
+                <div class="arrow svg a-left"></div>
+              </div>
+            </div>
+            <div class="button b-black b-icon t-next">
+              <div class="wrapper">
+                <div class="arrow svg a-right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services-content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-11">
+          <div class="services-download" style="background-image:url(assets/services/background.jpg);">
+            <div class="wrapper">
+              <div class="title t-small t-white">
+                Want to learn more about our Strategy Solutions?<br>
+                <strong>Download a pdf with more information</strong>
+              </div>
+              <a href="" class="button b-icon b-white">
+                <span class="label">DOWNLOAD PDF</span>
+                <div class="wrapper">
+                  <div class="arrow svg a-45"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="works-content w-borderT">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col col-11">
+          <div class="caption">
+            <span>Related Cases</span>
+            <a href="" class="button b-black b-icon">
+              <span class="label">SEE ALL</span>
+              <div class="wrapper">
+                <div class="arrow svg a-right"></div>
+              </div>
+            </a>
+          </div>
+          <div class="works-list">
+            {% for u in range(0,3) %}
+            <a href="work.html" class="item">
+              <div class="wrapper">
+                <img class="image" src="assets/works/work-{{(u%6)+1}}.png" alt="" />
+                <div class="infos">
+                  <div class="name">Eirik Lyng</div>
+                  <div class="type">Social Media</div>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

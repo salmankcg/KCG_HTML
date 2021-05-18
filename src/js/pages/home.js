@@ -5,11 +5,8 @@ import $ from "jquery";
 import * as Earth from "../components/earth"
 import * as Title from "../components/title"
 import * as ScrollMagic from  'scrollmagic';
-import gsap, {TweenMax, TimelineMax, Power3} from "gsap";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-gsap.registerPlugin(ScrollToPlugin);
+import gsap, {TimelineMax, Power3} from "gsap";
+
 
 
 
@@ -33,10 +30,12 @@ var _scrollValues   = [];
 // ----------------------------------------- \\\
 function init(){
 
-    Title.init($pages.find('.title'));
+    if($(window).width() >= 860){
+        Title.init($pages.find('.title'));
 
-    addScrollMagic();
-    setScrollTo();
+        addScrollMagic();
+        setScrollTo();
+    }
 
     Earth.init();
 }
@@ -89,6 +88,8 @@ function addScrollMagic(){
                             $homeBullets.find('.button').eq(_index).addClass('active');
 
                             Title.motionIn($(_this));
+                            $(_this).find('.paragraph').addClass('motion-in');
+                            $(_this).find('.button').addClass('motion-in');
 
                             _scrollPos = _index;
 
@@ -104,6 +105,8 @@ function addScrollMagic(){
                             }
 
                             Title.motionOut($(_this));
+                            $(_this).find('.paragraph').removeClass('motion-in');
+                            $(_this).find('.button').removeClass('motion-in');
                         
                         })
                         // .addIndicators()
@@ -113,7 +116,7 @@ function addScrollMagic(){
         // HOME SHAPE
         var homeShape = new TimelineMax()
         .add([
-            gsap.to($slides.find('.home-bckg').find('.shape').find('figure').eq(_index), 2, {opacity: 1},0)
+            gsap.to($pages.find('.shape-image').eq(_index), 2, {opacity: 1},0)
         ]);
 
         new ScrollMagic.Scene({triggerElement: this, duration:'100%', offset:-_wHeight}).setTween(homeShape).addTo(_controller);
@@ -141,7 +144,7 @@ function addScrollMagic(){
                         .on("enter", function (e) {
                             
                             $header.removeClass('h-white').addClass('check-footer');
-                            $scrollDown.removeClass('s-white');
+                            $scrollDown.removeClass('s-white').removeClass('hide');
 
                             $homeBullets.find('.button').removeClass('active');
                             $homeBullets.find('.button').eq(4).addClass('active');

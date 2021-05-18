@@ -2,41 +2,218 @@
     padding: 120px 0px;
     position: relative;
     display: block;
+    z-index: 3;
+    background-color: @white;
     
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
     /*------------------*/
-    &.sv-black{
+    &.sc-black{
         background: @gray;
     }
 
-    &.sv-full{
-        height: 100vh;
-        display: flex;
-        align-items: center;
+    &.sc-slides{
+        padding: 0px;
+        z-index: 2;
+        background-color: initial;
+        
+        .container-fluid{
+            .col{
+                &.col-3{
+    
+                    &:nth-of-type(2){
+                        justify-content: center;
+                        display: flex;
+                        align-items: center;
+                    }
 
-        .inner{
-            height: auto;
+                    &:nth-of-type(3){
+                        justify-content: flex-end;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        .title{
+    
+            .words{
+              display: inline-block;
+              position: relative;
+              overflow: hidden;
+      
+              &.w-block{
+                  display: block;
+              }
+      
+              &.motion-in{
+                  span{
+                      transform: translateY(0px);
+                  }
+              }
+      
+              &.bold{
+                  .blackerBd;
+              }
+      
+              span{
+                  display: block;
+                  transform: translateY(120px);
+                  transition: 1s all @custom;
+                  margin-right: 10px;
+                  transition-delay: .5s;
+              }
+            }
+        }
+    
+        .paragraph{
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: .5s all @custom;
+    
+            &.motion-in{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .caption{
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: .5s all @custom;
+    
+            &.motion-in{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .subtitle{
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: .5s all @custom;
+    
+            &.motion-in{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    
+        .button{
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: .5s all @custom;
+            transition-delay: .2s;
+    
+            &.motion-in{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .submenu{
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: .5s all @custom;
+
+            &.motion-in{
+                opacity: 1;
+                transform: translateY(0px);
+            }
         }
     }
-
 
 
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
-    
-    .s-wrapper{
-        display: flex;
-        margin-left: 20%;
-        margin-right: 8.333%;
-        align-items: center;
-        justify-content: space-between;
+    .container-fluid{
+        .col{
+            &.col-9{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                &.c-testimonial{
+                    display: initial;
+                }
+
+                .caption{
+                    width: 15%;
+                }
+
+                .subtitle{
+                    width: 25%;
+                }
+
+                .paragraph{
+                    width: 48%;
+                }
+            }
+        }
     }
 
+    .services-bckg{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0px;
+        transition: .5s all @custom;
+        background: @gray;
+        z-index: 1;
+    }
+
+    .services-icons{
+        position: relative;
+        display: flex;
+        width: 100%;
+        margin-top: 60px;
+
+        .svg{
+            width: 120px;
+            height: 120px;
+        }
+
+        .item{
+            width: 33.33333%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+
+            &:hover{
+                span{
+                    transform: translateY(10px);
+                }
+            }
+        }
+
+        span{
+            .blackerLt;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            transition: .5s all @custom;
+            transition-delay: .5s;
+    
+            &.motion-in{
+                opacity: 1;
+            }
+        }
+    }
+
+
     .infos{
-        width: 30%;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+        .cover;
     }
 
     .list{
@@ -44,6 +221,15 @@
         color: @white;
         font-size: 20px;
         line-height: 34px;
+        opacity: 0;
+        transition: .5s all @custom;
+        transform: translateY(-10px);
+        transition-delay: .5s;
+
+        &.motion-in{
+            opacity: 1;
+            transform: translateY(0px);
+        }
     }
 
     .type{
@@ -52,26 +238,216 @@
         color: @white;
         margin-bottom: 20px;
         display: block;
+        opacity: 0;
+        transition: .5s all @custom;
+
+        &.motion-in{
+            opacity: 1;
+        }
     }
 
     .ico{
         width: 170px;
         height: 170px;
+        opacity: 0;
+        transition: .5s all @custom;
+        transform: translateY(-10px);
+        transition-delay: .2s;
+        cursor: pointer;
 
-        path, circle{
+        &.motion-in{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        &:hover{
+            &.i-stg{
+
+                svg{
+                    circle{
+                        &:nth-of-type(1){
+                            animation: 3s ease-in infinite reverse  anima-stg;
+                        }
+    
+                        &:nth-of-type(2){
+                            animation: 3s ease-in infinite reverse  anima-stg2;
+                        }
+    
+                        &:nth-of-type(3){
+                            animation: 3s ease-in infinite reverse  anima-stg3;
+                        }
+                    }
+    
+                    line{
+                        animation: 3s ease-in infinite reverse  anima-stg4;
+                    }
+                }
+            }
+            &.i-pdt{
+                svg{
+                    rect{
+                        &:nth-of-type(1){
+                            animation: 3s ease-in infinite reverse  anima-pdt;
+                        }
+    
+                        &:nth-of-type(2){
+                            animation: 3s ease-in infinite reverse  anima-pdt2;
+                        }
+                    }
+                }
+            }
+            &.i-mktg{
+                
+                svg{
+                    path{
+                        &:nth-of-type(1){
+                            animation: 3s ease-in infinite reverse  anima-mkt;
+                        }
+    
+                        &:nth-of-type(3){
+                            animation: 3s ease-in infinite reverse  anima-mkt2;
+                        }
+                    }
+                }
+            }
+        }
+
+        path, circle, line, rect{
             stroke: @white;
+        }
+
+        &.i-black{
+            path, circle, line, rect{
+                stroke: @black;
+            }
         }
 
         &.i-stg{
             .bg('services-strategy.svg');
+
+            svg{
+                overflow: initial;
+
+                circle{
+                    transition: .5s all @custom;
+                    transform: translateX(0px);
+                }
+
+                line{
+                    transition: .5s all @custom;
+                    transform: scaleX(1);
+                }
+            }
         }
         &.i-pdt{
             .bg('services-product.svg');
+
+            svg{
+                rect{
+                    transition: .5s all @custom;
+                    transform: translate(0px, 0px);
+                }
+            }
+
         }
         &.i-mktg{
             .bg('services-marketing.svg');
+
+            svg{
+                path{
+                    transition: .5s all @custom;
+                    transform: translateY(0px);
+                }
+            }
+        }
+
+        @keyframes anima-mkt {
+            0%   { transform: translateY(0px);}
+            50% { transform: translateY(-5px);}
+            100% { transform: translateY(0px);}
+        }
+
+        @keyframes anima-mkt2 {
+            0%   { transform: translateY(0px);}
+            50% { transform: translateY(5px);}
+            100% { transform: translateY(0px);}
+        }
+
+        @keyframes anima-pdt {
+            0%   { transform: translate(0px, 0px)}
+            50% { transform: translate(-8px, 8px);}
+            100% { transform: translate(0px, 0px);}
+        }
+
+        @keyframes anima-pdt2 {
+            0%   { transform: translate(0px, 0px)}
+            50% { transform: translate(8px, -8px);}
+            100% { transform: translate(0px, 0px);}
+        }
+
+        @keyframes anima-stg {
+            0%   { transform: translateX(0px)}
+            50% { transform: translateX(10px);}
+            100% { transform: translateX(0px);}
+        }
+
+        @keyframes anima-stg2 {
+            0%   { transform: translateX(0px)}
+            50% { transform: translateX(8px);}
+            100% { transform: translateX(0px);}
+        }
+
+        @keyframes anima-stg3 {
+            0%   { transform: translateX(0px)}
+            50% { transform: translateX(4px);}
+            100% { transform: translateX(0px);}
+        }
+
+        @keyframes anima-stg4 {
+            0%   { transform: scaleX(1);}
+            50% { transform: scaleX(1.1);}
+            100% { transform: scaleX(1);}
         }
     }
+
+    .services-download{
+        padding: 8vw 6vw;
+        border-radius: 30px;
+        .cover;
+
+        .button{
+            margin-top: 30px;
+        }
+    }
+
+    .image-services{
+        .centerVert;
+        width: 60%;
+        height: 100vh;
+        right: -100px;
+        top: 60%;
+        transition: .5s all @custom;
+        opacity: 0;
+
+        &.motion-in{
+            right: 0px;
+            opacity: 1;
+        }
+
+        &.is-product{
+            img{
+                object-position: right;
+                transform: translateX(20px);
+            }
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
 
 
     /*------------------*/

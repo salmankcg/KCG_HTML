@@ -18,7 +18,9 @@ var $workList		= $('.works-list');
 // ----------------------------------------- \\\
 function init(){
 
-    MouseMove.init($workList.find('.item').find('.wrapper'));
+    if($(window).width() >= 860){
+        MouseMove.init($workList.find('.item').find('.wrapper'));
+    }
 
 }
 
