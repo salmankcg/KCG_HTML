@@ -5,6 +5,7 @@
     transition: .5s all @custom;
     padding: 60px 0px;
     opacity: 0;
+    padding-bottom: 0px;
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
@@ -260,6 +261,12 @@
     @media( max-width: @screen-small ){
         height: 36px;
         padding: 36px 0px;
+
+        .container-fluid{
+            .row{
+                align-items: center;
+            }
+        }
 
         &:before{
             right: 0px;

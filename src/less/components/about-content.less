@@ -51,13 +51,43 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-large){
+        padding: 60px 0px;
+
+        .container-fluid{
+            padding: 0px 30px;
+            .row{
+                .col{
+                    &.col-9{
+                        width: 100%;
+                        flex-direction: column;
+
+                        .caption{
+                            width: 100%;
+                        }
         
+                        .subtitle{
+                            width: 100%;
+                        }
+        
+                        .paragraph{
+                            width: 100%;
+                        }
+                    }
+
+                    &.col-10, &.col-11{
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 
-   
-
     @media( max-width: @screen-small ){
-        
+        .title{
+            &.t-center{
+                padding: 0px 40px;
+            }
+        }
     }
 
     @media( max-width: @screen-xsmall ){

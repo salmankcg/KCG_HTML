@@ -17,6 +17,12 @@
         padding: 0px;
         z-index: 2;
         background-color: initial;
+
+        &:first-of-type{
+            .container-fluid{
+                margin-top: 80px;
+            }    
+        }
         
         .container-fluid{
             .col{
@@ -110,6 +116,10 @@
             &.motion-in{
                 opacity: 1;
                 transform: translateY(0px);
+
+                &.b-icon{
+                    transform: translateY(-20px);
+                }
             }
         }
 
@@ -169,7 +179,7 @@
         position: relative;
         display: flex;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 80px;
 
         .svg{
             width: 120px;
@@ -214,6 +224,8 @@
         align-items: center;
         z-index: 3;
         .cover;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .list{
@@ -441,7 +453,7 @@
             }
         }
 
-        .is-stratetgy{
+        &.is-stratetgy{
             img{
                 object-position: right;
             }
@@ -460,7 +472,15 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-large){
+        padding: 60px 0px;
+
         &.sc-slides{
+            &:first-of-type{
+                .container-fluid{
+                    margin-top: 0px;
+                }    
+            }
+
             .container-fluid{
                 .col{
                     &.col-3{
@@ -470,6 +490,73 @@
                             position: absolute;
                             top: 20%;
                         }
+                    }
+
+                    &.col-9{
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 0px;
+                        width: 100%;
+
+                        .subtitle{
+                            width: 70%;
+                            text-align: center;
+                        }
+
+                        .paragraph{
+                            width: 70%;
+                            text-align: center
+                        }
+                    }
+                }
+            }
+
+            .infos{
+                .container-fluid{
+                    margin-top: 10%;
+                    padding: 0px 50px;
+                }
+
+                &.i-service{
+                    
+                    .container-fluid{
+                        padding: 0px 50px;
+                        padding-top: 170px;
+                        height: 100vh;
+                    }
+                    
+
+                    .row{
+                        flex-direction: column;
+                        margin: 0px;
+
+                        .col-4, .col-6{
+                            width: 100%;
+                            padding: 0px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+
+                    .caption{
+                        width: fit-content;
+                        text-align: center;
+                    }
+
+                    .title{
+                        width: 60%;
+                        text-align: center;
+                        margin-bottom: 30px;
+                    }
+
+                    .paragraph{
+                        width: 60%;
+                        text-align: center;
+                    }
+
+                    .button{
+                        margin: 0 auto;
                     }
                 }
             }
@@ -483,6 +570,28 @@
             }
             span{
                 font-size: 20px;
+            }
+        }
+
+        .image-services{
+            top: 0px;
+            transform: none;
+            z-index: -1;
+
+            img{
+                object-position: 0px 100%;
+            }
+
+            &.is-stratetgy{
+                img{
+                    object-position: right 100%;
+                }
+            }
+
+            &.is-product{
+                img{
+                    object-position: right 100%;
+                }
             }
         }
     }
@@ -504,24 +613,83 @@
             .row{
                 align-items: flex-start;
             }
+
+            .container-fluid{
+                .col{
+                    
+                    &.col-9{
+                        .subtitle{
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .paragraph{
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            .infos{
+                .container-fluid{
+                    margin-top: 0px;
+                }
+
+                &.i-service{
+                    
+                    .container-fluid{
+                        padding: 0px 50px;
+                        padding-top: 170px;
+                        height: 100vh;
+                    }
+                    
+                    .title{
+                        width: 100%;
+                    }
+
+                    .paragraph{
+                        width: 100%;
+                    }
+                }
+            }
+
+            .button:not(.b-icon){
+                .centerHoriz;
+                bottom: 12%;
+                margin-top: 0px;
+
+                &.motion-in{
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+             
         }
         
         .container-fluid{
             padding: 0px 30px;
 
             .row{
+                margin: 0px;
+
                 .col{
                     &.col-7{
                         width: 100%;
                     }
 
+                    &.col-11{
+                        width: 100%;
+                        padding: 0px;
+                    }
+
                     &.col-3{
                         width: 50%;
-                        margin-top: 120px;
+                        margin-top: 30px;
+                        padding: 0px;
                         
                         &:nth-of-type(2){
                             .centerHoriz;
-                            top: 90px;
+                            top: 15%;
                             margin-top: 0px;
                         }
                     }
@@ -555,7 +723,7 @@
         .list{
             font-size: 16px;
             line-height: 25px;
-            margin-top: 40px;
+            text-align: right;
         }
 
         .type{
@@ -564,6 +732,10 @@
 
         .paragraph{
             font-size: 16px;
+        }
+
+        .services-download{
+            border-radius: 20px;
         }
     }
 

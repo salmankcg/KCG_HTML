@@ -11,16 +11,23 @@
     /*--- ATTRIBUTES ---*/
     /*------------------*/
     &.w-about, &.w-works, &.w-journal {
-        padding-top: 240px;
+        padding-top: 170px;
         height: 480px;
         min-height: auto;
         align-items: flex-start;
+        flex-direction: column;
+    }
+
+    &.w-journal {
+        height: 380px;
     }
 
     &.w-legals{
-        padding-top: 240px;
-        height: 480px;
+        padding-top: 170px;
+        height: auto;
         min-height: auto;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &.w-journal-inner{
@@ -91,7 +98,9 @@
 
     &.w-approach{
         background: @gray;
-        padding-top: 240px;
+        padding-top: 170px;
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     &.w-contact{
@@ -126,6 +135,8 @@
         
     &.w-team{
         padding-top: 140px;
+        align-items: flex-start;
+        flex-direction: column;
 
         .col{
             &.col-5{
@@ -197,18 +208,46 @@
         &.w-team{
             height: auto;
             min-height: inherit;
-
-            .scrolldown{
-                display: none;
-            }
+            padding-top: 170px;
 
             .button{
                 display: none;
             }
+
+            .col{
+                padding: 0px !important;
+                width: 70%;
+                
+                .title{
+                    text-align: center;
+                }
+
+                &:last-of-type{
+                    display: none;
+                }
+            }
         }
 
         &.w-person{
+           height: auto;
+           min-height: inherit;
            
+           .container-fluid{
+                padding: 0px 30px;
+            }
+
+           .row{
+            flex-direction: column;
+
+                .col{
+                    width: 100%;
+
+                    &.col-4{
+                        order: 2;
+                    }
+                }
+           }
+
             .title{
                 text-align: left;
             }
@@ -251,11 +290,37 @@
         }
 
         &.w-journal-inner{
-            padding-top: 190px;
+            padding-top: 170px;
             
+            .container-fluid{
+                padding: 0px 50px;
+            }
 
-            .button{
-                margin-bottom: 40px;
+            .row{
+                flex-direction: column;
+                align-items: center;
+
+                .col{
+                    width: 100%;
+
+                    &.col-1{
+                        margin-bottom: 20px;
+                    }
+
+                    &.col-10{
+                        padding-right: 0px;
+                        width: 60%;
+                    }
+                }
+            }
+
+            .title{
+                text-align: center;
+            }
+
+            .paragraph{
+                text-align: center;
+                margin-bottom: 0px;
             }
         }
 
@@ -264,22 +329,84 @@
             min-height: auto;
             padding-top: 130px;
         }
+
+        &.w-approach{
+            padding-top: 160px;
+        }
     }
 
     @media( max-width: @screen-small ){
-        &.w-journal{
-            padding-top: 130px;
-            height: 350px;
+        &.w-about, &.w-works, &.w-journal {
+            height: 310px;
+            padding-top: 120px;
         }
 
+        &.w-approach{
+            padding-top: 120px;
+
+            .title{
+                br{
+                    display: none;
+                }
+            }
+        }
+
+        &.w-about{
+            .title{
+                br{
+                    display: none;
+                }
+            }
+
+            height: auto;
+        }
+
+    
         &.w-work{
 
             .container-fluid{
                 padding: 0px 30px;
             }
         }
+
+        &.w-team{
+            padding-top: 120px;
+        }
+
+        &.w-person{
+            padding-top: 120px;
+            padding-bottom: 40px;
+
+            .col-1{
+                margin-bottom: 20px;
+            }
+        }
+
+        &.w-legals{
+            padding-top: 120px;
+        }
+
+        &.w-journal-inner{
+            padding-top: 120px;
+
+            .container-fluid{
+                padding: 0px 30px;
+            }
+        
+            .row{
+
+                .col{
+
+                    &.col-10{
+                        width: 100%;
+                    }
+                }
+            }
+
+            img{
+                height: auto;
+            }
+        }
     }
 
-    @media( max-width: @screen-xsmall ){
-    }
 }

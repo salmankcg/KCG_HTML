@@ -83,28 +83,40 @@
     /*------------------*/
     @media( max-width: @screen-large){
         
-    }
-
-    @media( max-width: @screen-small ){
         padding: 60px 0px;
 
-        .inner{
-            // padding: 0px;
-            flex-direction: column;
+        .container-fluid{
+            padding: 0px;
+            
+            .row{
+                flex-direction: column;
+                align-items: center;
+                padding: 0px 50px;
 
-            .col{
-                &.col-1{
-                    display: none;
-                }
+                .col{
+                    &.col-1{
+                        display: none;
+                    }
 
-                &.col-2, &.col-6{
-                    width: 100%;
-                }
+                    &.col-11{
+                        width: 100%;
+                    }
 
-                &.col-2{
-                    display: flex;
-                    flex-wrap: wrap;
+                    &.col-3, &.col-6{
+                        width: 100%;
+                    }
+
+                    &.col-3{
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
                 }
+            }
+        }
+
+        .journal-list{
+            .item{
+                padding: 0px;
             }
         }
 
@@ -127,6 +139,29 @@
         }
     }
 
-    @media( max-width: @screen-xsmall ){
+    @media( max-width: @screen-small ){
+
+        .container-fluid{
+
+            .row{
+                padding: 0px 30px;
+
+                .col{
+
+                    &.col-3, &.col-6{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .details{
+            font-size: 15px;
+
+            span{
+                font-size: 12px;
+            }
+        }
+
     }
 }
