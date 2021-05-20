@@ -63,31 +63,32 @@
     /*------------------*/
     /*--- RESPONSIVE ---*/
     /*------------------*/
-    @media( max-width: @screen-big ){
-    }
 
-    @media( max-width: @screen-medium){
+    @media( max-width: @screen-large ){
+        margin-top: 70px;
 
+        .col{
+            justify-content: center;
+        }
     }
 
     @media( max-width: @screen-small ){
         padding-bottom: 0px;
         margin-top: 40px;
 
-        .inner{
-            width: 100%;
+        .container-fluid{
             padding: 0px;
+        }
 
-            .col{
-                overflow-x: scroll;
-                overflow-y: hidden;
-                width: 100%;
-            }
+        .col{
+            overflow-x: scroll;
+            justify-content: flex-start;
         }
 
         a{
             span{
                 white-space: nowrap;
+                font-size: 16px;
             }
         }
 

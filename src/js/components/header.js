@@ -20,6 +20,7 @@ var _headerH		= $('.header').find('.logo').height() + (($('.header').height()-$(
 // ----------------------------------------- \\\
 if($header.length){
 
+	$header.find('.menu').css({'height':window.innerHeight});
 	$hmbrg.on('click', function(){
 		if($(this).hasClass('active')){
 			hideMenu();
@@ -30,6 +31,7 @@ if($header.length){
 	});
 
 	$(window).on('scroll.header', onScroll);
+	$(window).on('resize', onResize);
 	onScroll();
 }
 
@@ -44,10 +46,14 @@ if($header.length){
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
+function onResize(){
+	$header.find('.menu').css({'height':window.innerHeight});
+}
+
 function onScroll(){
 
 	var dHeight 		= $(document).height();
-	var wHeight			= $(window).height();
+	var wHeight			= window.innerHeight;
 	var scrollTop 		= $(window).scrollTop();
 
 

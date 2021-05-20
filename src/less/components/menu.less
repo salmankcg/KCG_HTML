@@ -1,6 +1,6 @@
 .menu{
     position: absolute;
-    width: 100vw; height: 100vh;
+    width: 100vw;
     color: rgba(255,255,255,.7);
     display: flex;
     flex-direction: column;
@@ -193,7 +193,17 @@
     }
 
     @media( max-width: @screen-large){
-        
+        .container-fluid{
+            .row{
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .col{
+                width: 100%;
+            }
+        }
+
         .item{
             font-size: 45px;
             line-height: 55px;
@@ -203,7 +213,7 @@
         .social{
             line-height: 20px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 50px;
         }
 
         .infos{

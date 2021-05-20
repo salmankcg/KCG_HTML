@@ -2,13 +2,17 @@
     position: fixed;
     width: 100%;
     z-index: 100;
-    transform: translateY(0px);
     transition: .5s all @custom;
     padding: 60px 0px;
+    opacity: 0;
 
     /*------------------*/
     /*--- ATTRIBUTES ---*/
     /*------------------*/
+
+    &.motion-in{
+        opacity: 1;
+    }
 
     &.h-scrollDown{
 
@@ -219,6 +223,22 @@
     /*------------------*/
     /*--- RESPONSIVE ---*/
     /*------------------*/
+    @media( min-width: 3000px){
+        &.show-menu{
+            &:before{
+                transform: scale(240);
+            }
+        }
+    }
+    
+    @media( min-width: 2000px){
+        &.show-menu{
+            &:before{
+                transform: scale(130);
+            }
+        }
+      
+    }
 
     @media( max-width: @screen-big){
         height: 130px;
@@ -230,9 +250,22 @@
         }
     }
 
+    @media( max-width: @screen-large){
+        &:before{
+            right: 30px;
+            top: 23px;
+        }
+    }
+
     @media( max-width: @screen-small ){
         height: 36px;
         padding: 36px 0px;
+
+        &:before{
+            right: 0px;
+            top: 20px;
+        }
+        
 
         .logo{
             width: 76px;

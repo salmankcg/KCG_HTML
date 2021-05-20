@@ -20,7 +20,7 @@ var $svcsIcons          = $('.services-icons');
 var $highlights         = $('.highlights');
 
 var _controller         = null;
-var _wHeight            = $(window).height();
+var _wHeight            = window.innerHeight;
 var _scrollPos          = 0;
 var _scrollValues       = [];
 
@@ -31,13 +31,16 @@ var _scrollValues       = [];
 // ----------------------------------------- \\\
 function init(){
 
-    if($(window).width() >= 860){
-        Title.init($pages.find('.sc-slides').find('.title'));
-        MouseMove.init($highlights.find('img'));
+    $pages.find('.infos').height(window.innerHeight);
 
-        addScrollMagic();
-        setScrollTo();
-    }
+    Title.init($pages.find('.sc-slides').find('.title'));
+    MouseMove.init($highlights.find('img'));
+
+    addScrollMagic();
+    setScrollTo();
+
+    resize();
+
 }
 
 
@@ -46,7 +49,8 @@ function init(){
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
 function resize() {
-
+    $pages.find('.infos').height(window.innerHeight);
+    _controller.update(true);
 }
 
 
@@ -57,6 +61,8 @@ function resize() {
 function addScrollMagic(){
 
     var $slides     = $pages.find('.sc-slides');
+
+    _scrollValues   = [];
     
     _controller     = null;
 

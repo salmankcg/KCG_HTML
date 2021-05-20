@@ -441,6 +441,12 @@
             }
         }
 
+        .is-stratetgy{
+            img{
+                object-position: right;
+            }
+        }
+
         img{
             width: 100%;
             height: 100%;
@@ -454,13 +460,112 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-large){
-        
+        &.sc-slides{
+            .container-fluid{
+                .col{
+                    &.col-3{
+                        width: 40%;
+                        
+                        &:nth-of-type(2){
+                            position: absolute;
+                            top: 20%;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .services-icons{
+            .svg{
+                width: 90px;
+                height: 90px;
+            }
+            span{
+                font-size: 20px;
+            }
+        }
     }
 
     @media( max-width: @screen-small ){
+        padding: 60px 0px;
+
+        &.sc-slides{
+            .submenu{
+                top: 110px;
+            }
+
+            &:first-of-type{
+                .container-fluid{
+                    margin-top: 40px;
+                }
+            }
+
+            .row{
+                align-items: flex-start;
+            }
+        }
         
+        .container-fluid{
+            padding: 0px 30px;
+
+            .row{
+                .col{
+                    &.col-7{
+                        width: 100%;
+                    }
+
+                    &.col-3{
+                        width: 50%;
+                        margin-top: 120px;
+                        
+                        &:nth-of-type(2){
+                            .centerHoriz;
+                            top: 90px;
+                            margin-top: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .services-icons{
+            flex-direction: column;
+            margin-top: 10px;
+            justify-content: center;
+
+            .svg{
+                width: 50px;
+                height: 70px;
+            }
+
+            span{
+                font-size: 16px;
+                margin-top: 0px;
+                margin-left: 20px;
+            }
+
+            .item{
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .list{
+            font-size: 16px;
+            line-height: 25px;
+            margin-top: 40px;
+        }
+
+        .type{
+            font-size: 20px;
+        }
+
+        .paragraph{
+            font-size: 16px;
+        }
     }
 
-    @media( max-width: @screen-xsmall ){
-    }
+
 }

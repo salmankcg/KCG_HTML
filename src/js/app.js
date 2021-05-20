@@ -34,10 +34,12 @@ const _pages = $('main').data('page');
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
+PageLoad.init();
+
 $(function() {
     'use strict';
 
-    PageLoad.init();
+    console.log('INIT');
 
     switch(_pages){
         case 'home':
@@ -66,7 +68,7 @@ $(function() {
         break;
     }
 
-    $( window ).resize(function() {
+    $( window ).on('resize', function() {
         switch(_pages){
             case 'home':
                 Home.resize();
@@ -78,6 +80,8 @@ $(function() {
                 Service.resize();
             break;
         }
+
+        console.log('resize');
     });
 
 });

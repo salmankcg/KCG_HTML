@@ -67,14 +67,27 @@
     /*--- RESPONSIVE ---*/
     /*------------------*/
     @media( max-width: @screen-large){
-        
-    }
-
-    @media( max-width: @screen-small ){
         padding: 60px 0px;
 
-        .image{
-            padding-top: 50%;
+        &:nth-of-type(4){
+            padding-top: 0px;
+        }
+
+        .container-fluid{
+            padding: 0px 50px;
+        }
+
+        .row{
+            flex-direction: column;
+
+            .col{
+                width: 100%;
+
+                &.col-4{
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
         }
 
         .details{
@@ -85,6 +98,28 @@
             }
         }
 
+        .image{
+            height: 370px;
+        }
+        
+        .paragraph:not(.p-bigger){
+            margin-bottom: 20px;
+        }
+
+    }
+
+    @media( max-width: @screen-small ){
+
+        
+        .container-fluid{
+            padding: 0px 30px;
+        }
+
+        .image{
+            height: 210px;
+        }
+
+
         .work-image{
             width: 100%;
 
@@ -92,8 +127,9 @@
                 width: 100%;
             }
         }
+
+        
     }
 
-    @media( max-width: @screen-xsmall ){
-    }
+
 }

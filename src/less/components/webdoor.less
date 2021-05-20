@@ -232,6 +232,22 @@
             padding-top: 120px;
             height: 250px;
 
+            .container-fluid{
+                padding: 0px 50px;
+            }
+
+            .row{
+                flex-direction: column;
+
+                .col{
+                    &.col-10{
+                        width: 100%;
+                        text-align: center;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
         }
 
         &.w-journal-inner{
@@ -256,8 +272,11 @@
             height: 350px;
         }
 
-        &.w-contact{
-            
+        &.w-work{
+
+            .container-fluid{
+                padding: 0px 30px;
+            }
         }
     }
 

@@ -136,9 +136,53 @@
     /*------------------*/
     /*--- RESPONSIVE ---*/
     /*------------------*/
+    @media( max-width: @screen-large ){
+        .phrase{
+            br{
+                display: none;
+            }
+        }
+
+        &.no-slick{
+            .item{
+                .wrapper{
+                    width: 70vw;
+                }
+            }
+        }
+
+    }
 
     @media( max-width: @screen-small ){
+        padding-top: 0px;
         padding: 40px 0px;
+
+        &.no-slick{
+            
+            .item{
+                padding: 0px;
+
+                .wrapper{
+                    width: 100%;
+                }
+            }
+        }
+
+        .phrase{
+            font-size: 20px;
+        }
+
+        .button{
+            bottom: 10px;
+
+            &.t-prev{
+                left: -40px;
+            }
+
+            &.t-next{
+                right: -40px;
+            }
+        }
 
         .item{
             padding: 0px 40px;

@@ -10,11 +10,13 @@ import {BufferGeometryUtils} from "../libs/BufferGeometryUtils";
 // ------------------------------ \\\
 // ------------ VARS ------------ \\\
 // ------------------------------ \\\
-var renderer                = new THREE.WebGLRenderer({alpha:true,antialias: true});
+var renderer                = new THREE.WebGLRenderer({alpha:true, antialias: true});
 var clock                   = new THREE.Clock(true);
 
 var scene                   = null;
-var aspect                  = window.innerWidth / window.innerHeight;
+var _width                  = window.innerWidth;
+var _height                 = window.innerHeight;
+var aspect                  = _width / _height;
 var camera                  = new THREE.PerspectiveCamera(45, aspect, 1, 1000);
 var earth                   = null;
 var earthUniforms           = null;
@@ -171,10 +173,8 @@ const atmosphereFragShader    = ` varying float atmosphereThickness;
 // ----------------------------------------- \\\
 async function init() {
 
-  console.log('INIT-GLOBE');
-
   // initialize the renderer
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(_width, _height);
   renderer.autoClear = false;
   document.getElementById("canvas").appendChild(renderer.domElement);
 
@@ -209,7 +209,7 @@ async function init() {
 
     let material;
 
-    mapC = textureLoader.load( amount[a].thumb );
+    mapC          = textureLoader.load( amount[a].thumb );
 
     material      = new THREE.SpriteMaterial( { map: mapC, color: 0xffffff, fog: true } );
 
@@ -244,10 +244,16 @@ async function init() {
 }
 
 function resize() {
-  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  _width    = $(window).width();
+  _height   = $(window).height();
+
+  renderer.setSize(_width, _height);
+
+  console.log(_width)
 
   if(camera != null) {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = _width / _height;
     camera.updateProjectionMatrix();
   }
 }

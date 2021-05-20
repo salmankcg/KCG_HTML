@@ -19,7 +19,7 @@ var $scrollDown     = $('.scrolldown');
 var $homeBullets    = $('.home-bullets');
 
 var _controller     = null;
-var _wHeight        = $(window).height();
+var _wHeight        = window.innerHeight;
 var _scrollPos      = 0;
 var _scrollValues   = [];
 
@@ -30,14 +30,18 @@ var _scrollValues   = [];
 // ----------------------------------------- \\\
 function init(){
 
-    if($(window).width() >= 860){
-        Title.init($pages.find('.title'));
 
-        addScrollMagic();
-        setScrollTo();
-    }
+    $pages.find('.infos').height(window.innerHeight);
+    $pages.find('.circle').css({'width':window.innerHeight/1.8, 'height':window.innerHeight/1.8});
+
+    Title.init($pages.find('.title'));
+
+    addScrollMagic();
+    setScrollTo();
 
     Earth.init();
+
+    resize();
 }
 
 
@@ -46,7 +50,14 @@ function init(){
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
 function resize() {
+    
+    $pages.find('.infos').height(window.innerHeight);
+    $pages.find('.circle').css({'width':window.innerHeight/1.8, 'height':window.innerHeight/1.8});
+
     Earth.resize();
+ 
+    _controller.update(true);
+    
 }
 
 
@@ -58,6 +69,8 @@ function addScrollMagic(){
 
     var $slides     = $pages.find('.hc-slides');
     var $slidesC    = $pages.find('.hc-clients');
+
+    _scrollValues   = [];
 
     _controller = new ScrollMagic.Controller({
         globalSceneOptions: {
@@ -215,8 +228,6 @@ function setScrollTo(){
 // ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
 export { init, resize }
-
-
 
 
 

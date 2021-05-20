@@ -28,14 +28,16 @@ var _scrollValues       = [];
 // ----------------------------------------- \\\
 function init(){
 
-    
-    if($(window).width() >= 860){
-        Title.init($pages.find('.sc-slides').find('.title'));
-        MouseMove.init($workList.find('.item').find('.wrapper'));
+    $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
 
-        addScrollMagic();
-        setScrollTo();
-    }
+    Title.init($pages.find('.sc-slides').find('.title'));
+    MouseMove.init($workList.find('.item').find('.wrapper'));
+
+    addScrollMagic();
+    setScrollTo();
+
+    resize();
+
 }
 
 
@@ -44,7 +46,8 @@ function init(){
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
 function resize() {
-
+    $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
+    _controller.update(true);
 }
 
 
@@ -55,6 +58,8 @@ function resize() {
 function addScrollMagic(){
 
     var $slides     = $pages.find('.sc-slides');
+
+    _scrollValues   = [];
     
     _controller     = null;
 
