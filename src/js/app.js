@@ -34,38 +34,50 @@ const _pages = $('main').data('page');
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
-PageLoad.init();
+
 
 $(function() {
     'use strict';
 
-    console.log('INIT');
+    // console.log('INIT');
+    
 
     switch(_pages){
         case 'home':
+            PageLoad.init();
             Home.init();
         break;
         case 'about':
             About.init();
+            PageLoad.hide();
         break;
         case 'about-approach':
             Approach.init();
+            PageLoad.hide();
         break;
         case 'about-team':
             Team.init();
+            PageLoad.hide();
         break;
         case 'works':
             Works.init();
+            PageLoad.hide();
         break;
         case 'contact':
             Contact.init();
+            PageLoad.hide();
         break;
         case 'services':
             Services.init();
+            PageLoad.hide();
         break;
         case 'service':
             Service.init();
+            PageLoad.hide();
         break;
+        default:
+            PageLoad.hide();
+            break;
     }
 
     $( window ).on('resize', function() {
@@ -81,7 +93,7 @@ $(function() {
             break;
         }
 
-        console.log('resize');
+        // console.log('resize');
     });
 
 });

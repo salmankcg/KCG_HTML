@@ -15,7 +15,7 @@ var $header 	= $('.header');
 var $cont 		= $('.main-content');
 var $main 		= $('main');
 
-var _loadDelay 	= 400;
+var _loadDelay 	= 0;
 var _dataPage	= $main.data('page');
 
 
@@ -46,36 +46,7 @@ function init(){
 			},
 			complete: function(){
 
-				if(_dataPage == 'contact' || _dataPage == 'about-approach' || _dataPage == 'about-person' || _dataPage == 'legals'){
-
-					setTimeout(function(){
-						Loader.progressMotion(0);
-						setTimeout(function(){
-							Loader.progressMotion(20);
-							setTimeout(function(){
-								Loader.progressMotion(40);
-								setTimeout(function(){
-									Loader.progressMotion(60);
-									setTimeout(function(){
-										Loader.progressMotion(80);
-										setTimeout(function(){
-											Loader.progressMotion(100);
-										}, 100);
-									}, 100);
-								}, 100);
-							}, 100);
-						}, 100);
-					}, 50);
-
-					setTimeout(function(){
-						setFirstLoader();
-					}, 800);
-
-				}else{
-					setFirstLoader();
-				}
-
-
+				setFirstLoader();
 			},
 		});
 
@@ -108,15 +79,22 @@ function setFirstLoader(){
 	}, 1000);
 }
 
+function hide(){
+	Loader.hide();
+			
+	$menu.trigger('enter').addClass('motion-in');
+	$header.addClass('motion-in');
+	$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
+
+	activeMenus(_dataPage);
+}
 
 function activeMenus(page){
 	$menu.find('.item').removeClass('active');
 	$menu.find('.item').filter('[data-target="'+page+'"]').addClass('active');
-
-	console.log('data-page '+page);
 }
 
 // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
-export { init }
+export { init, hide }

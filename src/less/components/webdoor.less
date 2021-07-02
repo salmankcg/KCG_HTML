@@ -214,6 +214,12 @@
                 display: none;
             }
 
+            .row{
+                flex-direction: column;
+                padding: 0px 30px;
+                align-items: center;
+            }
+
             .col{
                 padding: 0px !important;
                 width: 70%;
@@ -222,10 +228,17 @@
                     text-align: center;
                 }
 
+                &:first-of-type{
+                    order: 2;
+                }
+
                 &:last-of-type{
-                    display: none;
+                    order: 1;
+                    margin-bottom: 40px;
                 }
             }
+
+            
         }
 
         &.w-person{
@@ -370,7 +383,18 @@
         }
 
         &.w-team{
-            padding-top: 120px;
+            padding-top: 130px;
+            
+            .row{
+                flex-direction: column;
+                padding: 0px 30px;
+            }
+
+            .col{
+                padding: 0px !important;
+                width: 100%;
+            }
+            
         }
 
         &.w-person{
