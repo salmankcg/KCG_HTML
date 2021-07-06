@@ -31,33 +31,6 @@ if($button.length){
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
-function mouseEnter(){
-
-    // var _text       = $(this).find('.text');
-  
-    // gsap.killTweensOf(_text);
-    
-    // new TimelineMax()
-    // .add([
-    //     gsap.to(_text, 1, { ease: Power3.easeOut, opacity: 0, y: '-40%' }, 0),
-    //     gsap.to(_text, 1, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
-    // ]);
-}
-
-function mouseLeave(){
-
-    // var _text       = $(this).find('.text');
-
-    // gsap.killTweensOf(_text);
-
-    // new TimelineMax()
-    // .add([
-    //   gsap.to(_text, 0.1, { ease: Power3.easeOut, opacity: 0, y: '-10%' }, 0),
-    //   gsap.to(_text, 0.2, { ease: Expo.easeOut, opacity: 1, startAt: {y: '20%'}, y: '0%' }, 0.1)
-    // ]);
-
-}
-
 function mouseMagnetic(item) {
 
     var $item = $(item);

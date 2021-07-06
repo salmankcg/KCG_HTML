@@ -7,7 +7,8 @@
 
 {% block content %}
 
-<section>
+<!-- BEGIN SECTION -->
+<section class="section-content">
 
   <div class="scrolldown">
     <span>SCROLL</span>
@@ -180,9 +181,29 @@
                   </div>
                 </a>
               </div>
-              <div class="image">
-                <img src="assets/about/highlights-3.png" alt=""/>
+              <!-- BEGIN SERVICES -->
+              <div class="people-scramble ps-services">
+                <div class="wrapper">
+
+                  {% set image = cycler(1,2,4,3,5,8,6,7) %}
+                  <div class="images">
+                  {% for u in range(0,8) %}
+                    <figure data-target="{{u}}" style="background-image:url(assets/about/person-{{image.next()}}.png);"></figure>
+                  {% endfor %}
+                  </div>
+
+                  {% set name = cycler('Saul','Aline','Alex','Phillip','Paul','Marcus','Philipa','Brad') %}
+                  {% set area = cycler('design','photography','development','management','quality','copy','lorem','lorem') %}
+                  <div class="hint">
+                  {% for u in range(0,8) %}
+                    <div class="item" data-target="{{u}}" data-name="{{name.next()}}" data-area="{{area.next()}}" data-link=""></div>
+                  {% endfor %}
+                  </div>
+
+                  
+                </div>
               </div>
+              <!-- END SERVICES -->
             </div>
           </div>
         </div>
@@ -262,6 +283,6 @@
   </div>
 
 </section>
-
+<!-- END SECTION -->
 
 {% endblock %}

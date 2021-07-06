@@ -21,6 +21,7 @@ import  './components/footer';
 import  './components/header';
 import  "./components/testimonial";
 import  "./components/services-items";
+import  "./components/about-scramble";
 
 
 
