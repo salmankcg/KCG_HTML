@@ -28,13 +28,13 @@ var _scrollValues       = [];
 // ----------------------------------------- \\\
 function init(){
 
-    $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
+    // $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
 
     Title.init($pages.find('.sc-slides').find('.title'));
     MouseMove.init($workList.find('.item').find('.wrapper'));
 
-    addScrollMagic();
-    setScrollTo();
+    // addScrollMagic();
+    // setScrollTo();
 
     resize();
 
@@ -46,8 +46,8 @@ function init(){
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
 function resize() {
-    $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
-    _controller.update(true);
+    // $pages.find('.sc-slides').find('.infos').height(window.innerHeight);
+    // _controller.update(true);
 }
 
 

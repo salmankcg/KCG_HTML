@@ -3,7 +3,7 @@
 // ----------------------------------------- \\\
 import $ from "jquery";
 import * as MouseMove from  "../components/mouse-move";
-import {TweenMax, Elastic, Power3} from "gsap";
+import gsap, {TweenMax, Elastic, Power3} from "gsap";
 
 
 
@@ -13,6 +13,7 @@ import {TweenMax, Elastic, Power3} from "gsap";
 var $peopleList		= $('.people');
 var $peopleScramble	= $('.people-scramble');
 var $itemScramble 	= $peopleScramble.find('.item');
+var $scrollDown		= $('.scrolldown');
 
 var $name 			= document.querySelector('.name');
 var $area 			= document.querySelector('.area');
@@ -73,6 +74,14 @@ function init(){
 		});
 	}
 	
+	$(window).on('scroll.about-team', onScroll);
+	
+	onScroll();
+
+
+	$scrollDown.on('click',function(){
+		gsap.to(window, 2, {scrollTo: {y: $(window).height() , ease: Power3.easeOut}});
+	});
 	
 
 }
@@ -81,10 +90,7 @@ function init(){
 // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
-function resize() {
-    
-}
-
+function resize() {}
 
 
 // ----------------------------------------- \\\
@@ -165,6 +171,18 @@ function checkPosTouch(e){
 			mouseEnter($peopleScramble.find('.item').eq(i));
 		}
 	});
+
+}
+
+function onScroll(){
+
+	var scrollTop 		= $(window).scrollTop();
+
+	if (scrollTop > 200) {
+		$scrollDown.addClass('hide');
+	} else{
+		$scrollDown.removeClass('hide');
+	}
 
 }
 

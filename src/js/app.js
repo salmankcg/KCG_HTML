@@ -12,6 +12,7 @@ import * as About       from './pages/about';
 import * as Approach    from './pages/about-approach';
 import * as Team        from './pages/about-team';
 import * as Works       from './pages/works';
+import * as Work        from './pages/work';
 import * as Contact     from './pages/contact';
 import * as Services    from './pages/services';
 import * as Service     from './pages/service';
@@ -20,7 +21,7 @@ import  './components/button';
 import  './components/footer';
 import  './components/header';
 import  "./components/testimonial";
-import  "./components/services-items";
+// import  "./components/services-items";
 import  "./components/about-scramble";
 
 
@@ -62,6 +63,10 @@ $(function() {
         break;
         case 'works':
             Works.init();
+            PageLoad.hide();
+        break;
+        case 'work':
+            Work.init();
             PageLoad.hide();
         break;
         case 'contact':

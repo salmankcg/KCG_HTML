@@ -10,6 +10,7 @@ import gsap, {TimelineMax, Power3, Power2, Expo, Elastic} from "gsap";
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
 var $footer       	= $('.footer');
+var $header       	= $('.header');
 var $scrollup   	= $footer.find('.scrollup');
 var dHeight 		= null;
 var wHeight			= null;
@@ -73,8 +74,10 @@ function onScroll(){
 	
 	if (scrollTop + wHeight >= dHeight) {
 		$footer.addClass('motion-in-3');
+		$header.addClass('show-logo');
 	}else{
 		$footer.removeClass('motion-in-3');
+		$header.removeClass('show-logo');
 	}
 
 

@@ -15,19 +15,12 @@
         opacity: 1;
     }
 
-    &.h-scrollDown{
+    &.show-logo{
 
         .logo{
             .text{
-                opacity: 0;
-            }
-        }
-    }
-
-    &.h-scrollUp{
-        .logo{
-            .text{
-                opacity: 0;
+                opacity: 1;
+                transform: translateX(0px);
             }
         }
     }
@@ -76,6 +69,16 @@
                 &:before{
                     background: @gray;
                 }
+            }
+
+            .social{
+
+                svg{
+                    path{
+                        fill: @gray;
+                    }
+                }
+                
             }
         }
     }
@@ -139,6 +142,13 @@
         cursor: pointer;
         z-index: 2;
 
+        &:hover{
+            .text{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+
         .ico{
             path{
                 transition: .5s all @custom;
@@ -148,6 +158,9 @@
 
         .text{
             transition: .5s all @custom;
+            opacity: 0;
+            transform: translateX(20px);
+
             path{
                 transition: .5s all @custom;
                 fill: @black;

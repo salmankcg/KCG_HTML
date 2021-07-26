@@ -86,9 +86,20 @@ function onScroll(){
 			}
 			
 		break;
+		case 'press-inner':
+			if(scrollTop  >= (wHeight * 0.80) - _headerH){
+				if(scrollTop + wHeight >= dHeight - _headerH){
+					$header.addClass('h-white');
+				}else{
+					$header.removeClass('h-white');
+				}
+			}else{
+				$header.addClass('h-white');
+			}
+			
+		break;
 		case 'contact':
 			$header.addClass('h-white');
-			
 		break;
 		case 'services':
 			var _scTop = $('.sc-clients').offset().top;
@@ -96,10 +107,8 @@ function onScroll(){
 			if(scrollTop >= _scTop - _headerH){
 				if(scrollTop + wHeight >= dHeight - _headerH){
 					$header.addClass('h-white');
-					console.log('footer');
 				}else{
 					$header.removeClass('h-white');
-					console.log('crientes');
 				}
 
 			}else{
@@ -122,6 +131,22 @@ function onScroll(){
 			}else{
 				$header.addClass('h-white');
 			}
+		break;
+		case 'about':
+			
+			var _acBTop = $('.ac-black').offset().top;
+			var _acJTop = $('.ac-journal').offset().top;
+
+			if(scrollTop >= _acBTop - _headerH && scrollTop < _acJTop - _headerH){
+				$header.addClass('h-white');
+			} else if(scrollTop >= _acJTop - _headerH && scrollTop + wHeight < dHeight - _headerH){
+				$header.removeClass('h-white');
+			}else if(scrollTop + wHeight >= dHeight - _headerH){
+				$header.addClass('h-white');
+			}else{
+				$header.removeClass('h-white');
+			}
+
 		break;
 		default:
 			if(scrollTop + wHeight >= dHeight - _headerH){

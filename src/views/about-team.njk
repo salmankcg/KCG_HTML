@@ -37,7 +37,7 @@
             <div class="people-scramble">
               <div class="wrapper">
 
-                {% set image = cycler(1,2,4,3,5,8,6,7) %}
+                {% set image = cycler(1,4,2,3,5,10,12,6) %}
                 <div class="images">
                 {% for u in range(0,8) %}
                   <figure data-target="{{u}}" style="background-image:url(assets/about/person-{{image.next()}}.png);"></figure>

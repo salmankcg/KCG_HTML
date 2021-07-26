@@ -45,12 +45,18 @@ function init(){
 				}
 			},
 			complete: function(){
-
-				setFirstLoader();
+				
+				console.log('LOAD FINISHED');
+				
 			},
 		});
 
 	}, 500 );
+
+	$(window).bind('LOADER_ALL',function(){
+		console.log('LOAD ALL');
+		setFirstLoader();
+	})
 
 }
 

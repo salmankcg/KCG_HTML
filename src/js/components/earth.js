@@ -14,7 +14,7 @@ var renderer                = new THREE.WebGLRenderer({alpha:true, antialias: tr
 var clock                   = new THREE.Clock(true);
 
 var scene                   = null;
-var _width                  = window.innerWidth;
+var _width                  = window.innerHeight;
 var _height                 = window.innerHeight;
 var aspect                  = _width / _height;
 var camera                  = new THREE.PerspectiveCamera(45, aspect, 1, 1000);
@@ -24,6 +24,8 @@ var atmosphereUniforms      = null;
 var atmosphere              = null;
 var amount                  = $('#canvas').data('people');
 var mapC, group;
+
+var _countLoad            = 0;
 
 var  earthVertexShader      = `uniform vec3 lightDirection;
 
@@ -245,7 +247,7 @@ async function init() {
 
 function resize() {
 
-  _width    = $(window).width();
+  _width    = $(window).height();
   _height   = $(window).height();
 
   renderer.setSize(_width, _height);
@@ -315,6 +317,16 @@ async function loadTexture(texture){
       tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
       
       resolve(tex);
+
+      
+      if(_countLoad >= 4){
+        console.log('LOADER ASSETS');
+        $(window).trigger('LOADER_ALL');
+      }
+
+      // console.log(_countLoad);
+
+      _countLoad++;
     
 
     }, null, reject))

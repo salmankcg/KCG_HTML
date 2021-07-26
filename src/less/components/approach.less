@@ -1,6 +1,5 @@
 .approach{
     color: @white;
-    display: flex;
     margin: 120px -30px;
 
 
@@ -12,6 +11,10 @@
     /*----------------*/
     /*--- ELEMENTS ---*/
     /*----------------*/
+    .a-wrapper{
+        display: flex;
+    }
+
     .item{
         position: relative;
         width: 33.3333%;
@@ -23,13 +26,7 @@
             opacity: 0;
         }
 
-        &:hover{
-            .icon{
-                svg{
-                    transform: scale(.4);
-                }
-            }
-        }
+        &:hover{}
     }
 
     .wrapper{
@@ -100,31 +97,56 @@
     /*------------------*/
     @media( max-width: @screen-big ){
         .item{
-            padding: 20px;
-            margin: 0px 10px;
+            padding: 0px;
+            margin: 0px 15px;
         }
 
         h3{
             font-size: 23px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
+
+        .wrapper{
+            padding: 25px;
+        }
+
     }
 
     @media( max-width: @screen-large){
-        flex-direction: column;
+        overflow-x: scroll;
+        margin: 120px -76px;
+        padding-top: 60px;
+        
+
+        .a-wrapper{
+            display: block;
+            width: 1320px;
+        }
 
         .item{
-            width: 100%;
-            margin-bottom: 80px;
+            width: 340px;
+            margin-bottom: 0px;
+            margin: 0 50px;
+            float: left;
         }
     }
 
     @media( max-width: @screen-small ){
-        .item{
-            margin-bottom: 40px;
-        }
-    }
+        overflow-x: scroll;
+        margin: 60px -46px;
 
-    @media( max-width: @screen-xsmall ){
+        span{
+            font-size: 16px;
+        }
+
+        .a-wrapper{
+            display: block;
+            width: 1090px;
+        }
+
+        .item{
+            width: 300px;
+            margin: 0 30px;
+        }
     }
 }

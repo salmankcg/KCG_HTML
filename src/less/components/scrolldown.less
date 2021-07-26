@@ -20,7 +20,7 @@
     }
 
     &.hide{
-        transform: translateY(100px);
+        transform: translateX(-50%) translateY(100px);
     }
 
 
@@ -62,7 +62,9 @@
     }
 
     @media( max-width: @screen-small ){
-
+        span{
+            font-size: 10px;
+        }
     }
 
     @media( max-width: @screen-xsmall ){

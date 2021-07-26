@@ -85,17 +85,17 @@ function addScrollMagic(){
 
                             $slides.find('.services-bckg').css({background:_color});
                             
-                            $svcsBullets.find('.button').removeClass('active');
-                            $svcsBullets.find('.button').eq(_index).addClass('active');
+                            // $svcsBullets.find('.button').removeClass('active');
+                            // $svcsBullets.find('.button').eq(_index).addClass('active');
                             $header.addClass('check-header');
-                            gsap.to($svcsBullets, 1, {ease: Power3.easeOut, x: '0%'},0);
+                            // gsap.to($svcsBullets, 1, {ease: Power3.easeOut, x: '0%'},0);
 
                             _scrollPos = _index;
 
                             if(_index == 0){
                                 $header.removeClass('h-white')
                                 $scrollDown.removeClass('s-white');
-                                $svcsBullets.addClass('sb-dark');
+                                // $svcsBullets.addClass('sb-dark');
 
                                 Title.motionIn($(_this));
                                 $(_this).find('.submenu').addClass('motion-in');
@@ -109,7 +109,7 @@ function addScrollMagic(){
                             if(_index >= 1){
                                 $header.addClass('h-white');
                                 $scrollDown.addClass('s-white').removeClass('hide');
-                                $svcsBullets.removeClass('sb-dark');
+                                // $svcsBullets.removeClass('sb-dark');
                                 
                                 $(_this).find('.type').addClass('motion-in');
                                 $(_this).find('.paragraph').addClass('motion-in');
@@ -128,7 +128,7 @@ function addScrollMagic(){
                                 }
 
                                 if(e.scrollDirection == "FORWARD"){
-                                    gsap.to($svcsBullets, 1, {ease: Power3.easeOut, x: '-200px'},0);
+                                    // gsap.to($svcsBullets, 1, {ease: Power3.easeOut, x: '-200px'},0);
                                     $scrollDown.addClass('hide');
                                     $header.addClass('h-white').removeClass('check-header');
                                 }
@@ -167,10 +167,10 @@ function setScrollTo(){
         gsap.to(window, 1.5, {scrollTo: {y: newScrollPos , ease: Power3.easeOut}});
     });
 
-    $svcsBullets.find('.button').on('click',function(){
-        var _target = parseInt($(this).data('target').split('slide-')[1]);
-        _controller.scrollTo(_scrollValues[_target-1]);
-    });
+    // $svcsBullets.find('.button').on('click',function(){
+    //     var _target = parseInt($(this).data('target').split('slide-')[1]);
+    //     _controller.scrollTo(_scrollValues[_target-1]);
+    // });
 
     $svcsIcons.find('.item').on('click',function(){
         var _target = parseInt($(this).data('target').split('slide-')[1]);

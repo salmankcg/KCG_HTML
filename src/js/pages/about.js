@@ -14,10 +14,6 @@ var $abtWorld       = $('.about-world');
 var $people         = $abtWorld.find('.item');
 var $highlights     = $('.highlights');
 
-var _inneHeight     = $abtWorld.find('.aw-people').height();
-var _inneWidth      = $abtWorld.find('.aw-people').width();
-
-
 
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
@@ -49,9 +45,10 @@ function addPopPeople(){
 
     $people.each(function(e,i){
         var _this = this;
+        var _place = $(this).attr('data-place');
 
         setTimeout(function(){
-            scramblePos(_this);
+            scramblePos(_this, _place);
         }, e*300);
         
     });
@@ -61,16 +58,48 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function scramblePos(_this){
-    var _posY = getRandomInt(1, _inneHeight);
-    var _posX = getRandomInt(1, _inneWidth);
 
-    $(_this).css('transform','translate('+_posX+'px,'+_posY+'px)');
 
-    motionIn(_this);
+function scramblePos(_this, _place){
+    var _posY = 0//getRandomInt(1, _inneHeight);
+    var _posX = 0//getRandomInt(1, _inneWidth);
+
+    var _random = getRandomInt(1, 3);
+    var _class = null;
+
+    var _arrayNorth = ['1','2', '3'];
+    const shuffled  = _arrayNorth.sort(() => 0.5 - Math.random());
+    let selected    = shuffled.slice(0, 1);
+
+
+    switch(_place){
+        case 'north-america':
+            _class = 'north-america-'+_random;
+        break;
+        case 'south-america':
+            _class = 'south-america-'+_random;
+        break;
+        case 'europe':
+            _class = 'europe-'+_random;
+        break;
+        case 'asia':
+            _class = 'asia-'+_random;
+        break;
+        case 'africa':
+            _class = 'africa-'+_random;
+        break;
+        case 'oceania':
+            _class = 'oceania-'+_random;
+        break;
+    }
+    $(_this).addClass(_class);
+
+    // console.log(_random);
+
+    motionIn(_this, _class);
 }
 
-function motionIn(_this){
+function motionIn(_this, _class){
 
     var $item   = $(_this);
     var $figure = $(_this).find('img');
@@ -78,12 +107,13 @@ function motionIn(_this){
 
     new TimelineMax({onComplete:function(){
         TweenMax.killTweensOf($figure);
-        setTimeout(function(){
-            scramblePos($item);
-        }, 1000);
+        // setTimeout(function(){
+            // $item.removeClass(_class);
+            // scramblePos($item);
+        // }, 1000);
     }})
     .add([TweenMax.to($figure, 5, {scale: 1, ease: 'Elastic.easeOut'})])
-    .add([TweenMax.to($figure, .5, {scale: 0, ease: 'Power3.easeOut'})],20)
+    // .add([TweenMax.to($figure, .5, {scale: 0, ease: 'Power3.easeOut'})],20)
       
 
     

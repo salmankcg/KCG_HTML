@@ -3,7 +3,7 @@
     position: relative;
     display: block;
     z-index: 3;
-    background-color: @white;
+    // background-color: @white;
     
 
     /*------------------*/
@@ -54,11 +54,11 @@
                   display: block;
               }
       
-              &.motion-in{
-                  span{
-                      transform: translateY(0px);
-                  }
-              }
+
+            span{
+                transform: translateY(0px);
+            }
+
       
               &.bold{
                   .blackerBd;
@@ -73,66 +73,11 @@
               }
             }
         }
-    
-        .paragraph{
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: .5s all @custom;
-    
-            &.motion-in{
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
+    }
 
-        .caption{
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: .5s all @custom;
-    
-            &.motion-in{
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
-
-        .subtitle{
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: .5s all @custom;
-    
-            &.motion-in{
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
-    
-        .button{
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: .5s all @custom;
-            transition-delay: .2s;
-    
-            &.motion-in{
-                opacity: 1;
-                transform: translateY(0px);
-
-                &.b-icon{
-                    transform: translateY(-20px);
-                }
-            }
-        }
-
-        .submenu{
-            transform: translateY(-50px);
-            opacity: 0;
-            transition: .5s all @custom;
-
-            &.motion-in{
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
+    &.sc-inner{
+        padding: 0px;
+        margin-bottom: 20%;
     }
 
 
@@ -150,25 +95,54 @@
                     display: initial;
                 }
 
-                .caption{
-                    width: 15%;
+                .col-full{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .subtitle{
+                        width: 40%;
+                    }
+
+                    .paragraph{
+                        width: 40%;
+                    }
                 }
 
-                .subtitle{
+                .col-left{
+                    width: 40%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+
+                    .caption{
+                        margin-right: 20px;
+                        margin-top: 9px;
+                    }
+                }
+
+                .col-right{
                     width: 25%;
                 }
 
-                .paragraph{
-                    width: 48%;
+            }
+        }
+
+        .row{
+            &.r-padding{
+                padding: 120px 0px;
+
+                &:first-of-type{
+                    padding: 240px 0px;
                 }
             }
         }
     }
 
     .services-bckg{
-        position: fixed;
+        position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         top: 0px;
         transition: .5s all @custom;
         background: @gray;
@@ -205,13 +179,6 @@
             font-size: 32px;
             text-align: center;
             margin-top: 20px;
-            opacity: 0;
-            transition: .5s all @custom;
-            transition-delay: .5s;
-    
-            &.motion-in{
-                opacity: 1;
-            }
         }
     }
 
@@ -226,6 +193,18 @@
         .cover;
         flex-direction: column;
         justify-content: center;
+
+        &.i-hAuto{
+            height: auto;
+        }
+
+        &.i-service{
+            padding-bottom: 120px;
+
+            .background-gradient{
+                height: 90%;
+            }
+        }
     }
 
     .list{
@@ -233,15 +212,6 @@
         color: @white;
         font-size: 20px;
         line-height: 34px;
-        opacity: 0;
-        transition: .5s all @custom;
-        transform: translateY(-10px);
-        transition-delay: .5s;
-
-        &.motion-in{
-            opacity: 1;
-            transform: translateY(0px);
-        }
     }
 
     .type{
@@ -250,75 +220,58 @@
         color: @white;
         margin-bottom: 20px;
         display: block;
-        opacity: 0;
-        transition: .5s all @custom;
-
-        &.motion-in{
-            opacity: 1;
-        }
     }
 
     .ico{
         width: 170px;
         height: 170px;
-        opacity: 0;
-        transition: .5s all @custom;
-        transform: translateY(-10px);
-        transition-delay: .2s;
-        cursor: pointer;
 
-        &.motion-in{
-            opacity: 1;
-            transform: translateY(0px);
+
+        &.i-stg{
+
+            svg{
+                circle{
+                    &:nth-of-type(1){
+                        animation: 3s ease-in infinite reverse  anima-stg;
+                    }
+
+                    &:nth-of-type(2){
+                        animation: 3s ease-in infinite reverse  anima-stg2;
+                    }
+
+                    &:nth-of-type(3){
+                        animation: 3s ease-in infinite reverse  anima-stg3;
+                    }
+                }
+
+                line{
+                    animation: 3s ease-in infinite reverse  anima-stg4;
+                }
+            }
         }
-
-        &:hover{
-            &.i-stg{
-
-                svg{
-                    circle{
-                        &:nth-of-type(1){
-                            animation: 3s ease-in infinite reverse  anima-stg;
-                        }
-    
-                        &:nth-of-type(2){
-                            animation: 3s ease-in infinite reverse  anima-stg2;
-                        }
-    
-                        &:nth-of-type(3){
-                            animation: 3s ease-in infinite reverse  anima-stg3;
-                        }
+        &.i-pdt{
+            svg{
+                rect{
+                    &:nth-of-type(1){
+                        animation: 3s ease-in infinite reverse  anima-pdt;
                     }
-    
-                    line{
-                        animation: 3s ease-in infinite reverse  anima-stg4;
+
+                    &:nth-of-type(2){
+                        animation: 3s ease-in infinite reverse  anima-pdt2;
                     }
                 }
             }
-            &.i-pdt{
-                svg{
-                    rect{
-                        &:nth-of-type(1){
-                            animation: 3s ease-in infinite reverse  anima-pdt;
-                        }
-    
-                        &:nth-of-type(2){
-                            animation: 3s ease-in infinite reverse  anima-pdt2;
-                        }
+        }
+        &.i-mktg{
+            
+            svg{
+                path{
+                    &:nth-of-type(1){
+                        animation: 3s ease-in infinite reverse  anima-mkt;
                     }
-                }
-            }
-            &.i-mktg{
-                
-                svg{
-                    path{
-                        &:nth-of-type(1){
-                            animation: 3s ease-in infinite reverse  anima-mkt;
-                        }
-    
-                        &:nth-of-type(3){
-                            animation: 3s ease-in infinite reverse  anima-mkt2;
-                        }
+
+                    &:nth-of-type(3){
+                        animation: 3s ease-in infinite reverse  anima-mkt2;
                     }
                 }
             }
@@ -426,9 +379,18 @@
         padding: 8vw 6vw;
         border-radius: 30px;
         .cover;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        margin-bottom: -20%;
 
         .button{
             margin-top: 30px;
+        }
+
+        .wrapper{
+            position: relative;
+            z-index: 2;
         }
     }
 
@@ -438,13 +400,6 @@
         height: 100vh;
         right: -100px;
         top: 60%;
-        transition: .5s all @custom;
-        opacity: 0;
-
-        &.motion-in{
-            right: 0px;
-            opacity: 1;
-        }
 
         &.is-product{
             img{
@@ -466,7 +421,67 @@
         }
     }
 
+    .background-gradient{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        transition: 10s all @custom;
+        overflow: hidden;
+        background: @blue;
+        display: block;
+        animation: gradient2 10s linear infinite;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
 
+        &:before{
+            .ba;
+            .centerBoth;
+            width: 150rem;
+            height: 150rem;
+            border-radius: 100%;
+            transform: translate(-50%,-50%) rotate(0deg) scale(1.4);
+            background:             
+                linear-gradient(45deg, rgba(117, 217, 243, .7) 0%, rgba(117, 217, 243, 0) 50%),
+                linear-gradient(225deg, rgba(248, 185, 49, 0.7) 0%, rgba(248, 185, 49, 0) 50%),
+                linear-gradient(90deg, rgba(178, 126, 228, .7) 0%, rgba(178, 126, 228, 0) 50%),
+                linear-gradient(135deg, rgba(45, 50, 148, .7) 0%,  rgba(45, 50, 148, 0) 50%),
+                linear-gradient(180deg, rgba(251, 103, 87, .7) 0%, rgba(251, 103, 87, 0) 50%);
+            animation: gradient 30s linear infinite;
+
+        }
+    }
+
+    @keyframes gradient { 
+        0% {
+            transform: translate(-50%,-50%) rotate(0deg) scale(1.4);
+        }
+        50% {
+            transform: translate(-50%,-50%) rotate(180deg) scale(1.4);
+        }
+        100% {
+            transform: translate(-50%,-50%) rotate(0deg) scale(1.4);
+        }
+    }
+
+    @keyframes gradient2 { 
+        0% {
+            background: @green;
+        }
+        25% {
+            background: @yellow;
+        }
+        50% {
+            background: @orange;
+        }
+        75% {
+            background: @yellow;
+        }
+        100% {
+            background: @green;
+        }
+    }
 
     /*------------------*/
     /*--- RESPONSIVE ---*/
@@ -486,9 +501,13 @@
                     &.col-3{
                         width: 40%;
                         
-                        &:nth-of-type(2){
-                            position: absolute;
-                            top: 20%;
+                        // &:nth-of-type(2){
+                        //     position: absolute;
+                        //     top: 20%;
+                        // }
+
+                        &:nth-of-type(3){
+                            display: none;
                         }
                     }
 
@@ -639,6 +658,7 @@
             .infos{
                 .container-fluid{
                     margin-top: 0px;
+                    padding: 0px 20px;
                 }
 
                 &.i-service{
@@ -660,12 +680,13 @@
             }
 
             .button:not(.b-icon){
-                .centerHoriz;
-                bottom: 12%;
-                margin-top: 0px;
+                // .centerHoriz;
+                // bottom: 12%;
+                // margin-top: 0px;
+                margin: 40px auto;
 
                 &.motion-in{
-                    transform: translateX(-50%) translateY(0);
+                    transform: translateY(0);
                 }
             }
              
@@ -673,9 +694,11 @@
         
         .container-fluid{
             padding: 0px 30px;
-
+            
             .row{
                 margin: 0px;
+                flex-direction: column;
+                align-items: center;
 
                 .col{
                     &.col-7{
@@ -688,14 +711,17 @@
                     }
 
                     &.col-3{
-                        width: 50%;
+                        width: 70%;
                         margin-top: 30px;
                         padding: 0px;
+                        order: 2;
+                        
                         
                         &:nth-of-type(2){
-                            .centerHoriz;
-                            top: 15%;
+                            // .centerHoriz;
+                            // top: 15%;
                             margin-top: 0px;
+                            order: 1;
                         }
                     }
                 }

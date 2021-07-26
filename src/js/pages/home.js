@@ -168,6 +168,7 @@ function addScrollMagic(){
                             $homeBullets.addClass('hb-dark');
 
                             Title.motionIn($(_this));
+                            $(_this).find('.button').addClass('motion-in');
 
                             gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '0%'},0);
 
@@ -189,6 +190,8 @@ function addScrollMagic(){
                                 gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '-200px'},0);
                                 $scrollDown.addClass('hide');
                             }
+
+                            $(_this).find('.button').removeClass('motion-in');
 
                             $(_this).find('.image').each(function(){
                                 gsap.to($(this), 1, {ease: Power3.easeOut, opacity: 0},0);
