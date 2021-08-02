@@ -17,10 +17,8 @@
 
   <div class="services-content sc-inner">
 
-    <div class="services-bckg"></div>
-
     <div class="infos i-service" style="background-color:#2D3294;">
-      <div class="background-gradient"></div>
+      <div class="background-gradient" data-color="blue"></div>
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col col-1">
@@ -30,28 +28,26 @@
               </div>
             </a>
           </div>
-          <div class="col col-4">
+          <div class="col col-10">
             <div class="caption c-white"><span>STRATEGY</span></div>
             <h1 class="title t-medium t-white" ><strong>Bring your next product or service to market.</strong></h1>
             <div class="paragraph p-white">Launch into new areas with expert guidance and bespoke, visionary business strategies.</div>
-            <a href="" class="button b-white b-marginT">
+            <div class="button b-white b-marginT">
               <div class="wrapper">
                   <span class="text">Learn More</span>
                 </div>
-            </a>
-          </div>
-          <div class="col col-6">
-            <div class="image-services is-stratetgy">
-              <img src="assets/services/strategy.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+      <div class="image-services is-stratetgy">
+        <img src="assets/services/strategy.png" alt="" />
+      </div>
     </div>
 
     <div class="infos i-hAuto" style="background-color:#2D3294;">
-      <div class="container-fluid">
 
+      <div class="container-fluid">
         <div class="row justify-content-center r-padding">
           <div class="col col-9">
             <div class="col-full">
@@ -72,6 +68,9 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor ut augue varius auctor quis non magna. 
               </div>
             </div>
+            <div class="col-medium">
+              <div class="ico svg i-stg i-stg-first"></div>
+            </div>
             <div class="col-right">
               <div class="paragraph p-white">
                 • Expert Research<br>
@@ -91,6 +90,9 @@
               <div class="paragraph p-white">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor ut augue varius auctor quis non magna. 
               </div>
+            </div>
+            <div class="col-medium">
+              <div class="ico svg i-stg i-stg-second"></div>
             </div>
             <div class="col-right">
               <div class="paragraph p-white">
@@ -115,6 +117,9 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor ut augue varius auctor quis non magna. 
               </div>
             </div>
+            <div class="col-medium">
+              <div class="ico svg i-stg i-stg-third"></div>
+            </div>
             <div class="col-right">
               <div class="paragraph p-white">
                 • Marketing Strategy<br>
@@ -125,27 +130,82 @@
           </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center r-padding">
           <div class="col col-9">
-            <div class="services-download">
-              <div class="background-gradient"></div>
-              <div class="wrapper">
-                <div class="title t-small t-white">
-                  Want to learn more about our Strategy Solutions?<br>
-                  <strong>Download a pdf with more information</strong>
-                </div>
-                <a href="" class="button b-icon b-white">
-                  <span class="label">DOWNLOAD PDF</span>
-                  <div class="wrapper">
-                    <div class="arrow svg a-45"></div>
-                  </div>
-                </a>
+            <div class="col-left">
+              <div class="caption c-white"><span>Branding</span></div>
+              <div class="paragraph p-white">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non dolor ut augue varius auctor quis non magna. 
+              </div>
+            </div>
+            <div class="col-medium">
+              <div class="ico svg i-stg i-stg-fourth"></div>
+            </div>
+            <div class="col-right">
+              <div class="paragraph p-white">
+                • Brand Strategy<br>
+                • Tone of Voice<br>
+                • Visual Identity<br>
+                • Brand Guidelines
               </div>
             </div>
           </div>
         </div>
+
+        <!-- BEGIN SECTION DOWNLOAD -->
+        <div class="row justify-content-center">
+          <div class="col col-9">
+            <div class="services-download">
+              <div class="background-gradient"></div>
+              <div class="sd-wrapper">
+                <div class="title t-small t-white">
+                  Want to learn more about our Strategy Solutions?<br>
+                  <strong>Download a pdf with more information</strong>
+                </div>
+                <div class="button b-icon b-white bt-download">
+                  <span class="label">DOWNLOAD PDF</span>
+                  <div class="wrapper">
+                    <div class="arrow svg a-45"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="sd-inputs">
+                <div class="paragraph p-gray">
+                  Enter your infos bellow:
+                </div>
+                <form class="form">
+                  <div class="group">
+                    <div class="input">
+                      <span>Name</span>
+                      <input type="text" />
+                    </div>
+                    <div class="input">
+                      <span>Company</span>
+                      <input type="text" />
+                    </div>
+                  </div>
+                  <div class="group">
+                    <div class="input">
+                      <span>Email</span>
+                      <input type="text" />
+                    </div>
+                  </div>
+                  <button class="button b-icon b-black">
+                    <span class="label">Download PDF</span>
+                    <div class="wrapper">
+                      <div class="arrow svg a-right"></div>
+                    </div>
+                  </button>
+                </form>
+              </div>
+              <div class="sd-close svg bt-close"></div>
+            </div>
+          </div>
+        </div>
+        <!-- END SECTION DOWNLOAD -->
         
       </div>
+      
     </div>
 
   </div>
@@ -201,17 +261,15 @@
             </a>
           </div>
           <div class="works-list">
-            {% for u in range(0,3) %}
-            <a href="work.html" class="item">
+            <a href="work-heykiddo.html" class="item">
               <div class="wrapper">
-                <img class="image" src="assets/works/work-{{(u%6)+1}}.png" alt="" />
+                <img class="image" src="assets/works/work-kiddo.jpg" alt="" />
                 <div class="infos">
-                  <div class="name">Eirik Lyng</div>
-                  <div class="type">Social Media</div>
+                  <div class="name">Hey Kiddo</div>
+                  <div class="type">PCC</div>
                 </div>
               </div>
             </a>
-            {% endfor %}
 
           </div>
         </div>

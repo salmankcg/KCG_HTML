@@ -2,7 +2,7 @@
 // ---------------- IMPORTS ---------------- \\\
 // ----------------------------------------- \\\
 import $ from "jquery";
-import {TweenMax, Elastic, Power3} from "gsap";
+import {TimelineLite, TweenMax, Elastic, Power3} from "gsap";
 
 
 
@@ -46,10 +46,12 @@ if($peopleScramble.length){
 		$itemScramble.on('mouseenter',function(){
 			var _this = this;
 			onMouseEnterScramble(_this);
+			$itemScramble.closest('.people-scramble').addClass('mouse-enter');
 		});
 		$itemScramble.on('mouseleave',function(){
 			var _this = this;
 			onMouseLeaveScramble(_this);
+			$itemScramble.closest('.people-scramble').removeClass('mouse-enter');
 		});
 
 	}else{
@@ -58,11 +60,13 @@ if($peopleScramble.length){
 		$itemScramble.on('touchstart',function(){
 			var _this = this;
 			onMouseEnterScramble(_this);
+			$itemScramble.closest('.people-scramble').addClass('mouse-enter');
 		});
 		
 		$itemScramble.on('touchend',function(){
 			var _this = this;
 			onMouseLeaveScramble(_this);
+			$itemScramble.closest('.people-scramble').removeClass('mouse-enter');
 		});
 
 		$itemScramble.each(function(i,e){
@@ -71,9 +75,23 @@ if($peopleScramble.length){
 
 			_arryPos.push( (_posElm +_padding)  )
 		});
-
 	}
 
+
+	var _icoCursor = new TimelineLite({delay:0.5, onComplete:function(){
+		setTimeout(function(){
+			_icoCursor.restart();
+		}, 4000);
+	}})
+
+	_icoCursor.fromTo($peopleScramble.find('.pc-pointer'), 2, {opacity: 0 }, {opacity: 1, ease: Power3.easeInOut}, 0)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: 10, ease: Power3.easeInOut}, 2)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: -10, ease: Power3.easeInOut}, 3)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: 10, ease: Power3.easeInOut}, 4)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: -10, ease: Power3.easeInOut}, 5)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: 10, ease: Power3.easeInOut}, 6)
+	_icoCursor.to($peopleScramble.find('.ico'), 1, {x: -10, ease: Power3.easeInOut}, 7)
+	_icoCursor.fromTo($peopleScramble.find('.pc-pointer'), 2, {opacity: 1 }, {opacity: 0, ease: Power3.easeInOut}, 8)
 }
 
 
@@ -120,7 +138,6 @@ function onMouseLeaveScramble(_this){
 	});
 	
 }
-
 
 function onTouchEndScramble(e){
 	$itemScramble.each(function(i,e){

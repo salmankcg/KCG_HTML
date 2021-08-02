@@ -10,6 +10,12 @@
         background: @white;
         overflow: hidden;
       }
+
+      .button{
+        position: absolute;
+        top: 60%;
+        left: 12%;
+      }
     }
   
     /*----------------*/
@@ -218,6 +224,17 @@
           .col{
             width: 100%;
           }
+
+          .button{
+            left: auto;
+            position: relative;
+            top: auto;
+            z-index: 3;
+          }
+
+          .i-wrapper{
+            padding-top: 120px;
+          }
         }
       }
 
@@ -303,6 +320,14 @@
       .infos{
         .container-fluid{
           margin-top: 140px;
+        }
+      }
+
+      &.hc-clients{
+        .container-fluid{
+          .i-wrapper{
+            padding-top: 0px;
+          }
         }
       }
   

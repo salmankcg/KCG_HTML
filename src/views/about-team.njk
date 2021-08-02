@@ -37,7 +37,7 @@
             <div class="people-scramble">
               <div class="wrapper">
 
-                {% set image = cycler(1,4,2,3,5,10,12,6) %}
+                {% set image = cycler(5,6,2,3,1,10,12,4) %}
                 <div class="images">
                 {% for u in range(0,8) %}
                   <figure data-target="{{u}}" style="background-image:url(assets/about/person-{{image.next()}}.png);"></figure>
@@ -53,6 +53,10 @@
                 </div>
 
                 
+              </div>
+              <div class="pc-pointer">
+                <div class="ico i-mouse svg"></div>
+                <div class="ico i-hand svg"></div>
               </div>
             </div>
           </div>

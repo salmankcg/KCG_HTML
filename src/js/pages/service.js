@@ -5,6 +5,7 @@ import $ from "jquery";
 import * as Title from "../components/title"
 import * as MouseMove from  "../components/mouse-move";
 import * as ScrollMagic from  'scrollmagic';
+import * as Form from  "../components/form";
 import gsap, { Power3 } from "gsap";
 
 
@@ -16,6 +17,10 @@ var $pages       	    = $('.pages');
 var $header             = $('.header');
 var $scrollDown         = $('.scrolldown');
 var $workList		    = $('.works-list');
+var $btLearn            = $('.i-service').find('.button')
+var $btDownload         = $('.services-download').find('.bt-download')
+var $btClose            = $('.services-download').find('.bt-close')
+var $input              = $('.services-download').find('.input');
 
 var _controller         = null;
 var _scrollPos          = 0;
@@ -35,6 +40,26 @@ function init(){
 
     // addScrollMagic();
     // setScrollTo();
+    Form.init($input);
+
+    $scrollDown.on('click',function(){
+        gsap.to(window, 2, {scrollTo: {y: $(window).height() , ease: Power3.easeOut}});
+    });
+
+    $btLearn.on('click',function(){
+        gsap.to(window, 2, {scrollTo: {y: $('.services-download').offset().top - 200 , ease: Power3.easeOut}});
+    });
+
+    $btDownload.on('click',function(){
+        $('.services-download').addClass('show-inputs');
+    });
+
+    $btClose.on('click',function(){
+        $('.services-download').removeClass('show-inputs');
+    });
+
+    $(window).on('scroll.service', onScroll);
+	onScroll();
 
     resize();
 
@@ -170,6 +195,17 @@ function setScrollTo(){
     });
 }
 
+function onScroll(){
+
+	var scrollTop 		= $(window).scrollTop();
+
+	if (scrollTop > 200) {
+		$scrollDown.addClass('hide');
+	} else{
+		$scrollDown.removeClass('hide');
+	}
+
+}
 
 
 // ----------------------------------------- \\\
