@@ -252,7 +252,7 @@ function resize() {
 
   renderer.setSize(_width, _height);
 
-  console.log(_width)
+  // console.log(_width)
 
   if(camera != null) {
     camera.aspect = _width / _height;
@@ -320,7 +320,7 @@ async function loadTexture(texture){
 
       
       if(_countLoad >= 4){
-        console.log('LOADER ASSETS');
+        // console.log('LOADER ASSETS');
         $(window).trigger('LOADER_ALL');
       }
 

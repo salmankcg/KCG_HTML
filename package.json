@@ -37,9 +37,12 @@
   },
   "dependencies": {
     "gsap": "^3.6.1",
-    "jquery": "^3.6.0",
+    "jquery": "^3.4.1",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugin-gsap": "^1.0.4",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "smooth-scrollbar": "^8.6.3",
+    "tweezer": "0.0.2",
+    "tweezer.js": "^1.5.0"
   }
 }

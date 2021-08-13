@@ -30,7 +30,8 @@ if($testimonial.length){
       settings: {
       arrows: false,
       centerMode: true,
-      slidesToShow: 1
+      slidesToShow: 1,
+      adaptiveHeight: true
       }
     }
     ]

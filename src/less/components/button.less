@@ -9,25 +9,28 @@
     /*--- ATTRIBUTES ---*/
     /*------------------*/
 
-    &:hover{
-        .text{
-            color: @black;
-        }
+    @media( min-width: @screen-large ){
 
-        .wrapper{
-            &:before{
-                transform: translateY(-50%);
+        &:hover{
+            .text{
+                color: @black;
             }
-        }
 
-        .label{
-            opacity: .3;
-        }
+            .wrapper{
+                &:before{
+                    transform: translateY(-50%);
+                }
+            }
 
-        .arrow{
-            svg{
-                path{
-                    fill: @black;
+            .label{
+                opacity: .3;
+            }
+
+            .arrow{
+                svg{
+                    path{
+                        fill: @black;
+                    }
                 }
             }
         }
@@ -61,10 +64,12 @@
         display: flex;
         align-items: center;
         
-        &:hover{
-            .text{
-                color: @white;
-                transform: translateX(-5%);
+        @media( min-width: @screen-large ){
+            &:hover{
+                .text{
+                    color: @white;
+                    transform: translateX(-5%);
+                }
             }
         }
 
@@ -100,15 +105,17 @@
             }
         }
 
-        &:hover{
-            .text{
-                color: @white;
-            }
+        @media( min-width: @screen-large ){
+            &:hover{
+                .text{
+                    color: @white;
+                }
 
-            .arrow{
-                svg{
-                    path{
-                        fill: @white;
+                .arrow{
+                    svg{
+                        path{
+                            fill: @white;
+                        }
                     }
                 }
             }

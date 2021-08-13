@@ -2,6 +2,8 @@
     padding: 120px 0px;
     position: relative;
     display: block;
+    background-color: @white;
+    z-index: 2;
     
 
     /*------------------*/
@@ -13,6 +15,14 @@
 
     &.ac-nobottom{
         padding-bottom: 0px;
+    }
+
+    &.ac-notop{
+        padding-top: 0px;
+    }
+
+    &.ac-noPadding{
+        padding: 0px;
     }
 
 
@@ -45,6 +55,13 @@
         }
     }
 
+    .ac-image{
+        width: 100%;
+
+        img{
+            width: 100%;
+        }
+    }
 
 
     /*------------------*/
@@ -52,6 +69,11 @@
     /*------------------*/
     @media( max-width: @screen-large){
         padding: 60px 0px;
+
+        &.ac-notop{
+            padding-bottom: 0px;
+            padding-top: 60px;
+        }
 
         .container-fluid{
             padding: 0px 44px;
@@ -80,6 +102,8 @@
                 }
             }
         }
+
+        
     }
 
     @media( max-width: @screen-small ){

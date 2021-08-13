@@ -4,44 +4,56 @@
 import $ from "jquery";
 import * as Earth from "../components/earth"
 import * as Title from "../components/title"
-import * as ScrollMagic from  'scrollmagic';
 import gsap, {TimelineMax, Power3} from "gsap";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 
 
 // ----------------------------------------- \\\
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
-var $pages       	= $('.pages');
-var $header         = $('.header');
-var $scrollDown     = $('.scrolldown');
-var $homeBullets    = $('.home-bullets');
+let $pages       	= $('.pages');
+let $slides       	= $('.hc-slides').find('.infos');
+let $homeInfos      = $('.home-infos');
+let $homeBullets    = $('.home-bullets');
+let $homeBckg       = $('.home-bckg');
+let $header         = $('.header');
+let $scrollDown     = $('.scrolldown');
 
-var _controller     = null;
-var _wHeight        = window.innerHeight;
-var _scrollPos      = 0;
-var _scrollValues   = [];
+let _sliderPos      = 0;
+let _scrollTimeout  = null;
+let _scrollInteract  = false;
+let _scrollAnimate  = false;
+let _scrollPos      = 0;
 
-
+let _gsapScroll     = null;
 
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
 // ----------------------------------------- \\\
 function init(){
 
-
     $pages.find('.infos').height(window.innerHeight);
     $pages.find('.circle').css({'width':window.innerHeight/1.8, 'height':window.innerHeight/1.8});
 
-    Title.init($pages.find('.title'));
-
-    addScrollMagic();
-    setScrollTo();
-
+    Title.init($homeInfos.find('.title'));
+    Title.init($slides.find('.title'));
     Earth.init();
 
+    setScrollTo();
+    animate();
     resize();
+
+    $(window).on('scroll',onScroll);
+    $(window).on('keydown', onInteractStart );
+    $(window).on('keyup', onInteractStop );
+    $(window).on('mousedown', onInteractStart );
+    $(window).on('mouseup', onInteractStop );
+    $(window).on('touchstart', onInteractStart );
+    $(window).on('touchend', onInteractStop );
+    $(window).on('wheel', onInteract);
+
 }
 
 
@@ -57,11 +69,8 @@ function resize() {
         $pages.find('.circle').css({'width':window.innerHeight/1.8, 'height':window.innerHeight/1.8});
     }
     
-
     Earth.resize();
- 
-    _controller.update(true);
-    
+    // onInteract();
 }
 
 
@@ -69,172 +78,229 @@ function resize() {
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
 // ----------------------------------------- \\\
-function addScrollMagic(){
+function animate() {
+    
+    ScrollTrigger.batch($('#slide-5'), { start: 'top 40%',
+        onEnter: () => { $homeBullets.addClass('hb-dark'); },
+        onLeaveBack: () => { $homeBullets.removeClass('hb-dark');}
+    })
 
-    var $slides     = $pages.find('.hc-slides');
-    var $slidesC    = $pages.find('.hc-clients');
-
-    _scrollValues   = [];
-
-    _controller = new ScrollMagic.Controller({
-        globalSceneOptions: {
-            triggerHook: 0,
-            reverse: true,
+    ScrollTrigger.batch($('#slide-5'), { start: 'top 90%',
+        onEnter: () => { 
+            $scrollDown.removeClass('s-white'); 
+            $('.home-infos').addClass('disabled');
+        },
+        onLeaveBack: () => { 
+            $scrollDown.addClass('s-white'); 
+            $('.home-infos').removeClass('disabled');
         }
+    })
+
+    ScrollTrigger.batch($('#slide-5'), { start: 'bottom 90%',
+        onEnter: () => {
+            $scrollDown.addClass('hide');
+            gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '-300px'},0);
+            _scrollPos = 5;
+        },
+        onLeaveBack: () => {
+            $scrollDown.removeClass('hide');
+            gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '0%'},0);
+        }
+    })
+
+    // HEADER
+    ScrollTrigger.batch($('#slide-5'), { start: 'top 10%',
+        onEnter: () => { $header.removeClass('h-white');},
+        onLeaveBack: () => { $header.addClass('h-white');}
+    })
+
+    ScrollTrigger.batch($('#slide-5'), { start: 'bottom 10%',
+        onEnter: () => { $header.addClass('h-white');},
+        onLeaveBack: () => { $header.removeClass('h-white');}
+    })
+
+    $.each($slides,function(e, i){
+        
+        let _color          = $(i).attr('data-color');
+        let _colorPrev      = $(i).prev().attr('data-color');
+        let _colorBg        = $(i).attr('data-bkgColor');
+        let _colorBgPrev    = $(i).prev().attr('data-bkgColor');
+        let _posScroll      = e;
+
+        ScrollTrigger.batch($(i), { start: 'top 40%',
+            onEnter: () => { 
+                $homeBckg.css({background:_color});
+                $homeBckg.find('.background').attr('data-color',_colorBg);
+                $homeBullets.find('.button').removeClass('active');
+                $homeBullets.find('.button').eq(_posScroll).addClass('active');
+
+                _sliderPos = _posScroll;
+
+                slideMotionIn(i, _posScroll);
+
+            },
+            onLeaveBack: () => { 
+                $homeBckg.css({background:_colorPrev});
+                $homeBckg.find('.background').attr('data-color',_colorBgPrev);
+                $homeBullets.find('.button').removeClass('active');
+                $homeBullets.find('.button').eq(_posScroll-1).addClass('active');
+
+                slideMotionOut(i, _posScroll);
+
+                _sliderPos = _posScroll - 1;
+            }
+        })
+
+        ScrollTrigger.batch($(i), { start: 'bottom 40%',
+            onEnter: () => { 
+                slideMotionOut(i, _posScroll);
+            },
+            onLeaveBack: () => { 
+                slideMotionIn(i, _posScroll);
+            }
+        })
+
+        ScrollTrigger.batch($(i), { start: 'top 95%',
+            onEnter: () => {
+                _scrollPos = e;
+            }
+        })
+
+        ScrollTrigger.batch($(i), { start: 'bottom 5%',
+            onLeaveBack: () => {
+                _scrollPos = e;
+            }
+        })
+    });
+   
+}
+
+
+function setScrollTo(){
+
+    $homeBullets.find('.button').on('click',function(){
+        var _target = parseInt($(this).data('target').split('slide-')[1]);
+        motionScroll($(window).height() * _target);
     });
 
-    $slides.find('.infos').each(function(e){
-        
-        var _this       = this;
-        var _index      = e;
-        var _color      = $(this).data('color');
-
-        var scene = new ScrollMagic.Scene({triggerElement: this, duration: "100%"})
-                        .setPin(this)
-                        .on("enter", function (e) {
-
-                            $slides.find('.home-bckg').css({background:_color});
-                         
-                            if( _index == 0){
-                                gsap.to($('.globe').find('.g-wrapper'), 0.4, { ease: Power3.easeOut, opacity: 1, y: '0%' },0);
-                            }else{
-                                gsap.to($slides.find('.images').find('.img').eq(_index), 0.5, {ease: Power3.easeOut, opacity: 1},0);
-                            }
-
-                            $homeBullets.find('.button').removeClass('active');
-                            $homeBullets.find('.button').eq(_index).addClass('active');
-
-                            Title.motionIn($(_this));
-                            $(_this).find('.paragraph').addClass('motion-in');
-                            $(_this).find('.button').addClass('motion-in');
-
-                            _scrollPos = _index;
-
-                        })
-                        .on("leave", function (e) {
-
-                            if(e.scrollDirection == "FORWARD"){
-                                if( _index == 0){
-                                    gsap.to($('.globe').find('.g-wrapper'), 0.4, { ease: Power3.easeOut, opacity: 0, y: '-10%' },0);
-                                }else{
-                                    gsap.to($slides.find('.images').find('.img').eq(_index), 0.5, {ease: Power3.easeOut, opacity: 0},0);
-                                }
-                            }
-
-                            Title.motionOut($(_this));
-                            $(_this).find('.paragraph').removeClass('motion-in');
-                            $(_this).find('.button').removeClass('motion-in');
-                        
-                        })
-                        // .addIndicators()
-                        .addTo(_controller);
-
-
-        // HOME SHAPE
-        var homeShape = new TimelineMax()
-        .add([
-            gsap.to($pages.find('.shape-image').eq(_index), 2, {opacity: 1},0)
-        ]);
-
-        new ScrollMagic.Scene({triggerElement: this, duration:'100%', offset:-_wHeight}).setTween(homeShape).addTo(_controller);
-
-
-        // HOME IMAGES
-        var homeImages = new TimelineMax()
-        .add([
-            gsap.fromTo($slides.find('.images').find('.img').eq(_index).find('img'), 2, {x: '-20%', opacity: 0},{x: '0%', opacity: 1},0)
-        ]);
-        
-        new ScrollMagic.Scene({triggerElement: this, duration:'100%', offset:-_wHeight/2}).setTween(homeImages).addTo(_controller);
-
-        _scrollValues.push(scene.scrollOffset()+(scene.duration()-10));
-        
+    $scrollDown.on('click',function(){
+        motionScroll($(window).height() * (_sliderPos+1));
     });
+}
 
 
-    $slidesC.find('.infos').each(function(e){
+function slideMotionIn(_i, _posScroll){
+    
 
-        var _this       = this;
+    var _target = $(_i).attr('id');
+    var _infos  = $('.home-infos').find('[data-target="'+_target+'"]');
+    
+    $(_infos).addClass('active');
+    Title.motionIn($(_infos));
+    $(_infos).find('.paragraph').addClass('motion-in');
+    $(_infos).find('.button').addClass('motion-in');
 
-        var scene = new ScrollMagic.Scene({triggerElement: this, duration: "100%"})
-                        .setPin(this)
-                        .on("enter", function (e) {
-                            
-                            $header.removeClass('h-white').addClass('check-footer');
-                            $scrollDown.removeClass('s-white').removeClass('hide');
+    if( _posScroll == 0){
+        gsap.to($('.home-globe').find('.g-wrapper'), 0.4, { ease: Power3.easeOut, opacity: 1, y: '0%' },0);
+    }else{
+        gsap.to($homeBckg.find('.images').find('.img').eq(_posScroll), 0.5, {ease: Power3.easeOut, opacity: 1},0);
+        gsap.to($homeBckg.find('.images').find('.img').eq(_posScroll).find('img'), 2, {x: '0%', opacity: 1},0);
+    }
 
-                            $homeBullets.find('.button').removeClass('active');
-                            $homeBullets.find('.button').eq(4).addClass('active');
-                            $homeBullets.addClass('hb-dark');
+    if( _posScroll == 4){
+        $(_i).find('.button').addClass('motion-in');
+        Title.motionIn($(_i));
+        gsap.to($(_i).find('.image'), 2, {ease: Power3.easeOut, opacity: 1},0);
+    }
+}
 
-                            Title.motionIn($(_this));
-                            $(_this).find('.button').addClass('motion-in');
+function slideMotionOut(_i, _posScroll){
 
-                            gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '0%'},0);
+    var _target = $(_i).attr('id');
+    var _infos  = $('.home-infos').find('[data-target="'+_target+'"]');
+    
+    $(_infos).removeClass('active');
+    Title.motionOut($(_infos));
+    $(_infos).find('.paragraph').removeClass('motion-in');
+    $(_infos).find('.button').removeClass('motion-in');
 
-                            $(_this).find('.image').each(function(i,e){
-                                gsap.to($(e), 1, {ease: Power3.easeOut, opacity: 1},0);
-                            });
 
-                            _scrollPos = 4;
-                        })
-                        .on("leave", function (e) {
-                            $homeBullets.removeClass('hb-dark');
-                            
-                            if(e.scrollDirection == "REVERSE"){
-                                $scrollDown.addClass('s-white').removeClass('hide');
-                                $header.addClass('h-white').removeClass('check-footer');
-                            }
+    if( _posScroll == 0){
+        gsap.to($('.home-globe').find('.g-wrapper'), 0.4, { ease: Power3.easeOut, opacity: 0, y: '-10%' },0);
+    }else{
+        gsap.to($homeBckg.find('.images').find('.img').eq(_posScroll), 0.5, {ease: Power3.easeOut, opacity: 0},0);
+        gsap.to($homeBckg.find('.images').find('.img').eq(_posScroll).find('img'), 2, {x: '-20%', opacity: 0},0);
+    }
 
-                            if(e.scrollDirection == "FORWARD"){
-                                gsap.to($homeBullets, 1, {ease: Power3.easeOut, x: '-200px'},0);
-                                $scrollDown.addClass('hide');
-                            }
+    if( _posScroll == 4){
+        $(_i).find('.button').removeClass('motion-in');
+        Title.motionOut($(_i));
+        gsap.to($(_i).find('.image'), 1, {ease: Power3.easeOut, opacity: 0},0);
+    }
+}
 
-                            $(_this).find('.button').removeClass('motion-in');
+function motionScroll(_target){
+    _gsapScroll = gsap.to(window, .8, {scrollTo: {y: _target , ease: Power3.easeOut, onComplete:function(){
+        console.log('MOTION-FINISHED 12');
+        // _scrollAnimate = false;
+    }}});
+}
 
-                            $(_this).find('.image').each(function(){
-                                gsap.to($(this), 1, {ease: Power3.easeOut, opacity: 0},0);
-                            });
+function killScroll(){
+    if( _gsapScroll){ 
+        _gsapScroll.kill();
+        console.log('KILL 123');
+    }
+}
 
-                            Title.motionOut($(_this));    
-                        })
-                        .addTo(_controller);
-        
-        _scrollValues.push(scene.scrollOffset()+(scene.duration()-10));
+function onScroll(){
+    let _scrollSteps    = $('[data-scroll-content]').height() / 6;
+    checkScroll(_scrollSteps);
+}
 
-    });
+function checkScroll(_scrollSteps){
+
+    clearTimeout(_scrollTimeout);
+
+    if(_scrollInteract || _scrollAnimate ){ 
+
+    }else{
+
+        _scrollTimeout = setTimeout(function(){
+            // killScroll();
+            motionScroll(_scrollSteps * _scrollPos);
+            console.log('_scrollInterac ' +_scrollInteract+ ' _scrollAnimate '+ _scrollAnimate);
+            _scrollAnimate = true;
+        }, 100);
+    }
 
     
 }
 
-function setScrollTo(){
-
-    _controller.scrollTo(function (newScrollPos) {
-        gsap.to(window, 2, {scrollTo: {y: newScrollPos , ease: Power3.easeOut}});
-    });
-
-    $homeBullets.find('.button').on('click',function(){
-        var _target = parseInt($(this).data('target').split('slide-')[1]);
-        _controller.scrollTo(_scrollValues[_target-1]);
-    });
-
-    $scrollDown.on('click',function(){
-        if(_scrollPos == 4){
-            _controller.scrollTo($(document).height());
-        }else{
-            _controller.scrollTo(_scrollValues[_scrollPos+1]);
-        }
-        
-    });
+function onInteractStart() {
+    killScroll();
+    _scrollInteract = true;
 }
 
+function onInteractStop() {
+    _scrollInteract = false;
+}
 
+function onInteract() {
+    killScroll();
+    onScroll();
+    // _scrollInteract = true;
+    // console.log('WHEEEELLLLL');
+  }
 
 // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\
 // ----------------------------------------- \\\
 export { init, resize }
+
+        
+
+
 
 
 

@@ -46,7 +46,11 @@ function init(){
 			},
 			complete: function(){
 				
-				console.log('LOAD FINISHED');
+				// console.log('LOAD FINISHED');
+				if(_dataPage != 'home'){
+					$(window).trigger('LOADER_ALL');
+				}
+				
 				
 			},
 		});
@@ -54,7 +58,7 @@ function init(){
 	}, 500 );
 
 	$(window).bind('LOADER_ALL',function(){
-		console.log('LOAD ALL');
+		// console.log('LOAD ALL');
 		setFirstLoader();
 	})
 
@@ -64,25 +68,28 @@ function init(){
 
 function setFirstLoader(){
 
-	Loader.outMotion('1');
-	
 	setTimeout(function(){
+		Loader.outMotion('1');
 		
-		Loader.outMotion('2');
-			
 		setTimeout(function(){
 			
-			Loader.hide();
-			
-			$menu.trigger('enter').addClass('motion-in');
-			$header.addClass('motion-in');
-			$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
-	
-			activeMenus(_dataPage);
-
-		}, 1000);
+			Loader.outMotion('2');
+				
+			setTimeout(function(){
+				
+				Loader.hide();
+				
+				$menu.trigger('enter').addClass('motion-in');
+				$header.addClass('motion-in');
+				$cont.find('> *').trigger('enter').addClass('motion-in');
 		
-	}, 1000);
+				activeMenus(_dataPage);
+
+			}, 1000);
+			
+		}, 1500);
+
+	}, 500 );
 }
 
 function hide(){
@@ -90,7 +97,7 @@ function hide(){
 			
 	$menu.trigger('enter').addClass('motion-in');
 	$header.addClass('motion-in');
-	$cont.find('> *').trigger('enter').addClass('motion-in').attr('data-url', location.href);
+	$cont.find('> *').trigger('enter').addClass('motion-in');
 
 	activeMenus(_dataPage);
 }

@@ -3,7 +3,7 @@
 // ----------------------------------------- \\\
 import $ from "jquery";
 import * as MouseMove from  "../components/mouse-move";
-import {TweenMax, TimelineMax} from "gsap";
+import gsap, {TweenMax, TimelineMax} from "gsap";
 
 
 
@@ -14,6 +14,8 @@ var $abtWorld       = $('.about-world');
 var $people         = $abtWorld.find('.item');
 var $highlights     = $('.highlights');
 
+let h               = window.innerHeight
+let $footer         = $('footer.footer')
 
 // ----------------------------------------- \\\
 // ------------------ INIT ----------------- \\\
@@ -25,15 +27,19 @@ function init(){
     if($(window).width() >= 860){
         MouseMove.init($highlights.find('img'));
     }
+
+    $('.clients').find('.logos').eq(0).addClass('add-motion-1');
+    $('.clients').find('.logos').eq(1).addClass('add-motion-1');
+    $('.clients').find('.logos').eq(2).addClass('add-motion-2');
+    $('.clients').find('.logos').eq(3).addClass('add-motion-2');
+
 }
 
 
 // ----------------------------------------- \\\
 // ------------ PUBLIC FUNCIONS ------------ \\\
 // ----------------------------------------- \\\
-function resize() {
-    
-}
+function resize() {}
 
 
 
@@ -57,8 +63,6 @@ function addPopPeople(){
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-
 
 function scramblePos(_this, _place){
     var _posY = 0//getRandomInt(1, _inneHeight);
@@ -115,9 +119,11 @@ function motionIn(_this, _class){
     .add([TweenMax.to($figure, 5, {scale: 1, ease: 'Elastic.easeOut'})])
     // .add([TweenMax.to($figure, .5, {scale: 0, ease: 'Power3.easeOut'})],20)
       
-
-    
 }
+
+
+
+
 
 // ----------------------------------------- \\\
 // ---------------- EXPORTS ---------------- \\\

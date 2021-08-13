@@ -10,7 +10,6 @@ import gsap, {TimelineMax, Power3, Power2, Expo, Elastic} from "gsap";
 // ----------------- VARS ------------------ \\\
 // ----------------------------------------- \\\
 var $footer       	= $('.footer');
-var $header       	= $('.header');
 var $scrollup   	= $footer.find('.scrollup');
 var dHeight 		= null;
 var wHeight			= null;
@@ -29,11 +28,13 @@ if($footer.length){
 	wHeight = window.innerHeight;
 	dHeight = $(document).height();
 
-	$(window).on('scroll.footer', onScroll);
+	// $(window).on('scroll.footer', onScroll);
 	$(window).on('resize', onResize);
 	
-	onScroll();
+	// onScroll();
 	onResize();
+
+	// $footer.addClass('motion-in-1').addClass('motion-in-2').addClass('motion-in-3');
 }
 
 
@@ -51,36 +52,36 @@ function onResize(){
 
 // ----------------------------------------- \\\
 // ------------ PRIVATE FUNCIONS ----------- \\\
-// ----------------------------------------- \\\
-function onScroll(){
+// // ----------------------------------------- \\\
+// function onScroll(){
 
-	wHeight = window.innerHeight;
-	dHeight = $(document).height();
+// 	wHeight = window.innerHeight;
+// 	dHeight = $(document).height();
 	
-	var scrollTop 		= $(window).scrollTop();
+// 	var scrollTop 		= $(window).scrollTop();
 
-	//Scroll no bottom da página
-	if (scrollTop + wHeight >= dHeight- (wHeight/2)) {
-		$footer.addClass('motion-in-1');
-	} else{
-		$footer.removeClass('motion-in-1');
-	}
+// 	//Scroll no bottom da página
+// 	if (scrollTop + wHeight >= dHeight- (wHeight/2)) {
+// 		$footer.addClass('motion-in-1');
+// 	} else{
+// 		$footer.removeClass('motion-in-1');
+// 	}
 	
-	if (scrollTop + wHeight >= dHeight - (wHeight/3)) {
-		$footer.addClass('motion-in-2');
-	} else{
-		$footer.removeClass('motion-in-2');
-	}
+// 	if (scrollTop + wHeight >= dHeight - (wHeight/3)) {
+// 		$footer.addClass('motion-in-2');
+// 	} else{
+// 		$footer.removeClass('motion-in-2');
+// 	}
 	
-	if (scrollTop + wHeight >= dHeight) {
-		$footer.addClass('motion-in-3');
-		$header.addClass('show-logo');
-	}else{
-		$footer.removeClass('motion-in-3');
-		$header.removeClass('show-logo');
-	}
+// 	if (scrollTop + wHeight >= dHeight) {
+// 		$footer.addClass('motion-in-3');
+// 		$header.addClass('show-logo');
+// 	}else{
+// 		$footer.removeClass('motion-in-3');
+// 		$header.removeClass('show-logo');
+// 	}
 
 
-}
+// }
 
 

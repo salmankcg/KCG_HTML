@@ -49,6 +49,12 @@
                 display: inline-block;
                 position: relative;
                 overflow: hidden;
+
+                &.motion-in{
+                    span{
+                        transform: translateY(0px);
+                    }
+                }
         
                 &.w-block{
                     display: block;
@@ -61,11 +67,6 @@
                     margin-right: 10px;
                     transition-delay: .5s;
                 }
-
-                span{
-                    transform: translateY(0px);
-                }
-
       
                 &.bold{
                     .blackerBd;
@@ -73,6 +74,14 @@
       
             }
         }
+    }
+
+    &.sc-clients{
+        background: @white;
+    }
+
+    &.sc-testimonials{
+        background: @white;
     }
 
     &.sc-inner{
@@ -360,16 +369,6 @@
         }
     }
 
-    .services-bckg{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0px;
-        transition: .5s all @custom;
-        background: @gray;
-        z-index: 1;
-    }
-
     .services-icons{
         position: relative;
         display: flex;
@@ -400,6 +399,7 @@
             font-size: 32px;
             text-align: center;
             margin-top: 20px;
+            transition: .5s all @custom;
         }
     }
 
@@ -417,6 +417,7 @@
 
         &.i-hAuto{
             height: auto;
+            z-index: 2;
         }
 
         &.i-service{
@@ -852,6 +853,7 @@
             animation: gradient 30s linear infinite;
 
         }
+        
     }
 
     @keyframes gradient { 

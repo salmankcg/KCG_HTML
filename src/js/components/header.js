@@ -59,13 +59,13 @@ function onScroll(){
 
 	switch(_dataPage){
 		case 'home':
-			if(scrollTop + wHeight >= dHeight - _headerH){
-				$header.addClass('h-white');
-			}else{
-				if($header.hasClass('check-footer')){
-					$header.removeClass('h-white');
-				}
-			}
+			// if(scrollTop + wHeight >= dHeight - _headerH){
+			// 	$header.addClass('h-white');
+			// }else{
+			// 	if($header.hasClass('check-footer')){
+			// 		$header.removeClass('h-white');
+			// 	}
+			// }
 		break;
 		case 'about-approach':
 			if(scrollTop + wHeight >= dHeight - _headerH){
@@ -102,20 +102,20 @@ function onScroll(){
 			$header.addClass('h-white');
 		break;
 		case 'services':
-			var _scTop = $('.sc-clients').offset().top;
+			// var _scTop = $('.sc-clients').offset().top;
 
-			if(scrollTop >= _scTop - _headerH){
-				if(scrollTop + wHeight >= dHeight - _headerH){
-					$header.addClass('h-white');
-				}else{
-					$header.removeClass('h-white');
-				}
+			// if(scrollTop >= _scTop - _headerH){
+			// 	if(scrollTop + wHeight >= dHeight - _headerH){
+			// 		$header.addClass('h-white');
+			// 	}else{
+			// 		$header.removeClass('h-white');
+			// 	}
 
-			}else{
-				if(!$header.hasClass('check-header')){
-					$header.addClass('h-white');
-				}
-			}
+			// }else{
+			// 	if(!$header.hasClass('check-header')){
+			// 		$header.addClass('h-white');
+			// 	}
+			// }
 		break;
 		case 'service':
 			
